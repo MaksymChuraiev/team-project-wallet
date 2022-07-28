@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkteam_project_wallet=self.webpackChunkteam_project_wallet||[]).push([[932],{932:function(e,t,a){a.r(t);var n=a(184);t.default=function(){return(0,n.jsx)("div",{children:"RegistrationPage"})}}}]);
+//# sourceMappingURL=932.872d27dd.chunk.js.map
