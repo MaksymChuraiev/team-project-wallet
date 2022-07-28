@@ -3,3 +3,5 @@ const DashboardPage = () => {
 };
 
 export default DashboardPage;
+
+// в ProtectedRoute стоит заглушка.
