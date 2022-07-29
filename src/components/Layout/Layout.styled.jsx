@@ -11,4 +11,7 @@ export const LayoutStyled = styled.div`
     width: 768px;
     height: 900px;
   }
+  @media screen and (min-width: 1280px) {
+    width: 1280px;
+  }
 `;
