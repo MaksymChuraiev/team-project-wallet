@@ -5,8 +5,10 @@ import { LayoutContainer } from './Layout.styled';
 export const Layout = () => {
   return (
     <>
+
       <LayoutContainer>
       </LayoutContainer>
+
       <Suspense fallback={<p>Loading...</p>}>
         <Outlet />
       </Suspense>
