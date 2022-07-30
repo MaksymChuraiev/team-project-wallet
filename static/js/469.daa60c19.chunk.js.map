@@ -1,1 +1,0 @@
-{"version":3,"file":"static/js/469.daa60c19.chunk.js","mappings":"mJAIA,UAJsB,WACpB,OAAO","sources":["pages/DashboardPage.jsx"],"sourcesContent":["const DashboardPage = () => {\n  return <div>DashboardPage</div>;\n};\n\nexport default DashboardPage;\n\n// в ProtectedRoute стоит заглушка.\n"],"names":[],"sourceRoot":""}
