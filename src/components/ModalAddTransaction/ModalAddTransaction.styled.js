@@ -9,29 +9,28 @@ export const ButtonAddStyled = styled.button`
   align-items: center;
   width: 44px;
   height: 44px;
-  background: var(--accent-color-green);
+  background: var(--color-btn-green);
   box-shadow: 0px 6px 15px rgba(36, 204, 167, 0.5);
   cursor: pointer;
   border-radius: 50%;
   border: 0;
   padding: 0;
   outline: none;
-  &:hover,
-  &:focus {
+  :hover,
+  :focus {
     box-shadow: none;
   }
 
-  & > svg {
+  > svg {
     width: 20px;
     height: 20px;
   }
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: var(--tablet)) {
     position: absolute;
     right: 40px;
     bottom: 40px;
   }
-
 `;
 export const ButtonCloseStyled = styled.button`
   position: absolute;
@@ -40,19 +39,19 @@ export const ButtonCloseStyled = styled.button`
   cursor: pointer;
   background-color: transparent;
   border: 0;
-  stroke: black;
+  stroke: var(--color-black);
 
-  &:hover,
-  &:focus {
-    stroke: red;
+  :hover,
+  :focus {
+    stroke: var(--color-red);
   }
 
-  & > svg {
+  > svg {
     width: 16px;
     height: 16px;
   }
 
-  @media screen and (max-width: 767px) {
+  @media screen and (min-width: var(--tablet)) {
     display: none;
   }
 `;
@@ -63,91 +62,9 @@ export const ModalTitle = styled.h2`
   font-weight: 400;
   font-size: 24px;
   line-height: 1.5;
-    font-family: Poppins, sans-serif;
+  font-family: var(--font-second);
 
-
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: var(--tablet)) {
     font-size: 30px;
   }
-`;
-
-export const TransactionType = styled.div`
-  display: flex;
-    justify-content: center;
-  align-items: center;
-  gap: 20px;
-  margin: 0 auto 40px;
-.checkbox{
-    margin: 0;
-  font-weight: 700;
-  font-size: 16px;
-  line-height: 1.47;
-  color: var(--disabled-grey-text-color);
-  font-family: Circe, sans-serif;
-}
-.active-green {
-  color: var(--accent-color-green);
-}
-
-.active-red {
-  color: var(--accent-color-red);
-}
-`;
-
-export const Toggle = styled.label`
-  position: relative;
-  display: flex;
-  cursor: pointer;
-  &>input{
-    clip: rect(0 0 0 0);
-    clip-path: inset(100%);
-    overflow: hidden;
-    position: absolute;
-    white-space: nowrap;
-    width: 1px;
-    height: 1px;
-     &:checked {
-      & ~ .thumb {
-        background-color: rgba(var(--primary-background-color), 0.1);
-
-        .indicator {
-          left: 37px;
-
-          background-color: var(--accent-color-red);
-          box-shadow: 0px 6px 15px rgba(255, 101, 150, 0.5);
-
-          .vertical {
-            display: none;
-          }
-        }
-      }
-    }
-  }
-   .thumb {
-   position: relative;
-   width: 80px;
-   height: 40px;
-   border-radius: 30px;
-   background-color: var(--primary-background-color);
-   border: 1px solid var(--disabled-grey-text-color);
-   opacity: 1;
-   transition: background-color 200ms ease-in-out;
- }
-.indicator {
-position: absolute;
-top: -2px;
-left: -1px;
-width: 44px;
-height: 44px;
-background-color: var(--accent-color-green);
-border-radius: 22px;
-transition: left 250ms ease-in-out;
-display: flex;
-justify-content: center;
-align-items: center;
-box-shadow: 0px 6px 15px rgba(36, 204, 167, 0.5);
-  &:hover{
-    box-shadow: none;
-  }
-}
 `;

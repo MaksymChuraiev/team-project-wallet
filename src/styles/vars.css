@@ -2,6 +2,7 @@
   /* fonts */
   --font-main: 'Ruda', sans-serif;
   --font-second: 'Poppins', sans-serif;
+  --modal-toggle-font: 'Circe', sans-serif;
 
   /* color */
   --color-black: #000000;
@@ -11,6 +12,7 @@
   --color-white: #ffffff;
   --color-red: #ff6596;
   --color-violet: #4a56e2;
+  --modal-toggle-text-gray: #e0e0e0;
 
   /* background color */
   --color-overlay: rgba(0, 0, 0, 0.25);
