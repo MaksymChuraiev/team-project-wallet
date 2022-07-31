@@ -72,7 +72,7 @@ let schema = yup.object().shape({
   category: yup.string().required().oneOf(categories),
   amount: yup.number().typeError('enter a number').required().positive(),
   date: yup
-    .date()
+    .string()
     .default(() => new Date())
     .typeError('choose a date'),
   comment: yup.string(),
@@ -82,6 +82,22 @@ export function ModalForm({ transaction, updateTransaction }) {
   const handleSubmit = (values, { resetForm }) => {
     console.log(values);
   };
+  //   const handleSubmit = async e => {
+  //     e.preventDefault();
+  //     try {
+  //       await dispatch(
+  //         addTransaction({
+  //           ...transaction,
+  //           type: transaction.type ? '-' : '+',
+  //           date: format(transaction.date, 'yyyy-MM-dd'),
+  //         })
+  //       ).unwrap();
+  //       closeModal();
+  //     } catch (e) {
+  //       console.log(e);
+  //     }
+  //   };
+
   return (
     <Formik
       onSubmit={handleSubmit}
@@ -116,14 +132,14 @@ export function ModalForm({ transaction, updateTransaction }) {
           <div style={{ position: 'relative' }}>
             <Input
               type="date"
-              placeholder="0.00"
+              //   placeholder="0.00"
               name="date"
-              transaction={transaction}
-              updateTransaction={updateTransaction}
-              //   as={Date}
+              //   transaction={transaction}
+              //   updateTransaction={updateTransaction}
+              as={Date}
             />
 
-            <DateIcon />
+            {/* <DateIcon /> */}
             <ErrorMessage name="date">{TextError}</ErrorMessage>
           </div>
         </Wrapper>
