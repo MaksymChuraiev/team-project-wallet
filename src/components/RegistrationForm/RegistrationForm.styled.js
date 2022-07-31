@@ -38,10 +38,11 @@ export const ContactField = styled(Field)`
   display: flex;
   padding-bottom: 10px;
   margin-bottom: 40px;
-  border-top: transparent;
+  border: transparent;
+  /* border-top: transparent;
   border-left: transparent;
   border-right: transparent;
-  border-bottom: 1px solid #E0E0E0;
+  border-bottom: 1px solid #E0E0E0; */
 
   ::placeholder{
     /* margin-left: 56px; */
@@ -55,8 +56,8 @@ export const ContactField = styled(Field)`
 `;
 
 export const Icon = styled.svg`
-position: absolute;
-bottom: 10px;
+/* position: absolute; */
+/* bottom: 10px; */
 fill: #E0E0E0;
 &:hover {
     color: #24CCA7;
