@@ -1,6 +1,5 @@
 import { Route, Routes } from 'react-router-dom';
 import { Suspense, lazy } from 'react';
-
 import { Layout } from './Layout/Layout';
 import ProtectedRoute from './Routes/ProtectedRoute';
 
@@ -16,6 +15,7 @@ export const App = () => {
           <Route path="registration" element={<RegisterPage />} />
           <Route path="login" element={<LoginPage />} />
         </Route>
+
         <Route
           path="/dashboard"
           element={

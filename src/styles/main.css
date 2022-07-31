@@ -30,3 +30,20 @@ img {
 a {
   text-decoration: none;
 }
+
+.no-scroll {
+  overflow: hidden;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-overlay);
+  z-index: 999;
+}
