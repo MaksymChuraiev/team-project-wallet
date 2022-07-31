@@ -10,8 +10,6 @@ import {
     FormContainer,
     ContactField,
     FormName,
-    // RegisterButton,
-    // LoginButton,
     Icon,
 } from './RegistrationForm.styled';
 import ButtonGroup from '../Button/Button';
@@ -57,31 +55,85 @@ const handleSubmit = (values, { resetForm }) => {
                 <Form autoComplete="off">
                 <ContactField
                     type="email"
-                    // component={TextField} 
                     name="email"
                     id={emailInputId}
                     placeholder="E-mail*"
+                    component={TextField} 
+                    variant="standard"
+                    required
                     
-                    // InputProps={{
-                    //   startAdornment: (
-                    //     <InputAdornment position="start" style={{ outline: "none" }}> 
-                    //         <Icon width="24" height="24">
-                    //           <use href={icon + "#icon-email"} />
-                    //         </Icon>
-                    //     </InputAdornment>
-                    //   ),
-                    // }}
-
+                    InputProps={{
+                      startAdornment: (
+                        <InputAdornment position="start" style={{ outline: "none" }}> 
+                            <Icon width="24" height="24">
+                              <use href={icon + "#icon-email"} />
+                            </Icon>
+                        </InputAdornment>
+                      ),
+                    }}
                   />
                 <ErrorMessage name="e-mail" component="div" />
 
-                <ContactField type="password" name="password" id={passwordInputId} placeholder="Password*" />
+          <ContactField
+            type="password"
+            name="password"
+            id={passwordInputId}
+            placeholder="Password*"
+            component={TextField} 
+                    variant="standard"
+                    required
+                    
+                    InputProps={{
+                      startAdornment: (
+                        <InputAdornment position="start" style={{ outline: "none" }}> 
+                            <Icon width="24" height="24">
+                              <use href={icon + "#icon-lock"} />
+                            </Icon>
+                        </InputAdornment>
+                      ),
+                    }}
+          />
                 <ErrorMessage name="password" component="div" />
 
-                <ContactField type="password" name="password" id={ConfirmPasswordInputId} placeholder="Confirm password*" />
+          <ContactField
+            type="password"
+            name="password"
+            id={ConfirmPasswordInputId}
+            placeholder="Confirm password*"
+            component={TextField} 
+                    variant="standard"
+                    required
+                    
+                    InputProps={{
+                      startAdornment: (
+                        <InputAdornment position="start" style={{ outline: "none" }}> 
+                            <Icon width="24" height="24">
+                              <use href={icon + "#icon-lock"} />
+                            </Icon>
+                        </InputAdornment>
+                      ),
+                    }}        
+          />
                 <ErrorMessage name="password" component="div" />
 
-                <ContactField type="name" name="name" id={nameInputId} placeholder="First name*" />
+          <ContactField
+            type="name"
+            name="name"
+            id={nameInputId}
+            placeholder="First name*"
+            component={TextField} 
+                    variant="standard"
+                    required
+                    InputProps={{
+                      startAdornment: (
+                        <InputAdornment position="start" style={{ outline: "none" }}> 
+                            <Icon width="24" height="24">
+                              <use href={icon + "#icon-person"} />
+                            </Icon>
+                        </InputAdornment>
+                      ),
+                    }}
+          />
                 <ErrorMessage name="name" component="div" />
                   
                 <ButtonGroup />

@@ -6,18 +6,21 @@ import tabletBg from '../images/tablet-bg-min.png';
 export const Container = styled.div`
    
     @media screen and (min-width: 768px){
-        max-width: 768px;
+        max-width: 900px;
+        height: auto;
         margin-left: auto;
         margin-right: auto;
         background-image: url(${tabletBg});
         background-repeat: no-repeat;
+        background-size: cover;
         /* background-repeat: no-repeat; */
         /* width: 100%; */
         height: 100%; 
     }
 
     @media screen and (min-width: 1024px){
-        max-width: 1280px;
+        max-width: 1600px;
+        
         margin-left: auto;
         margin-right: auto;
         background-image: url(${bgImage});
