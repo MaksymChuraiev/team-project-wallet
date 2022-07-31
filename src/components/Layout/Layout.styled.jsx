@@ -1,10 +1,17 @@
 import styled from '@emotion/styled';
 
+export const LayoutStyled = styled.div`
+  position: relative;
+  width: 320px;
+  height: 568px;
+  margin: 0 auto;
+  border: 2px solid red;
 
-export const LayoutContainer = styled.div`
-z-index: -2;
-position: fixed;
-background-color: #E5E5E5;
-width: 100%;
-height: 100%;
+  @media screen and (min-width: 768px) {
+    width: 768px;
+    height: 900px;
+  }
+  @media screen and (min-width: 1280px) {
+    width: 1280px;
+  }
 `;
