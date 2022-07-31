@@ -3,6 +3,8 @@ import { Suspense, lazy } from 'react';
 
 import { Layout } from './Layout/Layout';
 import ProtectedRoute from './Routes/ProtectedRoute';
+import { Home } from './Routes/Home/Home';
+import { Statistics } from './Routes/Statistics/Staistics';
 
 const RegisterPage = lazy(() => import('../pages/RegistrationPage'));
 const LoginPage = lazy(() => import('../pages/LoginPage.jsx'));
@@ -23,7 +25,11 @@ export const App = () => {
               <DashboardPage />
             </ProtectedRoute>
           }
-        />
+        >
+          <Route path="home" element={<Home />} />
+          <Route path="statistics" element={<Statistics />} />
+          <Route path="banktable" element={<Statistics />} />
+        </Route>
       </Routes>
     </Suspense>
   );
