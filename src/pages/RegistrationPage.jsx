@@ -1,3 +1,4 @@
+
 import { Grid } from '@mui/material';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import homePageImg from '../images/Frame-min.png'
@@ -11,7 +12,6 @@ import {
   AppImg,
 } from './RegistrationPage.styled';
 import RegistrationForm from '../components/RegistrationForm/RegistrationForm'
-
 
 
 const RegistrationPage = () => {
