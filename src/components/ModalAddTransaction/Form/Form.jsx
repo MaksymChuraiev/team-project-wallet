@@ -123,7 +123,7 @@ export function ModalForm({ transaction, updateTransaction }) {
               //   as={Date}
             />
 
-            {/* <DateIcon /> */}
+            <DateIcon />
             <ErrorMessage name="date">{TextError}</ErrorMessage>
           </div>
         </Wrapper>
