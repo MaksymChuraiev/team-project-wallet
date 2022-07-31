@@ -2,7 +2,6 @@ import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
 import { ModalAddTransaction } from '../ModalAddTransaction/ModalAddTransaction';
 import { LayoutStyled } from './Layout.styled';
-import { LayoutContainer } from './Layout.styled';
 
 export const Layout = () => {
   return (
@@ -11,8 +10,6 @@ export const Layout = () => {
         <h1>Layout</h1>
         <ModalAddTransaction />
       </LayoutStyled>
-
-      <LayoutContainer></LayoutContainer>
 
       <Suspense fallback={<p>Loading...</p>}>
         <Outlet />
