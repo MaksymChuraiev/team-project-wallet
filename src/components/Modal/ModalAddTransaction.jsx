@@ -1,4 +1,4 @@
-// import React, { useEffect, useState, useCallback } from 'react';
+import React from 'react';
 // import { useDispatch, useSelector } from 'react-redux';
 // import {
 //   addTransaction,
@@ -44,8 +44,8 @@ const categories = {
 };
 
 export function ModalAddTransaction() {
-  const [transaction, setTransaction] = useState(defaultState);
-  const [modalIsOpen, setIsOpen] = useState(false);
+  const [transaction, setTransaction] = React.useState(defaultState);
+  const [modalIsOpen, setIsOpen] = React.useState(false);
 
   //   const dispatch = useDispatch();
   //   const categories = useSelector(getCategoriesList);
