@@ -5,18 +5,29 @@ import React, { useEffect, useState, useCallback } from 'react';
 //   getTransactionsList,
 // } from '../../redux/transactions/transactions-operations';
 // import { getCategoriesList } from '../../redux/transactions/transactions-selectors';
-
 import Modal from 'react-modal';
 import Select from 'react-select';
 import DatePicker from 'react-datepicker';
-import DropdownIndicator from './DropdownIndicator';
 import 'react-datepicker/dist/react-datepicker.css';
 import { format } from 'date-fns';
+
 import { selectStyles } from './selectStyles';
-import { ReactComponent as Plus } from '../../icons/plus.svg';
 import { ReactComponent as Close } from '../../icons/close.svg';
 import { ReactComponent as DateRange } from '../../icons/date-range.svg';
-import './ModalTransaction.scss';
+
+import DropdownIndicator from './DropdownIndicator';
+import { TransactionTypeToggle } from './TransType/TransactionType';
+import { ButtonAddTransactions } from '../ButtonAddTransactions/ButtonAddTransactions';
+import {
+  ModalStyled,
+  ButtonCloseStyled,
+  ModalTitle,
+  SelectContainer,
+  MoneyDateContainer,
+  DateContainer,
+  Comment,
+  Button,
+} from './ModalAddTransaction.styled';
 
 Modal.setAppElement('#root');
 
@@ -28,7 +39,7 @@ const defaultState = {
   category: '',
 };
 const categories = {
-  incomes: ['food', 'house', 'children', 'mistress'],
+  incomes: [],
   expenses: ['food', 'house', 'children', 'mistress'],
 };
 
@@ -97,55 +108,26 @@ export function ModalAddTransaction() {
 
   return (
     <>
-      <button className="btn-open" onClick={openModal}>
-        <Plus />
-      </button>
-      <Modal
+      <ButtonAddTransactions openModal={openModal} />
+      <ModalStyled
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
         overlayClassName="modal-overlay"
         contentLabel="Example Modal"
-        className="modal-container"
         htmlOpenClassName="no-scroll"
       >
-        <button className="btn-cross" onClick={closeModal}>
+        <ButtonCloseStyled onClick={closeModal}>
           <Close />
-        </button>
-        <h2 className="modal-title">Add transaction</h2>
+        </ButtonCloseStyled>
+        <ModalTitle>Add transaction</ModalTitle>
 
-        <div className="checkBox">
-          <p
-            className={`checkBox-option ${
-              !transaction.type ? 'active-green' : ''
-            }`}
-          >
-            Income
-          </p>
-          <label className="switch">
-            <input
-              className="switch"
-              type="checkbox"
-              name="type"
-              onChange={handleInputChange}
-              checked={transaction.type}
-            />
-            <div className="back">
-              <div className="indicator">
-                <Plus />
-              </div>
-            </div>
-          </label>
-          <p
-            className={`checkBox-option ${
-              transaction.type ? 'active-pink' : ''
-            }`}
-          >
-            Expense
-          </p>
-        </div>
+        <TransactionTypeToggle
+          transaction={transaction}
+          handleInputChange={handleInputChange}
+        />
 
         <form id="transaction-form" onSubmit={handleSubmit} autoComplete="off">
-          <div className="input-select-container">
+          <SelectContainer type={transaction.type}>
             <Select
               key={transaction.type}
               styles={selectStyles(transaction.type)}
@@ -168,12 +150,12 @@ export function ModalAddTransaction() {
               onChange={() => ({})}
               value={transaction.category}
             />
-          </div>
+          </SelectContainer>
 
-          <div className="money-date-container">
+          <MoneyDateContainer>
             <label>
               <input
-                className="modal-input money-input"
+                className="modal-input"
                 type="text"
                 placeholder="0.00"
                 name="amount"
@@ -190,37 +172,33 @@ export function ModalAddTransaction() {
               />
             </label>
 
-            <div className="datepicker-container">
+            <DateContainer>
               <DatePicker
-                className="modal-input date-input"
+                className="modal-input"
                 selected={transaction.date}
                 onChange={date => {
                   updateTransaction('date', date);
                 }}
                 dateFormat="dd.MM.yyyy"
               />
-              <DateRange className="dateRange-Icon" />
-            </div>
-          </div>
+              <DateRange />
+            </DateContainer>
+          </MoneyDateContainer>
 
-          <label className="lable">
-            <textarea
-              placeholder="Comment"
-              className="modal-input description-input"
-              name="comment"
-              value={transaction.comment}
-              onChange={handleInputChange}
-              required
-            />
-          </label>
+          <Comment
+            placeholder="Comment"
+            name="comment"
+            value={transaction.comment}
+            onChange={handleInputChange}
+          />
         </form>
-        <button type="submit" form="transaction-form" className="btn btn-add">
-          <p className="btn-text">Add</p>
-        </button>
-        <button className="btn btn-exit" onClick={closeModal}>
-          <p className="btn-text">Cancel</p>
-        </button>
-      </Modal>
+        <Button type="submit" form="transaction-form">
+          Add
+        </Button>
+        <Button type="button" onClick={closeModal}>
+          Cancel
+        </Button>
+      </ModalStyled>
     </>
   );
 }

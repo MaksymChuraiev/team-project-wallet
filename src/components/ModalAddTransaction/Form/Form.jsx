@@ -136,7 +136,7 @@ export function ModalForm({ transaction, updateTransaction }) {
               name="date"
               //   transaction={transaction}
               //   updateTransaction={updateTransaction}
-              as={Date}
+              //   as={Date}
             />
 
             {/* <DateIcon /> */}
