@@ -4,6 +4,7 @@ import transactionOperation from './transaction-operation';
 const initialState = {
   items: [],
   isLoading: true,
+  isModalAddTransOpen: false,
 };
 
 const transactionsSlice = createSlice({

@@ -1,6 +1,8 @@
 import styled from '@emotion/styled';
-import DatePicker from 'react-datepicker';
+import DateView from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
+import { Formik, Form, Field, ErrorMessage } from 'formik';
+
 import { ReactComponent as DateRange } from '../../../icons/date-range.svg';
 
 const DateInput = styled.div`
@@ -39,17 +41,42 @@ const DateInput = styled.div`
   }
 `;
 
-export function Date({ transaction, updateTransaction }) {
+// export function Date({ transaction, updateTransaction }) {
+//   return (
+//     <DateInput>
+//       <DatePicker
+//         className="modal-input"
+//         selected={transaction.date}
+//         onChange={date => {
+//           updateTransaction('date', date);
+//         }}
+//         dateFormat="dd.MM.yyyy"
+//       />
+//       <DateRange className="date-icon" />
+//     </DateInput>
+//   );
+// }
+export function Date(props) {
+  const { name, ...rest } = props;
   return (
     <DateInput>
-      <DatePicker
-        className="modal-input"
-        selected={transaction.date}
-        onChange={date => {
-          updateTransaction('date', date);
+      <Field name={name}>
+        {(form, field) => {
+          const { setFieldValue } = form;
+          const { value } = field;
+          return (
+            <DateView
+              id={name}
+              {...field}
+              {...rest}
+              selected={value}
+              onChange={value => {
+                setFieldValue(name, value);
+              }}
+            />
+          );
         }}
-        dateFormat="dd.MM.yyyy"
-      />
+      </Field>
       <DateRange className="date-icon" />
     </DateInput>
   );

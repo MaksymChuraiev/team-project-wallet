@@ -47,3 +47,11 @@ a {
   background-color: var(--color-overlay);
   z-index: 999;
 }
+
+@media screen and (max-width: 767px) {
+  .modal-overlay {
+    background: transparent;
+    align-items: flex-start;
+    justify-content: stretch;
+  }
+}

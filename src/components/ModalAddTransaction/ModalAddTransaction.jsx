@@ -4,7 +4,7 @@ import Modal from 'react-modal';
 
 import { ModalForm } from './Form/Form';
 import { TransactionTypeToggle } from './TransactionType/TransactionType';
-
+import { ButtonAddTransactions } from '../ButtonAddTransactions/ButtonAddTransactions';
 import { ReactComponent as Close } from '../../icons/close.svg';
 import { ReactComponent as Plus } from '../../icons/plus.svg';
 
@@ -67,9 +67,7 @@ export function ModalAddTransaction() {
   };
   return (
     <>
-      <ButtonAddStyled type="button" onClick={openModal}>
-        <Plus />
-      </ButtonAddStyled>
+      <ButtonAddTransactions openModal={openModal} />
       <ModalStyled
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
