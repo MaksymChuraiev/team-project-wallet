@@ -28,7 +28,6 @@ export const App = () => {
             </ProtectedRoute>
           }
         >
-          {' '}
           <Route index element={<Home />} />
           <Route path="home" index element={<Home />} />
           <Route path="statistics" element={<Statistics />} />
