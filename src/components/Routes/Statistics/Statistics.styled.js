@@ -6,7 +6,11 @@ export const StatisticsContainer = styled.div`
   align-items: center;
   width: 100%;
   @media screen and (min-width: 768px) {
-    margin-top: 20px;
+    margin-top: 32px;
+    align-items: flex-start;
+  }
+  @media screen and (min-width: 1280px) {
+    padding-left: 69px;
   }
 `;
 export const GraphicsContainer = styled.div`
@@ -21,13 +25,14 @@ export const GraphicsContainer = styled.div`
     justify-content: center;
     gap: 20px;
   }
-  // @media screen and (min-width: 1280px) {
-  //   // padding: 20px 16px;
-  // }
+  @media screen and (min-width: 1280px) {
+    justify-content: space-around;
+  }
 `;
 export const CategoriesContainer = styled.div`
   width: 100%;
   @media screen and (min-width: 768px) {
+    margin-top: 65px;
     max-width: 509px;
   }
 `;

@@ -11,6 +11,10 @@ export const SelectContainer = styled.div`
     flex-wrap: nowrap;
     margin-top: 20px;
   }
+  @media screen and (min-width: 1280px) {
+    flex-wrap: nowrap;
+    margin-top: 0;
+  }
 `;
 export const Select = styled.div`
   position: relative;

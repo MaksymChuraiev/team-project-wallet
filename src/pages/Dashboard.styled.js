@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
 import { NavLink } from 'react-router-dom';
 import background from '../images/BankTableBackground.png';
+import background1280 from '../images/BankTableBackground1280.png';
 import { ReactComponent as HomeIcon } from '../images/home.svg';
 import { ReactComponent as StatisticsIcon } from '../images/statistics.svg';
 import { ReactComponent as TableBankIcon } from '../images/banktable.svg';
@@ -16,10 +17,13 @@ export const MainContainer = styled.div`
     margin: 0 auto;
     flex-wrap: wrap;
     justify-content: center;
+    max-width: 768px;
   }
-  // @media screen and (min-width: 1280px) {
-  //   padding: 20px 16px;
-  // }
+  @media screen and (min-width: 1280px) {
+    padding: 0 16px;
+    flex-wrap: nowrap;
+    max-width: 1280px;
+  }
 `;
 
 export const TableAndNavigationContainer = styled.div`
@@ -28,15 +32,14 @@ export const TableAndNavigationContainer = styled.div`
     max-width: 864px;
     width: 100%;
   }
-  // @media screen and (min-width: 1280px) {
-  //   // padding: 20px 16px;
-  //   // display: flex;
-  //   // flex-direction: column;
-  //   // //   height: 800px;
-  //   // gap: 20px;
-  //   // padding-right: 70px;
-  //   // border-right: 1px solid gray;
-  // }
+  @media screen and (min-width: 1280px) {
+    display: flex;
+    flex-direction: column;
+    max-width: 464px;
+    gap: 28px;
+    padding-right: 70px;
+    border-right: 1px solid gray;
+  }
 `;
 
 export const NavigationContainer = styled.nav`
@@ -49,9 +52,10 @@ export const NavigationContainer = styled.nav`
     gap: 12px;
     flex-direction: column;
   }
-  // @media screen and (min-width: 1280px) {
-  //   // padding: 20px 16px;
-  // }
+  @media screen and (min-width: 1280px) {
+    padding-top: 20px;
+    margin-bottom: 16px;
+  }
 `;
 
 export const NavHomeIcon = styled(HomeIcon)`
@@ -154,7 +158,7 @@ export const NavLinkStyled = styled(NavLink)`
     line-height: 27px;
   }
   @media screen and (min-width: 1280px) {
-    // padding: 20px 16px;
+    // padding: 0 16px;
   }
 `;
 
@@ -218,9 +222,14 @@ export const BankCashContainer = styled.table`
     margin-left: auto;
     background-image: url(${background});
   }
-  // @media screen and (min-width: 1280px) {
-  //   // padding: 20px 16px;
-  // }
+  @media screen and (min-width: 1280px) {
+    margin: 0;
+    max-width: 464px;
+    min-height: 347px;
+    background-image: url(${background1280});
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
 `;
 export const TableHead = styled.thead`
   background: transparent;
@@ -241,6 +250,10 @@ export const TableRow = styled.tr`
   font-weight: 400;
   display: flex;
   justify-content: space-between;
+`;
+export const TableDataHead = styled.td`
+  background: transparent;
+  font-weight: 400;
 `;
 export const TableData = styled.td`
   background: transparent;

@@ -9,6 +9,7 @@ import { useEffect } from 'react';
 import { Diagram } from './Diagram/Diagram';
 import { SelectCategories } from './SelectCategories/SelectCategoies';
 import { CategoriesList } from './CategoriesList/CetegoriesList';
+import { StatisticsText } from './Diagram/Diagram.styled';
 
 import {
   StatisticsContainer,
@@ -42,6 +43,7 @@ const years = [
 export const Statistics = () => {
   return (
     <StatisticsContainer>
+      {/* <StatisticsText>Statistics</StatisticsText> */}
       <GraphicsContainer>
         <Diagram />
         <CategoriesContainer>

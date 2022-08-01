@@ -18,6 +18,7 @@ import {
   TableBody,
   TableRow,
   TableData,
+  TableDataHead,
 } from './Dashboard.styled';
 
 const DashboardPage = () => {
@@ -85,9 +86,9 @@ const DashboardPage = () => {
               {/* BankCash table component */}
               <TableHead>
                 <TableRow>
-                  <TableData>Curensy</TableData>
-                  <TableData>Purchase</TableData>
-                  <TableData>Sale</TableData>
+                  <TableDataHead>Curensy</TableDataHead>
+                  <TableDataHead>Purchase</TableDataHead>
+                  <TableDataHead>Sale</TableDataHead>
                 </TableRow>
               </TableHead>
               <TableBody>
