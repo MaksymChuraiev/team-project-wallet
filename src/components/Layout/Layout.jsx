@@ -9,8 +9,7 @@ export const Layout = () => {
   return (
     <>
       <LayoutStyled>
-        <h1>Layout</h1>
-        {/* <ButtonAddTransactions /> */}
+        {/* <h1>Layout</h1> */}
         <ModalAddTransaction />
       </LayoutStyled>
 

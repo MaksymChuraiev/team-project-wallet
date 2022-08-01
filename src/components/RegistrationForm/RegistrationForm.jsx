@@ -1,98 +1,128 @@
-import { Formik, Form, ErrorMessage } from 'formik';
+import React from 'react';
+import { Formik, ErrorMessage } from 'formik';
 import * as yup from 'yup';
 import { nanoid } from 'nanoid';
-import { TextField, InputAdornment } from '@mui/material';
+// import { TextField, InputAdornment } from '@mui/material';
 import logo from '../../images/logo.png';
-import icon from '../../images/symbol-defs.svg';
+// import icon from '../../images/symbol-defs.svg';
 // import { useDispatch } from 'react-redux';
 // import { register } from 'redux/auth/authOperations';
+
+import {InputLabel, LogForm, InputField, ErrorText, SvgWrapper, Svg, Input } from '../LoginForm/LoginForm.styled'
+import svgMail from '../LoginForm/Vector.svg';
+import svgLock from '../LoginForm/Vector-lock.svg';
 import {
     FormContainer,
-    ContactField,
     FormName,
-    // RegisterButton,
-    // LoginButton,
-    Icon,
 } from './RegistrationForm.styled';
 import ButtonGroup from '../Button/Button';
-
+import PasswordProgressBar from 'components/PasswordProgressBar/PasswordProgressBar';
 
 const RegistrationForm = () => {
 
   //  const dispatch = useDispatch();
   const schema = yup.object().shape({
-    name: yup.string().required(),
     email: yup.string().required(),
     password: yup.string().required(),
+    confirmPassword: yup.string().required(),
+    name: yup.string().required(),
   });
 
   const initialValues = {
-    name: '',
     email: '',
     password: '',
+    confirmPassword: '',
+    name: '',
   };
 
 const handleSubmit = (values, { resetForm }) => {
-    const { name, email, password } = values;
+  console.log(values);
+  const { email, password, confirmPassword, name } = values;
+  
     // dispatch(register({ name, email, password }));
   resetForm();
-  console.log(name, email, password);
+  console.log(email, password, confirmPassword, name);
   };
+  
   
   const emailInputId = nanoid();
   const passwordInputId = nanoid();
   const ConfirmPasswordInputId = nanoid();
   const nameInputId = nanoid();
 
+  const FormError = ({ name }) => {
   return (
-        <FormContainer>
-            <FormName>
-                <img src={logo} height={40} alt={'wallet-logo'}/>
-            </FormName>
-            <Formik
-                initialValues={initialValues}
-                validationSchema={schema}
-                onSubmit={handleSubmit}
-            >
-                <Form autoComplete="off">
-                <ContactField
-                    type="email"
-                    // component={TextField} 
-                    name="email"
-                    id={emailInputId}
-                    placeholder="E-mail*"
+    <ErrorMessage
+      name={name}
+      render={message => <ErrorText>{message}</ErrorText>}
+    />
+  );
+  };
+
+  return (
+    <FormContainer>
+      <FormName>
+        <img src={logo} height={40} alt={'wallet-logo'}/>
+      </FormName>
+      <Formik
+        initialValues={initialValues}
+        validationSchema={schema}
+        
+        onSubmit={handleSubmit}
+        validateOnChange
+      >
+        <LogForm
+          autoComplete="off"
+          // onChange={(event) => {
+          // console.log(event.nativeEvent.data);
+          // }}
+        >
+            
+        <InputLabel htmlFor="email">
+          <InputField>
+            <SvgWrapper><Svg src={svgMail} alt="envelope" /></SvgWrapper>
+              <Input type="email" name="email" id={emailInputId} placeholder="E-mail" />
+          </InputField>
+          <FormError name="email" />
+        </InputLabel> 
+            
+        <InputLabel htmlFor="password">
+          <InputField>
+            <SvgWrapper><Svg src={svgLock} alt="lock" /></SvgWrapper>
+              <Input type="password" name="password" id={passwordInputId} placeholder="Password" />
+          </InputField>
+          <FormError name="password" />
+        </InputLabel>
+            
+        <InputLabel htmlFor="confirmPassword">
+          <InputField>
+            <SvgWrapper><Svg src={svgLock} alt="lock" /></SvgWrapper>
+              <Input
+                type="password"
+                name="confirmPassword"
+                id={ConfirmPasswordInputId}
+                placeholder="Confirm password"
+              />
+            </InputField>
+            <PasswordProgressBar />
+          <FormError name="confirmPassword" />
+          </InputLabel>
+
+        <InputLabel htmlFor="name">
+          <InputField>
+            <SvgWrapper><Svg src={svgMail} alt="lock" /></SvgWrapper>
+              <Input type="text" name="name" id={nameInputId} placeholder="Name" />
+          </InputField>
+          <FormError name="name" />
+        </InputLabel>
                     
-                    // InputProps={{
-                    //   startAdornment: (
-                    //     <InputAdornment position="start" style={{ outline: "none" }}> 
-                    //         <Icon width="24" height="24">
-                    //           <use href={icon + "#icon-email"} />
-                    //         </Icon>
-                    //     </InputAdornment>
-                    //   ),
-                    // }}
-
-                  />
-                <ErrorMessage name="e-mail" component="div" />
-
-                <ContactField type="password" name="password" id={passwordInputId} placeholder="Password*" />
-                <ErrorMessage name="password" component="div" />
-
-                <ContactField type="password" name="password" id={ConfirmPasswordInputId} placeholder="Confirm password*" />
-                <ErrorMessage name="password" component="div" />
-
-                <ContactField type="name" name="name" id={nameInputId} placeholder="First name*" />
-                <ErrorMessage name="name" component="div" />
+        <ButtonGroup register='REGISTER' login='LOG IN' />
                   
-                <ButtonGroup />
-
-                {/* <RegisterButton type="submit">REGISTER</RegisterButton>
-
-                <LoginButton variant="outlined" href="/team-project-wallet/login" type="button">LOG IN</LoginButton> */}
-                </Form>
-            </Formik>
-        </FormContainer> 
+        </LogForm>
+      </Formik>
+    </FormContainer> 
   );
 };
 
 export default RegistrationForm;
+

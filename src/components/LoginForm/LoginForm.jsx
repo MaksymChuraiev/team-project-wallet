@@ -3,6 +3,7 @@ import * as yup from 'yup';
 import svgMail from "../LoginForm/Vector.svg";
 import svgLock from "../LoginForm/Vector-lock.svg";
 import { RegisterBtn, LogForm, LogBtns, LoginBtn, Input, Svg, InputField, InputLabel, ErrorText, SvgWrapper } from './LoginForm.styled';
+import { Link } from 'react-router-dom';
 
 const loginSchema = yup.object().shape({
   email: yup.string().email().required(),
@@ -52,10 +53,13 @@ export const LoginForm = () => {
           <FormError name="password" />
         </InputLabel>
         <LogBtns>
-          <LoginBtn type="submit">LOGIN</LoginBtn>
-          <RegisterBtn to="/registration">REGISTER</RegisterBtn>
+          <LoginBtn type="submit">log in</LoginBtn>
+          <Link to="/registration">
+          <RegisterBtn type="button">register</RegisterBtn>
+          </Link>
         </LogBtns>
       </LogForm>
     </Formik>
   );
 };
+
