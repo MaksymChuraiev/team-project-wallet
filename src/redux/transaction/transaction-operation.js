@@ -1,8 +1,6 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-const isModalAddTransOpen = {};
-
 const fetchTransactions = createAsyncThunk('transactions/fetch', async () => {
   try {
     const { data } = await axios.get('/transactions');

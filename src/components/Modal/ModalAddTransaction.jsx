@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useCallback } from 'react';
+// import React, { useEffect, useState, useCallback } from 'react';
 // import { useDispatch, useSelector } from 'react-redux';
 // import {
 //   addTransaction,
@@ -9,7 +9,7 @@ import Modal from 'react-modal';
 import Select from 'react-select';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-import { format } from 'date-fns';
+// import { format } from 'date-fns';
 
 import { selectStyles } from './selectStyles';
 import { ReactComponent as Close } from '../../icons/close.svg';

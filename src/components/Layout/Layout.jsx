@@ -1,8 +1,6 @@
 import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
 import { ModalAddTransaction } from '../Modal/ModalAddTransaction';
-import { ButtonAddTransactions } from '../ButtonAddTransactions/ButtonAddTransactions';
-
 import { LayoutStyled } from './Layout.styled';
 
 export const Layout = () => {
