@@ -1,5 +1,6 @@
 @import './vars.css';
 
+
 * {
   margin: 0;
   padding: 0;
@@ -31,5 +32,34 @@ a {
   text-decoration: none;
 }
 
+.no-scroll {
+  overflow: hidden;
+}
 
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-overlay);
+  z-index: 999;
+}
 
+@media screen and (max-width: 767px) {
+  .modal-overlay {
+    background: transparent;
+    align-items: flex-start;
+    justify-content: stretch;
+  }
+}
+
+/* main {
+  background-image: url('../images/iMac-min.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 91.5vh;
+} */

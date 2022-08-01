@@ -1,15 +1,13 @@
 import { useState } from 'react';
-import css from './Statistics.module.css';
-import { UserData } from './testData';
+
+import { UserData } from 'components/Statistics/testData';
 // import { BarChart } from './BarChart';
-import SelectedInput from './SelectInput';
 // import { MyVersion } from './InputSelect/MyVersion';
 // import { MyVersionYears } from './InputSelect/MyVersionYears';
-import { useEffect } from 'react';
-import { Diagram } from './Diagram/Diagram';
-import { SelectCategories } from './SelectCategories/SelectCategoies';
-import { CategoriesList } from './CategoriesList/CetegoriesList';
-import { StatisticsText } from './Diagram/Diagram.styled';
+// import { useEffect } from 'react';
+import { Diagram } from 'components/Statistics/Diagram/Diagram';
+import { SelectCategories } from 'components/Statistics/SelectCategories/SelectCategoies';
+import { CategoriesList } from 'components/Statistics/CategoriesList/CetegoriesList';
 
 import {
   StatisticsContainer,
@@ -43,7 +41,6 @@ const years = [
 export const Statistics = () => {
   return (
     <StatisticsContainer>
-      {/* <StatisticsText>Statistics</StatisticsText> */}
       <GraphicsContainer>
         <Diagram />
         <CategoriesContainer>

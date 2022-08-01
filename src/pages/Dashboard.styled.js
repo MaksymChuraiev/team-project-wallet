@@ -9,7 +9,7 @@ import { ReactComponent as TableBankIcon } from '../images/banktable.svg';
 export const MainContainer = styled.div`
   width: 100%;
   padding: 20px 16px;
-  background-color: #e7eaf2;
+  // background-color: #e7eaf2;
 
   @media screen and (min-width: 768px) {
     padding: 32px;

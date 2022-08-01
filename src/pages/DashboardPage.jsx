@@ -1,4 +1,5 @@
 import { DashboardIcon } from 'components/DashboardIcon/DashboardIcon';
+import { Header } from 'components/Header/Header';
 import { Suspense } from 'react';
 import { Routes, Route, Outlet, NavLink } from 'react-router-dom';
 import {
@@ -24,39 +25,13 @@ import {
 const DashboardPage = () => {
   return (
     <>
-      <header
-        style={{
-          maxWidth: 1248,
-          margin: '0 auto',
-          padding: '0 16px',
-          height: 30,
-          borderBottom: '1px solid gray',
-        }}
-      >
-        <div>Its header</div>
-      </header>
+      <Header />
 
       <main style={{ display: 'flex' }}>
-        <MainContainer
-        // id="mainContainer"
-        // style={{ display: 'flex', margin: '0 auto', padding: '0 16px' }}
-        >
-          <TableAndNavigationContainer
-          // id="leftContainer"
-          // style={{
-          //   display: 'flex',
-          //   flexDirection: 'column',
-          //   height: 800,
-          //   gap: 20,
-          //   paddingRight: 70,
-          //   borderRight: '1px solid gray',
-          // }}
-          >
+        <MainContainer>
+          <TableAndNavigationContainer>
             <div style={{ display: 'flex', flexDirection: 'column' }}>
-              <NavigationContainer
-              // id="navContainer"
-              // style={{ display: 'flex', flexDirection: 'column', gap: 10 }}
-              >
+              <NavigationContainer>
                 <NavLinkStyled to="Home">
                   <NavHomeIcon />
                   Home
@@ -69,20 +44,14 @@ const DashboardPage = () => {
                   <NavBankTableIcon />
                 </NavLinkStyled>
               </NavigationContainer>
-              <ClientCashContainer
-              // id="ClientCashContainer"
-              // style={{ backgroundColor: 'blue', padding: 20, borderRadius: 5 }}
-              >
+              <ClientCashContainer>
                 <ClientCashContainerText>your balance</ClientCashContainerText>
                 <ClientCashContainerBalance>
                   <SymbolDollar>$</SymbolDollar> 24 000.00
                 </ClientCashContainerBalance>
               </ClientCashContainer>
             </div>
-            <BankCashContainer
-            // id="BankCashContainer"
-            // style={{ backgroundColor: 'blue', padding: 20, borderRadius: 5 }}
-            >
+            <BankCashContainer>
               {/* BankCash table component */}
               <TableHead>
                 <TableRow>
