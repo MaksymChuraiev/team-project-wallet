@@ -11,11 +11,11 @@ const ButtonGroup = (props) => {
                 color='#fff'
                 bgColor='#24CCA7'
                 border='none'
+                disabled={props.password !== props.confirmPassword}
             >
                 {props.register} </ButtonStyles>
             
             <ButtonStyles
-                // to="/registration"
                 type="button"
                 onClick={() => {navigate('/login')}}
                 color='#4A56E2'

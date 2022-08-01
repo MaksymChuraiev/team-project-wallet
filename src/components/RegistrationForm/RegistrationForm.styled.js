@@ -53,6 +53,12 @@ export const ContactField = styled(Field)`
 
 export const Icon = styled.svg`
 fill: #E0E0E0;
+width:34px;
+height:34px;
+/* margin-left: 10px; */
+display:flex;
+align-items: center;
+justify-content: center;
 &:hover {
     color: #24CCA7;
 }
