@@ -1,18 +1,11 @@
 
 import { Grid } from '@mui/material';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import homePageImg from '../images/Frame-min.png'
-// import { useDispatch } from 'react-redux';
-// import { register } from 'redux/auth/authOperations';
-import {
-  Container,
-  RegistrationPageText,
-  FinanceAppContainer,
-  ContainerForBlur,
-  AppImg,
-} from './RegistrationPage.styled';
-import RegistrationForm from '../components/RegistrationForm/RegistrationForm'
 
+import Container from '@mui/material/Container';
+import RegistrationForm from '../components/RegistrationForm/RegistrationForm'
+import RegistrationPageLeft from 'components/RegistrationPageLeft/RegistrationPageLeft';
+import {ContainerForBlur} from '../components/RegistrationPageLeft/RegistrationPageLeft.styled'
 
 const RegistrationPage = () => {
   
@@ -21,7 +14,7 @@ const theme = createTheme({
     values: {
       xs: 320,
       sm: 768,
-      md: 1024,
+      md: 1280,
     },
   },
 })
@@ -34,11 +27,8 @@ const theme = createTheme({
           direction="row"
           justifyContent="center"
           alignItems="center">
-            <Grid item xs={12} sm={12} md={5}>
-              <FinanceAppContainer>
-                <AppImg src={homePageImg} alt="Finance App" />
-                <RegistrationPageText>Finance App</RegistrationPageText> 
-              </FinanceAppContainer>
+          <Grid item xs={12} sm={12} md={5}>
+            <RegistrationPageLeft />
             </Grid>
             <ContainerForBlur item xs={12} sm={12} md={7}>
               <RegistrationForm />

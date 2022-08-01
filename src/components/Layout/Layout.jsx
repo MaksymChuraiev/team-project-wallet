@@ -7,7 +7,7 @@ export const Layout = () => {
   return (
     <>
       <LayoutStyled>
-        <h1>Layout</h1>
+        {/* <h1>Layout</h1> */}
         <ModalAddTransaction />
       </LayoutStyled>
 

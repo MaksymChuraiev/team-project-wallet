@@ -19,7 +19,7 @@ background-color: #fff;
         border-radius: 20px;
     }
 
-     @media screen and (min-width: 1024px) {
+     @media screen and (min-width: 1280px) {
         margin: 52px 99px;
      }
 `;
@@ -37,15 +37,11 @@ export const ContactField = styled(Field)`
   width: 100%;
   display: flex;
   padding-bottom: 10px;
-  margin-bottom: 40px;
+  margin-top: 40px;
   border: transparent;
-  /* border-top: transparent;
-  border-left: transparent;
-  border-right: transparent;
-  border-bottom: 1px solid #E0E0E0; */
+
 
   ::placeholder{
-    /* margin-left: 56px; */
     color: #BDBDBD;
     font-family: 'Circe';
     font-style: normal;
@@ -56,8 +52,6 @@ export const ContactField = styled(Field)`
 `;
 
 export const Icon = styled.svg`
-/* position: absolute; */
-/* bottom: 10px; */
 fill: #E0E0E0;
 &:hover {
     color: #24CCA7;

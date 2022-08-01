@@ -20,13 +20,12 @@ text-align: center;
 letter-spacing: 0.1em;
 text-transform: uppercase;
 justify-content: center;
-
-margin-bottom: 20px;
-padding: 13px;
-  
+ 
 display: flex;
 margin-right: auto;
 margin-left: auto;
+margin-top: 20px;
+padding: 13px;
 border-radius: 20px; 
 width: 300px;
 height: 50px;
