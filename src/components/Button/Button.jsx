@@ -1,8 +1,9 @@
-
+import { useNavigate   } from 'react-router-dom';
 import { ButtonStyles } from './Button.styled';
 
-const ButtonGroup = () => {
-
+const ButtonGroup = (props) => {
+    const navigate = useNavigate ();
+    
     return (
         <div>
             <ButtonStyles
@@ -11,15 +12,18 @@ const ButtonGroup = () => {
                 bgColor='#24CCA7'
                 border='none'
             >
-                REGISTER</ButtonStyles>
+                {props.register} </ButtonStyles>
+            
             <ButtonStyles
+                // to="/registration"
                 type="button"
+                onClick={() => {navigate('/login')}}
                 color='#4A56E2'
                 bgColor='#ffffff'
                 // border='solid'
                 borderColor='#4A56E2'
             >
-                LOG IN</ButtonStyles>
+                {props.login}</ButtonStyles>
         </div>
     )
 }
