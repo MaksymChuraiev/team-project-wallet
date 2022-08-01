@@ -35,9 +35,9 @@ const deleteTransactions = createAsyncThunk(
     }
   }
 );
-
-const updateTransactions = createAsyncThunk(
-  'transactions/update',
+// надо исправить
+const getTransactionsByDate = createAsyncThunk(
+  'transactions/getByDate',
   async (transaction, thunkAPI) => {
     const { id, ...fields } = transaction;
 
@@ -51,11 +51,26 @@ const updateTransactions = createAsyncThunk(
   }
 );
 
+// const updateTransactions = createAsyncThunk(
+//   'transactions/update',
+//   async (transaction, thunkAPI) => {
+//     const { id, ...fields } = transaction;
+
+//     try {
+//       const { data } = await axios.patch(`/transactions/${id}`, fields);
+//       thunkAPI.dispatch(fetchTransactions());
+//       return data;
+//     } catch (error) {
+//       thunkAPI.rejectWithValue(error);
+//     }
+//   }
+// );
+
 const transactionsOperation = {
   fetchTransactions,
   addTransactions,
   deleteTransactions,
-  updateTransactions,
+  getTransactionsByDate,
 };
 
 export default transactionsOperation;
