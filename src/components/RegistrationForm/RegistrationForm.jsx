@@ -1,17 +1,15 @@
-import React from 'react';
-import { Formik, ErrorMessage } from 'formik';
+import React, { useState, useEffect } from 'react';
+import { Formik, ErrorMessage, useFormikContext } from 'formik';
 import * as yup from 'yup';
-import { nanoid } from 'nanoid';
-// import { TextField, InputAdornment } from '@mui/material';
+// import { nanoid } from 'nanoid';
 import logo from '../../images/logo.png';
-// import icon from '../../images/symbol-defs.svg';
+import icon from '../../images/symbol-defs.svg';
 // import { useDispatch } from 'react-redux';
 // import { register } from 'redux/auth/authOperations';
 
-import {InputLabel, LogForm, InputField, ErrorText, SvgWrapper, Svg, Input } from '../LoginForm/LoginForm.styled'
-import svgMail from '../LoginForm/Vector.svg';
-import svgLock from '../LoginForm/Vector-lock.svg';
+import {InputLabel, LogForm, InputField, ErrorText, Input } from '../LoginForm/LoginForm.styled'
 import {
+    Icon,
     FormContainer,
     FormName,
 } from './RegistrationForm.styled';
@@ -20,12 +18,15 @@ import PasswordProgressBar from 'components/PasswordProgressBar/PasswordProgress
 
 const RegistrationForm = () => {
 
+  const [password, setPassword] = useState();
+  const [confirmPassword, setConfirmPassword] = useState();
+
   //  const dispatch = useDispatch();
   const schema = yup.object().shape({
     email: yup.string().required(),
-    password: yup.string().required(),
-    confirmPassword: yup.string().required(),
-    name: yup.string().required(),
+    password: yup.string().min(6).max(12).required(),
+    confirmPassword: yup.string().min(6).max(12).required(),
+    name: yup.string().min(1).max(12).required(),
   });
 
   const initialValues = {
@@ -45,10 +46,21 @@ const handleSubmit = (values, { resetForm }) => {
   };
   
   
-  const emailInputId = nanoid();
-  const passwordInputId = nanoid();
-  const ConfirmPasswordInputId = nanoid();
-  const nameInputId = nanoid();
+  // const emailInputId = nanoid();
+  // const passwordInputId = nanoid();
+  // const ConfirmPasswordInputId = nanoid();
+  // const nameInputId = nanoid();
+
+const FormObserver = () => {
+  const { values } = useFormikContext();
+  useEffect(() => {
+    setPassword(values.password);
+    setConfirmPassword(values.confirmPassword)
+  
+    
+  }, [values]);
+  return null;
+};
 
   const FormError = ({ name }) => {
   return (
@@ -67,56 +79,78 @@ const handleSubmit = (values, { resetForm }) => {
       <Formik
         initialValues={initialValues}
         validationSchema={schema}
-        
         onSubmit={handleSubmit}
         validateOnChange
       >
         <LogForm
           autoComplete="off"
-          // onChange={(event) => {
-          // console.log(event.nativeEvent.data);
-          // }}
         >
-            
+          <FormObserver />  
+          
         <InputLabel htmlFor="email">
           <InputField>
-            <SvgWrapper><Svg src={svgMail} alt="envelope" /></SvgWrapper>
-              <Input type="email" name="email" id={emailInputId} placeholder="E-mail" />
+            <Icon width="24" height="24">
+                  <use href={icon + "#icon-email"} />
+                </Icon>
+              <Input
+                type="email"
+                name="email"
+                // id={emailInputId}
+                placeholder="E-mail" />
           </InputField>
           <FormError name="email" />
         </InputLabel> 
             
         <InputLabel htmlFor="password">
           <InputField>
-            <SvgWrapper><Svg src={svgLock} alt="lock" /></SvgWrapper>
-              <Input type="password" name="password" id={passwordInputId} placeholder="Password" />
-          </InputField>
+            <Icon width="24" height="24">
+                  <use href={icon + "#icon-lock"} />
+                </Icon>
+              <Input
+                type="password"
+                name="password" 
+                // id={passwordInputId}
+                placeholder="Password" />
+            </InputField>
+      {password && <PasswordProgressBar password={password.length} />}       
           <FormError name="password" />
-        </InputLabel>
-            
+          </InputLabel>
+         
+          
+          
         <InputLabel htmlFor="confirmPassword">
           <InputField>
-            <SvgWrapper><Svg src={svgLock} alt="lock" /></SvgWrapper>
+                <Icon width="24" height="24">
+                  <use href={icon + "#icon-lock"} />
+                </Icon>
               <Input
                 type="password"
                 name="confirmPassword"
-                id={ConfirmPasswordInputId}
+                // id={ConfirmPasswordInputId}
                 placeholder="Confirm password"
               />
             </InputField>
-            <PasswordProgressBar />
+
+           
+
           <FormError name="confirmPassword" />
           </InputLabel>
 
         <InputLabel htmlFor="name">
           <InputField>
-            <SvgWrapper><Svg src={svgMail} alt="lock" /></SvgWrapper>
-              <Input type="text" name="name" id={nameInputId} placeholder="Name" />
+            <Icon width="24" height="24">
+                  <use href={icon + "#icon-person"} />
+                </Icon>
+              <Input
+                type="text"
+                name="name"
+                // id={nameInputId}
+                placeholder="Name" />
           </InputField>
           <FormError name="name" />
         </InputLabel>
                     
-        <ButtonGroup register='REGISTER' login='LOG IN' />
+          <ButtonGroup register='REGISTER' login='LOG IN' password={password} confirmPassword={confirmPassword} />
                   
         </LogForm>
       </Formik>

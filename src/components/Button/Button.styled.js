@@ -32,6 +32,14 @@ height: 50px;
 
 cursor: pointer;
 outline: none; 
+
+:disabled,
+button[disabled]{
+  border: 1px solid #E0E0E0;
+  background-color: #E0E0E0;
+  color: #ffffff;
+  cursor: wait;
+}
  
 ${dynamicStyles}
 
