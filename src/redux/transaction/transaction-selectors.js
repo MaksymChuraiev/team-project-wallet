@@ -1,13 +1,15 @@
 const getTransaction = state => state.transaction.items;
 const isLoading = state => state.transaction.isLoading;
 const isModalAddTransOpen = state => state.transaction.isModalAddTransOpen;
-const getCategoriesList = state => state.transactions.categoriesList;
+const getCategories = state => state.categories;
+const getStatistics = state => state.transaction;
 
 const transactionSelector = {
   getTransaction,
   isLoading,
   isModalAddTransOpen,
-  getCategoriesList,
+  getCategories,
+  getStatistics,
 };
 
 export default transactionSelector;
