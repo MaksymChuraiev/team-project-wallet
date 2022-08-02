@@ -1,0 +1,38 @@
+[
+	{
+		"id": "1",
+		"Date": "04.04.22",
+		"Type": true,
+		"Category": "Other",
+		"Comment": "--",
+		"Sum": "300.00",
+		"Balance": "9 600.00"
+	},
+	{
+		"id": "2",
+		"Date": "04.03.22",
+		"Type": false,
+		"Category": "Other",
+		"Comment": "Gift for your wife",
+		"Sum": "600.00",
+		"Balance": "9 300.00"
+	},
+	{
+		"id": "3",
+		"Date": "04.02.22",
+		"Type": true,
+		"Category": "Other",
+		"Comment": "--",
+		"Sum": "3000.00",
+		"Balance": "9 900.00"
+	},
+	{
+		"id": "4",
+		"Date": "04.01.22",
+		"Type": false,
+		"Category": "Other",
+		"Comment": "Gift for your wife",
+		"Sum": "300.00",
+		"Balance": "6 900.00"
+	}
+]

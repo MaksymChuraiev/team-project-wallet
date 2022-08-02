@@ -1,0 +1,50 @@
+:root {
+  /* fonts */
+  --font-main: 'Ruda', sans-serif;
+  --font-second: 'Poppins', sans-serif;
+  --modal-toggle-font: 'Circe', sans-serif;
+
+  /* color */
+  --color-black: #000000;
+  --color-gray-form: #bdbdbd;
+  --color-gray-balance: #a6a6a6;
+  --color-green: #24cca7;
+  --color-white: #ffffff;
+  --color-red: #ff6596;
+  --color-violet: #4a56e2;
+  --modal-toggle-text-gray: #e0e0e0;
+
+  /* background color */
+  --color-overlay: rgba(0, 0, 0, 0.25);
+  --color-overlay-copy: #e7eaf2;
+  --color-dashboard: rgba(255, 255, 255, 0.4);
+
+  /* statistic section */
+  --color-basic: #fed057;
+  --color-products: #ffd8d0;
+  --color-car: #fd9498;
+  --color-self: #c5baff;
+  --color-child: #6e78e8;
+  --color-household: #4a56e2;
+  --color-education: #81e1ff;
+  --color-leisure: #24cca7;
+  --color-other: #00ad84;
+
+  /* layout */
+  --color-up-element: #ffd8d0;
+  --color-down-element: #c5baff;
+
+  /* button */
+  --color-btn-green: #24cca7;
+  --color-btn-red: #ff6596;
+  --color-btn-white: #ffffff;
+  --color-btn-border: #4a56e2;
+
+  /* shadow */
+  --button-add: 0px 6px 15px rgba(36, 204, 167, 0.5);
+
+  /* breakpoints */
+  --mobile: 320px;
+  --tablet: 768px;
+  --desktop: 1280px;
+}
