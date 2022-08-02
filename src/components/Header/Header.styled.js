@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from '@emotion/styled';
 
 export const HeaderCastom = styled.header`
 	display:flex;
@@ -29,16 +29,20 @@ export const Logo = styled.img`
 		}
 `
 
-export const LogoText = styled.img`
-	width:74px;
-	height:17px;
+export const LogoText = styled.span`
 	margin-left: 15px;
 
+	font-family: 'Poppins';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 25px;
+
+	color: #000000;
+
 	@media screen and (min-width: 768px) {
-		width: 121px;
-		height: 40px;
 		margin-left: 20px;
-		}
+		font-size: 30px;
+	}
 `
 
 export const HeaderRight = styled.div`

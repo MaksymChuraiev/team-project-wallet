@@ -1,6 +1,5 @@
-import LogoSvg from './Logo.svg';
-import ExitSvg from './Exit.svg';
-import WalletSvg from './Wallet.svg';
+import LogoSvg from '../../icons/logo.svg';
+import ExitSvg from '../../icons/exit.svg';
 import {
 	HeaderCastom,
 	LogoWrapper,
@@ -11,7 +10,7 @@ import {
 	ExitWrapper,
 	ExitLogo,
 	ExitText
-} from './Appbar.styled';
+} from './Header.styled';
 
 export const Header = () => {
 
@@ -19,7 +18,7 @@ export const Header = () => {
 		<HeaderCastom>
 			<LogoWrapper>
 				<Logo src={LogoSvg} alt="Wallet Logo" />
-				<LogoText src={WalletSvg} alt="Wallet" />
+				<LogoText >Wallet</LogoText>
 			</LogoWrapper>
 
 			<HeaderRight>
