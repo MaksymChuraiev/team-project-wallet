@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 
 export const BalanceWrapper = styled.div`
-  background-color: gray;
+  background-color: #fff;
   border-radius: 30px;
   padding: 8px 0px 11px 32px;
 	margin-top: 15px;
