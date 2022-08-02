@@ -1,5 +1,6 @@
 @import './vars.css';
 
+
 * {
   margin: 0;
   padding: 0;
@@ -55,3 +56,10 @@ a {
     justify-content: stretch;
   }
 }
+
+/* main {
+  background-image: url('../images/iMac-min.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 91.5vh;
+} */

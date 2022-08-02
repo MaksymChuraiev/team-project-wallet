@@ -12,20 +12,22 @@ export const LayoutStyled = styled.div`
   @media screen and (min-width: 768px) {
     position: fixed;
     display:flex;
-    width:100vw;
-    height:100vh;
+    width:768px;
+    height:1024px;
     z-index: -1;
      margin-left: auto;
         margin-right: auto;
         background-image: url(${tabletBg});
         background-repeat: no-repeat;
         background-size: cover;
+        left: 50%;
+    transform: translateX(-50%);
   }
   @media screen and (min-width: 1280px) {
     width: 1280px;
+    height:720px;
     background-image: url(${bgImage});
-    left: 50%;
-    transform: translateX(-50%);
+    
     /* border: 2px solid red; */
   }
 `;

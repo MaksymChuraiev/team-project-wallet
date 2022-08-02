@@ -5,7 +5,10 @@ import * as yup from 'yup';
 import logo from '../../images/logo.png';
 import icon from '../../images/symbol-defs.svg';
 import { useDispatch } from 'react-redux';
-import { register } from '../../ReduxX/auth/auth-operations';
+
+// import { register } from '../../ReduxX/auth/auth-operations';
+
+import { register } from '../../redux/auth/auth-operation';
 
 import {
   InputLabel,
@@ -19,10 +22,10 @@ import ButtonGroup from '../Button/Button';
 import PasswordProgressBar from 'components/PasswordProgressBar/PasswordProgressBar';
 
 const RegistrationForm = () => {
+  const dispatch = useDispatch();
   const [password, setPassword] = useState();
   const [confirmPassword, setConfirmPassword] = useState();
 
-   const dispatch = useDispatch();
   const schema = yup.object().shape({
     email: yup.string().required(),
     password: yup.string().min(6).max(12).required(),
@@ -38,12 +41,11 @@ const RegistrationForm = () => {
   };
 
   const handleSubmit = (values, { resetForm }) => {
-    console.log(values);
-    const { email, password, confirmPassword, name } = values;
-
-    dispatch(register({ name, email, password }));
+    // console.log(values);
+    const { email, password, name } = values;
+    dispatch(register({ email, password, name }));
     resetForm();
-    console.log(email, password, confirmPassword, name);
+    // console.log(email, password, confirmPassword, name);
   };
 
   // const emailInputId = nanoid();

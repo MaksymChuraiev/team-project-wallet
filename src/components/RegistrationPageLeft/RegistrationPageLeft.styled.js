@@ -1,6 +1,12 @@
 import styled from '@emotion/styled';
 import { Grid } from '@mui/material';
 
+export const GridContainer = styled(Grid)`
+ max-width: 1280px;
+ height: 100%;
+ padding: 0px;
+`;
+
 export const FinanceAppContainer = styled.div`
     display: none;
 
@@ -14,8 +20,9 @@ export const FinanceAppContainer = styled.div`
 
     @media screen and (min-width: 1280px) {
         display: inline;
-        padding-top: 155px;
-        padding-bottom: 155px;
+        align-items: flex-start;
+        /* padding-top: 155px;
+        padding-bottom: 155px; */
     }
 `;
 
@@ -44,7 +51,7 @@ export const RegistrationPageText = styled.p`
     }
 
     @media screen and (min-width: 1280px) {
-        text-align: center;
+        /* text-align: center; */
         justify-content: center;
         margin-top: 30px;
     }
@@ -52,7 +59,7 @@ export const RegistrationPageText = styled.p`
 
 export const ContainerForBlur = styled(Grid)`
     @media screen and (min-width: 1280px) {
-        height: 100vh;
+        height: 720px;
         width: 100%;
         background: rgba(255, 255, 255, 0.4);
         backdrop-filter: blur(50px);

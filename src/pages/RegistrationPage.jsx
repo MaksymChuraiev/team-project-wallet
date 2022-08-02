@@ -5,16 +5,16 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Container from '@mui/material/Container';
 import RegistrationForm from '../components/RegistrationForm/RegistrationForm'
 import RegistrationPageLeft from 'components/RegistrationPageLeft/RegistrationPageLeft';
-import {ContainerForBlur} from '../components/RegistrationPageLeft/RegistrationPageLeft.styled'
+import {ContainerForBlur, GridContainer} from '../components/RegistrationPageLeft/RegistrationPageLeft.styled'
 
 const RegistrationPage = () => {
   
 const theme = createTheme({
   breakpoints: {
     values: {
-      xs: 320,
-      sm: 768,
-      md: 1280,
+      sm: 320,
+      md: 768,
+      lg: 1280,
     },
   },
 })
@@ -22,19 +22,21 @@ const theme = createTheme({
   return (
     <Container>
       <ThemeProvider theme={theme}>
-        <Grid
-          container spacing={0}
+        <GridContainer
+          container spacing={1}
           direction="row"
+          maxWidth="1280px"
           justifyContent="center"
-          alignItems="center">
-          <Grid item xs={12} sm={12} md={5}>
+          alignItems="center"
+        >
+          <Grid item sm={12} md={12} lg={5}>
             <RegistrationPageLeft />
             </Grid>
-            <ContainerForBlur item xs={12} sm={12} md={7}>
+          <ContainerForBlur item sm={12} md={12} lg={7}>
               <RegistrationForm />
-            </ContainerForBlur>
+          </ContainerForBlur>
           
-        </Grid>
+        </GridContainer>
       </ThemeProvider>
       
     </Container>
