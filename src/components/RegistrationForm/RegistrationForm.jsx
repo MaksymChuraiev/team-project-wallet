@@ -4,8 +4,8 @@ import * as yup from 'yup';
 // import { nanoid } from 'nanoid';
 import logo from '../../images/logo.png';
 import icon from '../../images/symbol-defs.svg';
-// import { useDispatch } from 'react-redux';
-// import { register } from 'redux/auth/authOperations';
+import { useDispatch } from 'react-redux';
+import { register } from '../../ReduxX/auth/auth-operations';
 
 import {
   InputLabel,
@@ -22,7 +22,7 @@ const RegistrationForm = () => {
   const [password, setPassword] = useState();
   const [confirmPassword, setConfirmPassword] = useState();
 
-  //  const dispatch = useDispatch();
+   const dispatch = useDispatch();
   const schema = yup.object().shape({
     email: yup.string().required(),
     password: yup.string().min(6).max(12).required(),
@@ -41,7 +41,7 @@ const RegistrationForm = () => {
     console.log(values);
     const { email, password, confirmPassword, name } = values;
 
-    // dispatch(register({ name, email, password }));
+    dispatch(register({ name, email, password }));
     resetForm();
     console.log(email, password, confirmPassword, name);
   };

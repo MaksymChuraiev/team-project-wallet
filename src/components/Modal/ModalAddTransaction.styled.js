@@ -91,7 +91,7 @@ export const ModalTitle = styled.h2`
   }
 `;
 export const SelectContainer = styled.div`
-  display: ${p => (p.type ? 'block' : 'none')};
+  // display: ${p => (p.type ? 'block' : 'none')};
   position: relative;
   margin-top: 40px;
   cursor: pointer;

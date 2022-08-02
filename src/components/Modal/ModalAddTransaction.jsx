@@ -1,15 +1,15 @@
 import React from 'react';
-// import { useDispatch, useSelector } from 'react-redux';
-// import {
-//   addTransaction,
-//   getTransactionsList,
-// } from '../../redux/transactions/transactions-operations';
-// import { getCategoriesList } from '../../redux/transactions/transactions-selectors';
+import { useDispatch, useSelector } from 'react-redux';
+import {
+  addTransaction,
+  getTransactionsList,
+} from '../../ReduxX/transactions/transactions-operations';
+import { getCategoriesList } from '../../ReduxX/transactions/transactions-selectors';
 import Modal from 'react-modal';
 import Select from 'react-select';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-// import { format } from 'date-fns';
+import { format } from 'date-fns';
 
 import { selectStyles } from './selectStyles';
 import { ReactComponent as Close } from '../../icons/close.svg';
@@ -38,31 +38,38 @@ const defaultState = {
   comment: '',
   category: '',
 };
-const categories = {
-  incomes: [],
-  expenses: ['food', 'house', 'children', 'mistress'],
-};
+// const categories = {
+//   income: [],
+//   expense: ['food', 'house', 'children', 'mistress'],
+// };
 
 export function ModalAddTransaction() {
   const [transaction, setTransaction] = React.useState(defaultState);
   const [modalIsOpen, setIsOpen] = React.useState(false);
+  // const [categories, setCategories] = React.useState({});
 
-  //   const dispatch = useDispatch();
-  //   const categories = useSelector(getCategoriesList);
+const dispatch = useDispatch()
+  const categories = useSelector(getCategoriesList)
 
-  //   const fetchCategories = useCallback(async () => {
-  //     try {
-  //       await dispatch(getTransactionsList()).unwrap();
-  //     } catch (error) {
-  //       console.log(error);
-  //     }
-  //   }, [dispatch]);
+  const fetchCategories = React.useCallback(async () => {
+    try {
+      await dispatch(getTransactionsList()).unwrap()
+    } catch (error) {
+      console.log(error)
+    }
+  }, [dispatch])
 
-  //   useEffect(() => {
-  //     if (!categories) {
-  //       fetchCategories();
-  //     }
-  //   }, [categories, fetchCategories]);
+  React.useEffect(() => {
+    if (!categories) {
+      fetchCategories()
+    }
+  }, [categories, fetchCategories])  
+  //   React.useEffect(() => {
+  //     fetch("http://localhost:5000/api/categories")
+  // .then(response => response.json())
+  // .then(categories => setCategories(categories))
+  // .catch(error => console.log(error));
+  //   }, []);
 
   function openModal() {
     setIsOpen(true);
@@ -91,19 +98,18 @@ export function ModalAddTransaction() {
 
   const handleSubmit = async e => {
     e.preventDefault();
-    //  try {
-    //    await dispatch(
-    //      addTransaction({
-    //        ...transaction,
-    //        type: transaction.type ? '-' : '+',
-    //        date: format(transaction.date, 'yyyy-MM-dd'),
-    //      })
-    //    ).unwrap();
-    //    closeModal();
-    //  } catch (e) {
-    //    console.log(e);
-    //  }
-    console.log('submit', e);
+     try {
+       await dispatch(
+         addTransaction({
+           ...transaction,
+           type: transaction.type ? '-' : '+',
+           date: format(transaction.date, 'yyyy-MM-dd'),
+         })
+       ).unwrap();
+       closeModal();
+     } catch (e) {
+       console.log(e);
+     }
   };
 
   return (
@@ -133,8 +139,8 @@ export function ModalAddTransaction() {
               styles={selectStyles(transaction.type)}
               components={{ DropdownIndicator }}
               options={(transaction.type
-                ? categories?.expenses
-                : categories?.incomes
+                ? categories?.expense
+                : categories?.income
               )?.map(option => ({ value: option, label: option }))}
               placeholder="Select a category"
               onChange={option => {
