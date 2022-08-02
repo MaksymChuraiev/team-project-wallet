@@ -1,10 +1,10 @@
-import axios from "axios";
-import { createAsyncThunk } from "@reduxjs/toolkit";
+import axios from 'axios';
+import { createAsyncThunk } from '@reduxjs/toolkit';
 
-import { BACK_END } from "../../assets/API/BACK_END";
+import { BACK_END } from '../../services/BACK_END';
 
 export const fetchTransactions = createAsyncThunk(
-  "transactions/fetchTransactions",
+  'transactions/fetchTransactions',
   async (_, { rejectWithValue }) => {
     try {
       const { data: response } = await axios.get(
@@ -18,7 +18,7 @@ export const fetchTransactions = createAsyncThunk(
 );
 
 export const addTransaction = createAsyncThunk(
-  "transactions/addTransaction",
+  'transactions/addTransaction',
   async (transactionBody, { rejectWithValue }) => {
     try {
       const { data: response } = await axios.post(
@@ -34,7 +34,7 @@ export const addTransaction = createAsyncThunk(
 );
 
 export const fetchTransactionsByCategory = createAsyncThunk(
-  "transactions/fetchTransactionsByCategory",
+  'transactions/fetchTransactionsByCategory',
   async (_, { rejectWithValue }) => {
     try {
       const { data: response } = await axios.get(
@@ -48,7 +48,7 @@ export const fetchTransactionsByCategory = createAsyncThunk(
 );
 
 export const getTransactionDate = createAsyncThunk(
-  "transactions/getTransactionDate",
+  'transactions/getTransactionDate',
   async ({ month, year }, { rejectWithValue }) => {
     try {
       const { data: response } = await axios.get(
@@ -62,12 +62,10 @@ export const getTransactionDate = createAsyncThunk(
 );
 
 export const getTransactionsList = createAsyncThunk(
-  "transactions/getTransactionsList",
+  'transactions/getTransactionsList',
   async (_, { rejectWithValue }) => {
     try {
-      const { data: response } = await axios.get(
-        `${BACK_END}/api/categories`
-      );
+      const { data: response } = await axios.get(`${BACK_END}/api/categories`);
       console.log('oper', response);
       return response;
     } catch (err) {
