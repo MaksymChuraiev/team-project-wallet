@@ -48,22 +48,22 @@ export function ModalAddTransaction() {
   const [modalIsOpen, setIsOpen] = React.useState(false);
   // const [categories, setCategories] = React.useState({});
 
-const dispatch = useDispatch()
-  const categories = useSelector(getCategoriesList)
+  const dispatch = useDispatch();
+  const categories = useSelector(getCategoriesList);
 
   const fetchCategories = React.useCallback(async () => {
     try {
-      await dispatch(getTransactionsList()).unwrap()
+      await dispatch(getTransactionsList()).unwrap();
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
-  }, [dispatch])
+  }, [dispatch]);
 
   React.useEffect(() => {
     if (!categories) {
-      fetchCategories()
+      fetchCategories();
     }
-  }, [categories, fetchCategories])  
+  }, [categories, fetchCategories]);
   //   React.useEffect(() => {
   //     fetch("http://localhost:5000/api/categories")
   // .then(response => response.json())
@@ -98,18 +98,18 @@ const dispatch = useDispatch()
 
   const handleSubmit = async e => {
     e.preventDefault();
-     try {
-       await dispatch(
-         addTransaction({
-           ...transaction,
-           type: transaction.type ? '-' : '+',
-           date: format(transaction.date, 'yyyy-MM-dd'),
-         })
-       ).unwrap();
-       closeModal();
-     } catch (e) {
-       console.log(e);
-     }
+    try {
+      await dispatch(
+        addTransaction({
+          ...transaction,
+          type: transaction.type ? '-' : '+',
+          date: format(transaction.date, 'yyyy-MM-dd'),
+        })
+      ).unwrap();
+      closeModal();
+    } catch (e) {
+      console.log(e);
+    }
   };
 
   return (

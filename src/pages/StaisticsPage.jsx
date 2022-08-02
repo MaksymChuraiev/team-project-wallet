@@ -1,3 +1,10 @@
+// import { useState } from 'react';
+
+// import { UserData } from 'components/Statistics/testData';
+// import { BarChart } from './BarChart';
+// import { MyVersion } from './InputSelect/MyVersion';
+// import { MyVersionYears } from './InputSelect/MyVersionYears';
+// import { useEffect } from 'react';
 import { Diagram } from 'components/Statistics/Diagram/Diagram';
 import { SelectCategories } from 'components/Statistics/SelectCategories/SelectCategoies';
 import { CategoriesList } from 'components/Statistics/CategoriesList/CetegoriesList';
@@ -31,7 +38,11 @@ import {
 //   { name: 2021, type: 2021 },
 //   { name: 2022, type: 2022 },
 // ];
-export const Statistics = () => {
+
+// console.log(months, years);
+export const StatisticsPage = () => {
+  // const transCategories = useSelector(transactionSelector.getCategoriesList);
+  // console.log('transCategories', transCategories);
   return (
     <StatisticsContainer>
       <GraphicsContainer>

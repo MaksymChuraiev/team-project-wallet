@@ -5,7 +5,7 @@ import ProtectedRoute from './Routes/ProtectedRoute';
 import HomeTabPage from 'pages/HomeTabPage';
 
 // import { Home } from 'components/Routes/Home';
-import { Statistics } from './Routes/Staistics';
+import { StatisticsPage } from 'pages/StaisticsPage';
 
 const RegisterPage = lazy(() => import('../pages/RegistrationPage'));
 const LoginPage = lazy(() => import('../pages/LoginPage.jsx'));
@@ -38,7 +38,7 @@ export const App = () => {
               path="statistics"
               element={
                 <ProtectedRoute>
-                  <Statistics />
+                  <StatisticsPage />
                 </ProtectedRoute>
               }
             />

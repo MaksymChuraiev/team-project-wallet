@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-import { MyVersion } from './MyVersion';
-import { MyVersionYears } from './MyVersionYears';
+import { SelectMonths } from './SelectMonths';
+import { SelectYears } from './SelectYears';
 import {
   SelectContainer,
   Select,
@@ -66,7 +66,7 @@ export const SelectCategories = () => {
             Months
           </SelectName>
           {dropIsOpen && (
-            <MyVersion
+            <SelectMonths
               name={'months'}
               inputMonths={inputMonths}
               inputIsOpen={inputIsOpen}
@@ -100,7 +100,7 @@ export const SelectCategories = () => {
             Years
           </SelectName>
           {dropIsOpenYears && (
-            <MyVersionYears
+            <SelectYears
               name={'years'}
               inputYears={inputYears}
               inputIsOpen={inputIsOpenYears}
