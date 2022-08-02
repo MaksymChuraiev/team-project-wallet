@@ -3,11 +3,7 @@ import bgImage from '../../images/iMac-min.png';
 import tabletBg from '../../images/tablet-bg-min.png';
 
 export const LayoutStyled = styled.div`
-  /* position: fixed;
-  width: 100vw;
-  height: 100vh;
-  margin: 0 auto;
-  border: 2px solid red; */
+  
 
   @media screen and (min-width: 768px) {
     position: fixed;
@@ -21,12 +17,27 @@ export const LayoutStyled = styled.div`
     background-image: url(${tabletBg});
     background-repeat: no-repeat;
     background-size: cover;
-    left: 50%;
-    transform: translateX(-50%);
   }
   @media screen and (min-width: 1280px) {
     background-image: url(${bgImage});
-
-    /* border: 2px solid red; */
   }
 `;
+
+export const Container = styled.div`
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 320px;
+  height: 568px;
+/* border: 2px solid red; */
+
+  @media screen and (min-width: 768px) {
+    width: 768px;
+    height: 1024px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 1280px;
+    height: 720px;
+  }
+`; 
