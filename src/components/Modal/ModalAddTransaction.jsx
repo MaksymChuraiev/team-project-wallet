@@ -51,6 +51,7 @@ export function ModalAddTransaction() {
   // const [categories, setCategories] = React.useState({});
 
   const dispatch = useDispatch();
+
   const categories = useSelector(transactionSelectors.getCategories);
 
   useEffect(() => {
@@ -70,6 +71,7 @@ export function ModalAddTransaction() {
   //     fetchCategories();
   //   }
   // }, [categories, fetchCategories]);
+
   //   React.useEffect(() => {
   //     fetch("http://localhost:5000/api/categories")
   // .then(response => response.json())
