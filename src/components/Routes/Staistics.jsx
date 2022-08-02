@@ -1,6 +1,6 @@
-import { useState } from 'react';
+// import { useState } from 'react';
 
-import { UserData } from 'components/Statistics/testData';
+// import { UserData } from 'components/Statistics/testData';
 // import { BarChart } from './BarChart';
 // import { MyVersion } from './InputSelect/MyVersion';
 // import { MyVersionYears } from './InputSelect/MyVersionYears';
@@ -38,6 +38,8 @@ const years = [
   { name: 2021, type: 2021 },
   { name: 2022, type: 2022 },
 ];
+
+console.log(months, years);
 export const Statistics = () => {
   return (
     <StatisticsContainer>

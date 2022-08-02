@@ -1,7 +1,12 @@
-import { DashboardIcon } from 'components/DashboardIcon/DashboardIcon';
+// import { DashboardIcon } from 'components/DashboardIcon/DashboardIcon';
 import { Header } from 'components/Header/Header';
-import { Suspense } from 'react';
-import { Routes, Route, Outlet, NavLink } from 'react-router-dom';
+// import { Suspense } from 'react';
+import {
+  // Routes,
+  // Route,
+  Outlet,
+  // NavLink
+} from 'react-router-dom';
 import {
   MainContainer,
   TableAndNavigationContainer,
