@@ -1,8 +1,23 @@
+import React from 'react';
+import { useDispatch } from 'react-redux';
+import { logIn } from '../../ReduxX/auth/auth-operations';
+
 import { Formik, ErrorMessage } from 'formik';
 import * as yup from 'yup';
-import svgMail from "../LoginForm/Vector.svg";
-import svgLock from "../LoginForm/Vector-lock.svg";
-import { RegisterBtn, LogForm, LogBtns, LoginBtn, Input, Svg, InputField, InputLabel, ErrorText, SvgWrapper } from './LoginForm.styled';
+import svgMail from '../LoginForm/Vector.svg';
+import svgLock from '../LoginForm/Vector-lock.svg';
+import {
+  RegisterBtn,
+  LogForm,
+  LogBtns,
+  LoginBtn,
+  Input,
+  Svg,
+  InputField,
+  InputLabel,
+  ErrorText,
+  SvgWrapper,
+} from './LoginForm.styled';
 import { Link } from 'react-router-dom';
 
 const loginSchema = yup.object().shape({
@@ -15,7 +30,6 @@ const initialValues = {
   password: '',
 };
 
-
 const FormError = ({ name }) => {
   return (
     <ErrorMessage
@@ -26,9 +40,14 @@ const FormError = ({ name }) => {
 };
 
 export const LoginForm = () => {
+     const dispatch = useDispatch();
+
   const handleSubmit = (values, { resetForm }) => {
-    console.log(values);
+    const { email, password } = values;
+
+    dispatch(logIn({ email, password }));
     resetForm();
+    console.log(email, password);
   };
 
   return (
@@ -40,14 +59,18 @@ export const LoginForm = () => {
       <LogForm autoComplete="off">
         <InputLabel htmlFor="email">
           <InputField>
-          <SvgWrapper><Svg src={svgMail} alt="convert" /></SvgWrapper>
+            <SvgWrapper>
+              <Svg src={svgMail} alt="convert" />
+            </SvgWrapper>
             <Input type="text" name="email" placeholder="E-mail" />
           </InputField>
           <FormError name="email" />
         </InputLabel>
         <InputLabel htmlFor="password">
           <InputField>
-          <SvgWrapper><Svg src={svgLock} alt="lock" /></SvgWrapper>
+            <SvgWrapper>
+              <Svg src={svgLock} alt="lock" />
+            </SvgWrapper>
             <Input type="password" name="password" placeholder="Password" />
           </InputField>
           <FormError name="password" />
@@ -55,11 +78,10 @@ export const LoginForm = () => {
         <LogBtns>
           <LoginBtn type="submit">log in</LoginBtn>
           <Link to="/registration">
-          <RegisterBtn type="button">register</RegisterBtn>
+            <RegisterBtn type="button">register</RegisterBtn>
           </Link>
         </LogBtns>
       </LogForm>
     </Formik>
   );
 };
-

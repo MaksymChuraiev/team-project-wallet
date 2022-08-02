@@ -4,6 +4,7 @@ import transactionOperation from './transaction-operation';
 const initialState = {
   items: [],
   isLoading: true,
+  //   isModalAddTransOpen: false,
 };
 
 const transactionsSlice = createSlice({
@@ -40,18 +41,18 @@ const transactionsSlice = createSlice({
     [transactionOperation.deleteTransactions.rejected]: state => {
       state.isLoading = false;
     },
-    [transactionOperation.updateTransactions.fulfilled]: (state, action) => {
-      state.items.map(contact =>
-        contact.id === action.payload.id ? action.payload : contact
-      );
-      state.isLoading = false;
-    },
-    [transactionOperation.updateTransactions.pending]: state => {
-      state.isLoading = true;
-    },
-    [transactionOperation.updateTransactions.rejected]: state => {
-      state.isLoading = false;
-    },
+    // [transactionOperation.updateTransactions.fulfilled]: (state, action) => {
+    //   state.items.map(contact =>
+    //     contact.id === action.payload.id ? action.payload : contact
+    //   );
+    //   state.isLoading = false;
+    // },
+    // [transactionOperation.updateTransactions.pending]: state => {
+    //   state.isLoading = true;
+    // },
+    // [transactionOperation.updateTransactions.rejected]: state => {
+    //   state.isLoading = false;
+    // },
   },
 });
 

@@ -1,7 +1,8 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-axios.defaults.baseURL = 'http://localhost:5000/api'; //----------------------------------?????????????????????????
+axios.defaults.baseURL = 'https://wallet-server-api.herokuapp.com/api';
+
 
 const token = {
   set(token) {
@@ -12,13 +13,14 @@ const token = {
   },
 };
 
-const register = createAsyncThunk(
+export const register = createAsyncThunk(
   'auth/register',
   async (credentials, { rejectWithValue }) => {
     try {
-      const { data } = await axios.post('/users/signup', credentials);
-      token.set(data.token);
-      return data;
+      const { data } = await axios.post('/auth/signup', credentials);
+      // token.set(data.data.token);
+      return data.data;
+
     } catch (error) {
       return rejectWithValue(error);
     }
@@ -29,9 +31,10 @@ const logIn = createAsyncThunk(
   'auth/login',
   async (credentials, { rejectWithValue }) => {
     try {
-      const { data } = await axios.post('/users/signin', credentials);
-      token.set(data.token);
-      return data;
+      const { data } = await axios.post('/auth/signin', credentials);
+      token.set(data.data.token);
+
+      return data.data;
     } catch (error) {
       return rejectWithValue(error);
     }
@@ -42,7 +45,7 @@ const logOut = createAsyncThunk(
   'auth/logout',
   async (_, { rejectWithValue }) => {
     try {
-      await axios.post('/users/logout');
+      await axios.post('/auth/logout');
       token.unset();
     } catch (error) {
       return rejectWithValue(error);
@@ -61,7 +64,7 @@ const currentUser = createAsyncThunk('auth/refresh', async (_, thunkAPI) => {
   token.set(persistedToken);
 
   try {
-    const { data } = await axios.get('/users/current'); //---------------------------???????????
+    const { data } = await axios.get('/users/current');
     return data;
   } catch (error) {
     return thunkAPI.rejectWithValue(error);
@@ -69,7 +72,7 @@ const currentUser = createAsyncThunk('auth/refresh', async (_, thunkAPI) => {
 });
 
 const operations = {
-  register,
+  // register,
   logIn,
   logOut,
   currentUser,
