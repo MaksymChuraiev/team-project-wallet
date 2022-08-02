@@ -14,7 +14,7 @@ background-color: #fff;
         max-width: 533px;
         height: 616;
         margin: 48px auto;
-        padding: 40px 60px 66px 65px;
+        padding: 40px 60px 46px 65px;
         box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
         border-radius: 20px;
     }
@@ -37,7 +37,7 @@ export const ContactField = styled(Field)`
   width: 100%;
   display: flex;
   padding-bottom: 10px;
-  margin-top: 40px;
+  /* margin-top: 40px; */
   border: transparent;
 
 
