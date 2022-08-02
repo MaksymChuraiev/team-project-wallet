@@ -1,3 +1,7 @@
+import React from 'react';
+import { useDispatch } from 'react-redux';
+import { logIn } from '../../ReduxX/auth/auth-operations';
+
 import { Formik, ErrorMessage } from 'formik';
 import * as yup from 'yup';
 import svgMail from '../LoginForm/Vector.svg';
@@ -36,9 +40,14 @@ const FormError = ({ name }) => {
 };
 
 export const LoginForm = () => {
+     const dispatch = useDispatch();
+
   const handleSubmit = (values, { resetForm }) => {
-    console.log(values);
+    const { email, password } = values;
+
+    dispatch(logIn({ email, password }));
     resetForm();
+    console.log(email, password);
   };
 
   return (
