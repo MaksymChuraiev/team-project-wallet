@@ -4,16 +4,16 @@ import { ModalAddTransaction } from '../Modal/ModalAddTransaction';
 import { LayoutStyled } from './Layout.styled';
 
 export const Layout = () => {
-	return (
-		<>
-			<LayoutStyled>
-				{/* <h1>Layout</h1> */}
-				<ModalAddTransaction />
-			</LayoutStyled>
+  return (
+    <>
+      <LayoutStyled>
+        {/* <h1>Layout</h1> */}
+        <ModalAddTransaction />
+      </LayoutStyled>
 
-			<Suspense fallback={<p>Loading...</p>}>
-				<Outlet />
-			</Suspense>
-		</>
-	);
+      <Suspense fallback={<p>Loading...</p>}>
+        <Outlet />
+      </Suspense>
+    </>
+  );
 };

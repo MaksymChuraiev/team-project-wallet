@@ -40,7 +40,7 @@ const FormError = ({ name }) => {
 };
 
 export const LoginForm = () => {
-     const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
   const handleSubmit = (values, { resetForm }) => {
     const { email, password } = values;
