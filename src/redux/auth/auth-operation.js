@@ -74,7 +74,7 @@ const currentUser = createAsyncThunk('auth/refresh', async (_, thunkAPI) => {
 const operations = {
   register,
   logIn,
-  // logOut,
+  logOut,
   currentUser,
 };
 

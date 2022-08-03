@@ -8,22 +8,16 @@ import { ButtonAddTransactions } from '../ButtonAddTransactions/ButtonAddTransac
 
 import { LogoutModal } from 'components/Modal/LogoutModal';
 
-import { LayoutStyled, Container } from './Layout.styled';
-
+import { LayoutStyled } from './Layout.styled';
 
 export const Layout = () => {
-
-	
-	return (
-		<>
-			<LayoutStyled>
-				<Container />
-    <ButtonAddTransactions />
-				<ModalAddTransaction />
-				<LogoutModal modalState='true' />
-			</LayoutStyled>
-
-
+  return (
+    <>
+      <LayoutStyled>
+        <ButtonAddTransactions />
+        <ModalAddTransaction />
+        <LogoutModal modalState="true" />
+      </LayoutStyled>
 
       <Suspense fallback={<p>Loading...</p>}>
         <Outlet />
