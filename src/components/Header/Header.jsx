@@ -1,5 +1,6 @@
 import LogoSvg from '../../icons/logo.svg';
 import ExitSvg from '../../icons/exit.svg';
+import { useState } from 'react';
 import {
 	HeaderWraper,
 	HeaderCastom,
@@ -15,6 +16,13 @@ import {
 
 export const Header = () => {
 
+	const [setIsOpen] = useState(false);
+
+	const handleClick = () => {
+		// console.log("Click!");
+		setIsOpen(true);
+	}
+	console.log(handleClick);
 	return (
 		<HeaderWraper>
 			<HeaderCastom>
