@@ -3,7 +3,6 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 
 axios.defaults.baseURL = 'https://wallet-server-api.herokuapp.com/api';
 
-
 const token = {
   set(token) {
     axios.defaults.headers.common.Authorization = `Bearer ${token}`;
@@ -19,8 +18,8 @@ export const register = createAsyncThunk(
     try {
       const { data } = await axios.post('/auth/signup', credentials);
       // token.set(data.data.token);
+      console.log(data.data);
       return data.data;
-
     } catch (error) {
       return rejectWithValue(error);
     }
@@ -65,6 +64,7 @@ const currentUser = createAsyncThunk('auth/refresh', async (_, thunkAPI) => {
 
   try {
     const { data } = await axios.get('/users/current');
+    console.log(data);
     return data;
   } catch (error) {
     return thunkAPI.rejectWithValue(error);
@@ -72,9 +72,9 @@ const currentUser = createAsyncThunk('auth/refresh', async (_, thunkAPI) => {
 });
 
 const operations = {
-  // register,
+  register,
   logIn,
-  // logOut,
+  logOut,
   currentUser,
 };
 

@@ -5,12 +5,12 @@ import { useNavigate } from 'react-router-dom';
 import Modal from 'react-modal';
 import Button from 'components/Button/Button';
 import {
-    ModalStyled,
-    ButtonCloseStyled,
-    ModalTitle,
-} from './ModalAddTransaction.styled';
+  ModalStyled,
+  ButtonCloseStyled,
+  ModalTitle,
+} from './ModalAddTransaction/ModalAddTransaction.styled';
 import { ReactComponent as Close } from '../../icons/close.svg';
-import {logOut} from '../../redux/auth/auth-operation'
+import { logOut } from '../../redux/auth/auth-operation';
 
 Modal.setAppElement('#root');
 

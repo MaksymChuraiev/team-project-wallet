@@ -2,6 +2,7 @@ import LogoSvg from '../../icons/logo.svg';
 import ExitSvg from '../../icons/exit.svg';
 import { useState } from 'react';
 import {
+	HeaderWraper,
 	HeaderCustom,
 	LogoWrapper,
 	Logo,
@@ -25,7 +26,8 @@ export const Header = () => {
 	
 	return (
 		<div>
-			<HeaderCustom>
+			<HeaderWraper>
+				<HeaderCustom>
 			<LogoWrapper>
 				<Logo src={LogoSvg} alt="Wallet Logo" />
 				<LogoText >Wallet</LogoText>
@@ -43,10 +45,11 @@ export const Header = () => {
 				</ExitWrapper>
 			</HeaderRight>
 			</HeaderCustom >
+			</HeaderWraper>
+			
 			<LogoutModal active={modalActive} setActive={setModalActive}/>
 		</div>
 		
 	)
 }
-
 

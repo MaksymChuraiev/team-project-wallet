@@ -1,4 +1,5 @@
 import {
+	MobileTransactions,
 	MobileTableBox,
 	Row,
 	RowName,
@@ -8,7 +9,7 @@ import {
 
 export const MobileTab = ({ items }) => {
 	return (
-		<ul>
+		<MobileTransactions>
 			{items.map(({ id, Date, Type, Category, Comment, Sum, Balance }) => (
 				<MobileTableBox key={id}>
 					<Row>
@@ -36,6 +37,6 @@ export const MobileTab = ({ items }) => {
 						<RowValue>{Balance}</RowValue>
 					</Row>
 				</MobileTableBox>))}
-		</ul>
+		</MobileTransactions>
 	)
 }

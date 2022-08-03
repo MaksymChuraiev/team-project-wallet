@@ -1,25 +1,32 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice} from '@reduxjs/toolkit';
 import transactionOperation from './transaction-operation';
 
 const initialState = {
   items: [],
   isLoading: true,
-  //   isModalAddTransOpen: false,
+  categories: {},
+  totalTransactions: {},
+  isModalAddTransOpen: false
 };
 
 const transactionsSlice = createSlice({
   name: 'transactions',
   initialState,
+  reducers: {
+     ModalAddTrans(state, action) {
+      state.isModalAddTransOpen = action.payload;
+    },
+  },
 
   extraReducers: {
-    [transactionOperation.fetchTransactions.fulfilled]: (state, action) => {
+    [transactionOperation.getAllTransactions.fulfilled]: (state, action) => {
       state.items = action.payload;
       state.isLoading = false;
     },
-    [transactionOperation.fetchTransactions.pending]: state => {
+    [transactionOperation.getAllTransactions.pending]: state => {
       state.isLoading = true;
     },
-    [transactionOperation.fetchTransactions.rejected]: (state, action) => {
+    [transactionOperation.getAllTransactions.rejected]: (state, action) => {
       state.isLoading = false;
     },
     [transactionOperation.addTransactions.fulfilled]: (state, action) => {
@@ -41,6 +48,27 @@ const transactionsSlice = createSlice({
     [transactionOperation.deleteTransactions.rejected]: state => {
       state.isLoading = false;
     },
+    [transactionOperation.getByDate.fulfilled]: (state, action) => {
+      state.isLoading = false;
+      state.totalTransactions = action.payload;
+    },
+    [transactionOperation.getByDate.pending]: state => {
+      state.isLoading = true;
+    },
+    [transactionOperation.getByDate.rejected]: state => {
+      state.isLoading = false;
+    },
+    [transactionOperation.getCategory.fulfilled]: (state, { payload }) => {
+      state.isLoading = false;
+      state.categories = payload;
+    },
+    [transactionOperation.getCategory.pending]: state => {
+      state.isLoading = true;
+    },
+    [transactionOperation.getCategory.rejected]: state => {
+      state.isLoading = false;
+    },
+
     // [transactionOperation.updateTransactions.fulfilled]: (state, action) => {
     //   state.items.map(contact =>
     //     contact.id === action.payload.id ? action.payload : contact

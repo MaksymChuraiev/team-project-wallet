@@ -7,9 +7,11 @@ export const TableMain = styled.table`
 	@media screen and (min-width: 768px) {
 		display: block;
     width: 704px;
+		margin-top: 20px;
   }
   @media screen and (min-width: 1280px) {
     width: 715px;
+		margin-top: 46px;
   }
 `;
 
