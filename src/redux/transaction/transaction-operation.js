@@ -17,7 +17,6 @@ const addTransactions = createAsyncThunk(
     try {
       const { data } = await axios.post('/transactions', transaction);
       thunkAPI.dispatch(getAllTransactions());
-
       return data;
     } catch (error) {
       thunkAPI.rejectWithValue(error);
@@ -68,8 +67,7 @@ const getCategory = createAsyncThunk(
   }
 );
 
- const  ModalAddTrans = createAction('transactions/ModalAddTrans');
-
+const ModalAddTrans = createAction('transactions/ModalAddTrans');
 
 // const updateTransactions = createAsyncThunk(
 //   'transactions/update',
@@ -92,7 +90,7 @@ const transactionsOperation = {
   deleteTransactions,
   getByDate,
   getCategory,
-  ModalAddTrans
+  ModalAddTrans,
 };
 
 export default transactionsOperation;
