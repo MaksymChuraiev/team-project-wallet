@@ -14,4 +14,5 @@ export const Balance = () => {
 			<BalanceSumm>&#8372;{balance}</BalanceSumm>
 		</BalanceWrapper>
 	)
+
 }

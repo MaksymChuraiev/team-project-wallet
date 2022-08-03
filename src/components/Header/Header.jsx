@@ -1,6 +1,7 @@
 import LogoSvg from '../../icons/logo.svg';
 import ExitSvg from '../../icons/exit.svg';
 import {
+	HeaderWraper,
 	HeaderCastom,
 	LogoWrapper,
 	Logo,
@@ -15,23 +16,25 @@ import {
 export const Header = () => {
 
 	return (
-		<HeaderCastom>
-			<LogoWrapper>
-				<Logo src={LogoSvg} alt="Wallet Logo" />
-				<LogoText >Wallet</LogoText>
-			</LogoWrapper>
+		<HeaderWraper>
+			<HeaderCastom>
+				<LogoWrapper>
+					<Logo src={LogoSvg} alt="Wallet Logo" />
+					<LogoText >Wallet</LogoText>
+				</LogoWrapper>
 
-			<HeaderRight>
-				<UserName>
-					Name
-				</UserName>
-				<ExitWrapper>
-					<ExitLogo src={ExitSvg} alt="Exit" />
-					<ExitText>
-						Exit
-					</ExitText>
-				</ExitWrapper>
-			</HeaderRight>
-		</HeaderCastom >
+				<HeaderRight>
+					<UserName>
+						Name
+					</UserName>
+					<ExitWrapper>
+						<ExitLogo src={ExitSvg} alt="Exit" />
+						<ExitText>
+							Exit
+						</ExitText>
+					</ExitWrapper>
+				</HeaderRight>
+			</HeaderCastom >
+		</HeaderWraper>
 	)
 }

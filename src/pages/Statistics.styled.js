@@ -9,9 +9,6 @@ export const StatisticsContainer = styled.div`
     margin-top: 32px;
     align-items: flex-start;
   }
-  @media screen and (min-width: 1280px) {
-    padding-left: 69px;
-  }
 `;
 export const GraphicsContainer = styled.div`
   width: 100%;
