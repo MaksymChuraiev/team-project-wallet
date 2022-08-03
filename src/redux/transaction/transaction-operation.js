@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { createAsyncThunk } from '@reduxjs/toolkit';
+import { createAsyncThunk, createAction } from '@reduxjs/toolkit';
 
 const getAllTransactions = createAsyncThunk('transactions/getAll', async () => {
   try {
@@ -17,7 +17,6 @@ const addTransactions = createAsyncThunk(
     try {
       const { data } = await axios.post('/transactions', transaction);
       thunkAPI.dispatch(getAllTransactions());
-
       return data;
     } catch (error) {
       thunkAPI.rejectWithValue(error);
@@ -61,13 +60,14 @@ const getCategory = createAsyncThunk(
   async (_, { rejectWithValue }) => {
     try {
       const { data: response } = await axios.get('/categories');
-      console.log(response);
       return response;
     } catch (err) {
       return rejectWithValue(err.response.data);
     }
   }
 );
+
+const ModalAddTrans = createAction('transactions/ModalAddTrans');
 
 // const updateTransactions = createAsyncThunk(
 //   'transactions/update',
@@ -90,6 +90,7 @@ const transactionsOperation = {
   deleteTransactions,
   getByDate,
   getCategory,
+  ModalAddTrans,
 };
 
 export default transactionsOperation;

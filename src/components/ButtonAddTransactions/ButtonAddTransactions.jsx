@@ -1,4 +1,6 @@
+import { useDispatch } from "react-redux";
 import styled from '@emotion/styled';
+import transactionsOperation from "../../redux/transaction/transaction-operation";
 import { ReactComponent as Plus } from '../../icons/plus.svg';
 
 export const ButtonAdd = styled.button`
@@ -34,10 +36,13 @@ export const ButtonAdd = styled.button`
   }
 `;
 
-export function ButtonAddTransactions({ openModal }) {
-  return (
-    <ButtonAdd type="button" onClick={openModal}>
+export function ButtonAddTransactions() {
+  const dispatch = useDispatch();
+    return (
+      <ButtonAdd type="button"
+        onClick={() => dispatch(transactionsOperation.ModalAddTrans(true))}>
       <Plus />
     </ButtonAdd>
   );
+
 }
