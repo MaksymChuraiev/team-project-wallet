@@ -29,7 +29,7 @@ export const Container = styled.div`
   transform: translateX(-50%);
   width: 320px;
   height: 568px;
-/* border: 2px solid red; */
+ /* border: 2px solid red; */
 
   @media screen and (min-width: 768px) {
     width: 768px;
