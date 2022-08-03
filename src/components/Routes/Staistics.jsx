@@ -2,6 +2,15 @@ import { Diagram } from 'components/Statistics/Diagram/Diagram';
 import { SelectCategories } from 'components/Statistics/SelectCategories/SelectCategoies';
 import { CategoriesList } from 'components/Statistics/CategoriesList/CetegoriesList';
 
+import { useState, useEffect } from 'react';
+import { useSelect, useDispatch } from '@mui/base';
+import transactionSelectors from 'redux/transaction/transaction-selectors';
+import {
+  getCategory,
+  getByDate,
+  getAllTransactions,
+} from 'redux/transaction/transaction-operation';
+
 import {
   StatisticsContainer,
   GraphicsContainer,
@@ -32,6 +41,19 @@ import {
 //   { name: 2022, type: 2022 },
 // ];
 export const Statistics = () => {
+  console.log('123');
+  // console.log(qwe);
+  const qwe = useSelect(transactionSelectors.getTransaction());
+  useEffect(() => {
+    // dispatch(getAllTransactions());
+    const a = async () => {
+      const b = await getCategory();
+      console.log(b);
+    };
+    a();
+    console.log('refresh');
+  });
+
   return (
     <StatisticsContainer>
       <GraphicsContainer>

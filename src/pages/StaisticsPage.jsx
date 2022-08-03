@@ -9,6 +9,11 @@ import { Diagram } from 'components/Statistics/Diagram/Diagram';
 import { SelectCategories } from 'components/Statistics/SelectCategories/SelectCategoies';
 import { CategoriesList } from 'components/Statistics/CategoriesList/CetegoriesList';
 
+import { useState, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import transactionSelectors from 'redux/transaction/transaction-selectors';
+import transactionsOperation from 'redux/transaction/transaction-operation';
+
 import {
   StatisticsContainer,
   GraphicsContainer,
@@ -41,8 +46,21 @@ import {
 
 // console.log(months, years);
 export const StatisticsPage = () => {
-  // const transCategories = useSelector(transactionSelector.getCategoriesList);
-  // console.log('transCategories', transCategories);
+  const dispatch = useDispatch();
+  const categories = useSelector(transactionSelectors.getCategories);
+  const allTransaction = useSelector(transactionSelectors.getTransaction);
+  useEffect(() => {
+    dispatch(transactionsOperation.getCategory());
+  }, []);
+  useEffect(() => {
+    // dispatch(transactionsOperation.getAllTransactions());
+    const a = fetch(
+      'https://wallet-server-api.herokuapp.com/api/transactions'
+    ).then(console.log);
+  }, []);
+  console.log(categories);
+  console.log(allTransaction);
+  console.log('statistics');
   return (
     <StatisticsContainer>
       <GraphicsContainer>
