@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+
 import { useDispatch, useSelector } from 'react-redux';
-import {
-  addTransaction,
-  getTransactionsList,
-} from '../../ReduxX/transactions/transactions-operations';
-import { getCategoriesList } from '../../ReduxX/transactions/transactions-selectors';
+import { transactionOperation, transactionSelectors } from 'redux/transaction';
+// import {
+//   addTransaction,
+//   getTransactionsList,
+// } from '../../ReduxX/transactions/transactions-operations';
+// import { getCategoriesList } from '../../ReduxX/transactions/transactions-selectors';
 import Modal from 'react-modal';
 import Select from 'react-select';
 import DatePicker from 'react-datepicker';
@@ -48,22 +50,28 @@ export function ModalAddTransaction() {
   const [modalIsOpen, setIsOpen] = React.useState(false);
   // const [categories, setCategories] = React.useState({});
 
-const dispatch = useDispatch()
-  const categories = useSelector(getCategoriesList)
+  const dispatch = useDispatch();
 
-  const fetchCategories = React.useCallback(async () => {
-    try {
-      await dispatch(getTransactionsList()).unwrap()
-    } catch (error) {
-      console.log(error)
-    }
-  }, [dispatch])
+  const categories = useSelector(transactionSelectors.getCategories);
 
-  React.useEffect(() => {
-    if (!categories) {
-      fetchCategories()
-    }
-  }, [categories, fetchCategories])  
+  useEffect(() => {
+    dispatch(transactionOperation.getCategory()).unwrap();
+  }, [dispatch]);
+
+  // const fetchCategories = React.useCallback(async () => {
+  //   try {
+  //     await dispatch(transactionSelectors.getCategories()).unwrap();
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // }, [dispatch]);
+
+  // React.useEffect(() => {
+  //   if (!categories) {
+  //     fetchCategories();
+  //   }
+  // }, [categories, fetchCategories]);
+
   //   React.useEffect(() => {
   //     fetch("http://localhost:5000/api/categories")
   // .then(response => response.json())
@@ -81,6 +89,7 @@ const dispatch = useDispatch()
   }
 
   const handleInputChange = event => {
+    console.log(event.target.value);
     const name = event.target.name;
     const value =
       event.target.type === 'checkbox'
@@ -98,18 +107,18 @@ const dispatch = useDispatch()
 
   const handleSubmit = async e => {
     e.preventDefault();
-     try {
-       await dispatch(
-         addTransaction({
-           ...transaction,
-           type: transaction.type ? '-' : '+',
-           date: format(transaction.date, 'yyyy-MM-dd'),
-         })
-       ).unwrap();
-       closeModal();
-     } catch (e) {
-       console.log(e);
-     }
+    try {
+      await dispatch(
+        transactionOperation.addTransactions({
+          ...transaction,
+          type: transaction.type ? '-' : '+',
+          date: format(transaction.date, 'yyyy-MM-dd'),
+        })
+      ).unwrap();
+      closeModal();
+    } catch (e) {
+      console.log(e);
+    }
   };
 
   return (

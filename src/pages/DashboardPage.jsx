@@ -1,43 +1,58 @@
-// import { DashboardIcon } from 'components/DashboardIcon/DashboardIcon';
 import { Header } from 'components/Header/Header';
-// import { Suspense } from 'react';
-import {
-  // Routes,
-  // Route,
-  Outlet,
-  // NavLink
-} from 'react-router-dom';
-import {
-  MainContainer,
-  TableAndNavigationContainer,
-  NavigationContainer,
-  NavHomeIcon,
-  NavStatisticsIcon,
-  NavBankTableIcon,
-  NavLinkStyled,
-  ClientCashContainer,
-  ClientCashContainerText,
-  ClientCashContainerBalance,
-  SymbolDollar,
-  BankCashContainer,
-  TableHead,
-  TableBody,
-  TableRow,
-  TableData,
-  TableDataHead,
-} from './Dashboard.styled';
+
+import { Outlet } from 'react-router-dom';
+// import {
+//   MainContainer,
+//   TableAndNavigationContainer,
+//   NavigationContainer,
+//   NavHomeIcon,
+//   NavStatisticsIcon,
+//   NavBankTableIcon,
+//   NavLinkStyled,
+//   ClientCashContainer,
+//   ClientCashContainerText,
+//   ClientCashContainerBalance,
+//   SymbolDollar,
+//   BankCashContainer,
+//   TableHead,
+//   TableBody,
+//   TableRow,
+//   TableData,
+//   TableDataHead,
+// } from './Dashboard.styled';
+
+import { Balance } from 'components/Balance/Balance';
+import { Currency } from 'components/Currency/Currency';
+// import { Header } from 'components/Header/Header';
+// import { HomeTab } from 'components/HomeTab/HomeTab';
+import { Navigation } from 'components/Navigation/Navigation';
+
+import { Container, TabletTop, TabletLeft } from './HomeTab.styled';
 
 const DashboardPage = () => {
   return (
     <>
-      <Header />
+      <>
+        <Header />
+        <Container>
+          <TabletTop>
+            <TabletLeft>
+              <Navigation />
+              <Balance />
+              <Currency />
+            </TabletLeft>
+          </TabletTop>
+          <Outlet />
+        </Container>
+      </>
+      {/* <Header />
 
       <main style={{ display: 'flex' }}>
         <MainContainer>
           <TableAndNavigationContainer>
             <div style={{ display: 'flex', flexDirection: 'column' }}>
               <NavigationContainer>
-                <NavLinkStyled to="Home">
+                <NavLinkStyled to="home-tab">
                   <NavHomeIcon />
                   Home
                 </NavLinkStyled>
@@ -56,9 +71,9 @@ const DashboardPage = () => {
                 </ClientCashContainerBalance>
               </ClientCashContainer>
             </div>
-            <BankCashContainer>
-              {/* BankCash table component */}
-              <TableHead>
+            <BankCashContainer> */}
+      {/* BankCash table component */}
+      {/* <TableHead>
                 <TableRow>
                   <TableDataHead>Curensy</TableDataHead>
                   <TableDataHead>Purchase</TableDataHead>
@@ -86,7 +101,7 @@ const DashboardPage = () => {
           </TableAndNavigationContainer>
           <Outlet />
         </MainContainer>
-      </main>
+      </main> */}
     </>
   );
 };

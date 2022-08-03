@@ -16,9 +16,10 @@ export const Layout = () => {
 				<LogoutModal modalState='true' />
 			</LayoutStyled>
 
-			<Suspense fallback={<p>Loading...</p>}>
-				<Outlet />
-			</Suspense>
-		</>
-	);
+
+      <Suspense fallback={<p>Loading...</p>}>
+        <Outlet />
+      </Suspense>
+    </>
+  );
 };
