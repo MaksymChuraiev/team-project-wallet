@@ -1,6 +1,8 @@
 import LogoSvg from '../../icons/logo.svg';
 import ExitSvg from '../../icons/exit.svg';
+import { useState } from 'react';
 import {
+	HeaderWraper,
 	HeaderCastom,
 	LogoWrapper,
 	Logo,
@@ -14,24 +16,39 @@ import {
 
 export const Header = () => {
 
-	return (
-		<HeaderCastom>
-			<LogoWrapper>
-				<Logo src={LogoSvg} alt="Wallet Logo" />
-				<LogoText >Wallet</LogoText>
-			</LogoWrapper>
+	const [setIsOpen] = useState(false);
 
-			<HeaderRight>
-				<UserName>
-					Name
-				</UserName>
-				<ExitWrapper>
-					<ExitLogo src={ExitSvg} alt="Exit" />
-					<ExitText>
-						Exit
-					</ExitText>
-				</ExitWrapper>
-			</HeaderRight>
-		</HeaderCastom >
+	const handleClick = () => {
+		// console.log("Click!");
+		setIsOpen(true);
+
+	}
+	console.log(handleClick);
+
+
+	
+
+	return (
+		<HeaderWraper>
+			<HeaderCastom>
+				<LogoWrapper>
+					<Logo src={LogoSvg} alt="Wallet Logo" />
+					<LogoText >Wallet</LogoText>
+				</LogoWrapper>
+
+				<HeaderRight>
+					<UserName>
+						Name
+					</UserName>
+					<ExitWrapper>
+						<ExitLogo src={ExitSvg} alt="Exit" />
+						<ExitText>
+							Exit
+						</ExitText>
+					</ExitWrapper>
+				</HeaderRight>
+			</HeaderCastom >
+		</HeaderWraper>
 	)
 }
+

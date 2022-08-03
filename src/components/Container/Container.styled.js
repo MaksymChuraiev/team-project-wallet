@@ -1,7 +1,6 @@
 import styled from '@emotion/styled';
 
 export const ContainerStyles = styled.div`
-   
     @media screen and (min-width: 768px){
         width: 768px;
         height: 1024px;
