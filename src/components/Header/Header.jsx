@@ -20,10 +20,11 @@ export const Header = () => {
 	const [modalActive, setModalActive] = useState(false);
 
 	const handleClick = () => {
+
 		console.log("Click!");
 		setModalActive(true);
 	} 
-	
+
 	return (
 		<div>
 			<HeaderWraper>
@@ -49,7 +50,6 @@ export const Header = () => {
 			
 			<LogoutModal active={modalActive} setActive={setModalActive}/>
 		</div>
-		
 	)
 }
 
