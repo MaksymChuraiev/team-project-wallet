@@ -6,7 +6,7 @@ import { ButtonAddTransactions } from '../ButtonAddTransactions/ButtonAddTransac
 
 // import { useSelector } from 'react-redux';
 
-import { LogoutModal } from 'components/Modal/LogoutModal';
+// import { LogoutModal } from 'components/Modal/LogoutModal';
 
 import { LayoutStyled } from './Layout.styled';
 
@@ -16,9 +16,8 @@ export const Layout = () => {
       <LayoutStyled>
         <ButtonAddTransactions />
         <ModalAddTransaction />
-        <LogoutModal modalState="true" />
+        {/* <LogoutModal modalState="true" /> */}
       </LayoutStyled>
-
       <Suspense fallback={<p>Loading...</p>}>
         <Outlet />
       </Suspense>
