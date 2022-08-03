@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-export const HeaderCastom = styled.header`
+export const HeaderCustom = styled.header`
 	display:flex;
 	justify-content: space-between;
 	padding: 15px 20px;
@@ -58,15 +58,26 @@ export const HeaderRight = styled.div`
 `
 
 export const UserName = styled.span`
+	@media screen and (min-width: 768px) {
+		border-right: 1px solid #BDBDBD;
+		padding-right: 12px;
+	}
 `
-export const ExitWrapper = styled.div`
+export const ExitWrapper = styled.button`
 	display: flex;
 	align-items: center;
+	border: none;
+	background-color: #fff;
+	cursor: pointer;
 
-	@media screen and (min-width: 768px) {
+	:hover {
+		transform: scale(1.2);
+	}
+
+	/* @media screen and (min-width: 768px) {
 		border-left: 1px solid #BDBDBD;
 		margin-left: 12px;
-		}
+		} */
 	`
 
 export const ExitLogo = styled.img`
@@ -75,6 +86,7 @@ export const ExitLogo = styled.img`
 	margin-left: 8px;
 	@media screen and (min-width: 768px) {
 		margin-left: 12px;
+		
 		}
 `
 
@@ -84,5 +96,12 @@ export const ExitText = styled.span`
 	@media screen and (min-width: 768px) {
 		display: inline;
 		margin-left: 8px;
+		margin-right: 20px;
+		color: #BDBDBD;
+		font-family: 'Circe';
+		font-style: normal;
+		font-weight: 400;
+		font-size: 18px;
+		line-height: 27px;
 		}
 `

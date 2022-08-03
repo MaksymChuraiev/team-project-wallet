@@ -1,31 +1,37 @@
-import { useNavigate   } from 'react-router-dom';
+// import { useNavigate   } from 'react-router-dom';
 import { ButtonStyles } from './Button.styled';
 
-const ButtonGroup = (props) => {
-    const navigate = useNavigate ();
+const Button = (props) => {
+    
+    // const navigate = useNavigate();
+    // const onClick = () => {
+    //     navigate('/login')
+    // }
     
     return (
         <div>
             <ButtonStyles
-                type="submit"
-                color='#fff'
-                bgColor='#24CCA7'
-                border='none'
+                type={props.type}
+                color={props.color}
+                bgColor={props.bgColor}
+                border={props.border}
+                onClick={props.onClick}
                 disabled={props.password !== props.confirmPassword}
+                borderColor={props.borderColor}
             >
-                {props.register} </ButtonStyles>
+                {props.buttonTitle} </ButtonStyles>
             
-            <ButtonStyles
-                type="button"
-                onClick={() => {navigate('/login')}}
+            {/* <ButtonStyles
+                type={props.buttonType}
+                onClick={props.onClick}
                 color='#4A56E2'
                 bgColor='#ffffff'
                 // border='solid'
                 borderColor='#4A56E2'
             >
-                {props.login}</ButtonStyles>
+                {props.login}</ButtonStyles> */}
         </div>
     )
 }
 
-export default ButtonGroup;
+export default Button;
