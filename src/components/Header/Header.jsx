@@ -21,8 +21,13 @@ export const Header = () => {
 	const handleClick = () => {
 		// console.log("Click!");
 		setIsOpen(true);
+
 	}
 	console.log(handleClick);
+
+
+	
+
 	return (
 		<HeaderWraper>
 			<HeaderCastom>
@@ -46,3 +51,4 @@ export const Header = () => {
 		</HeaderWraper>
 	)
 }
+
