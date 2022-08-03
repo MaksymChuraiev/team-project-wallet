@@ -40,14 +40,14 @@ const deleteTransactions = createAsyncThunk(
 
 const getByDate = createAsyncThunk(
   'transactions/getByDate',
-  async ({ month, year }, { rejectWithValue }) => {
-    console.log(month);
-    console.log(year);
+  async ({ months, year }, { rejectWithValue }) => {
+    console.log('month,', months);
+    console.log('year', year);
     try {
       const response = await axios.get(
-        `/transactions/statistic?month=${month}&year=${year}`
+        `/transactions/statistic?months=${months}&year=${year}`
       );
-
+      console.log('response', response);
       return response.data;
     } catch (err) {
       return rejectWithValue(err.response.data);

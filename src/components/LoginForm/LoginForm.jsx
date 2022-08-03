@@ -2,6 +2,8 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import authOperations from '../../redux/auth/auth-operation';
 
+import { useNavigate } from 'react-router-dom';
+
 import { Formik, ErrorMessage } from 'formik';
 import * as yup from 'yup';
 import svgMail from '../LoginForm/Vector.svg';
@@ -41,6 +43,7 @@ const FormError = ({ name }) => {
 
 export const LoginForm = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleSubmit = (values, { resetForm }) => {
     const { email, password } = values;
@@ -48,6 +51,7 @@ export const LoginForm = () => {
     dispatch(authOperations.logIn({ email, password }));
     resetForm();
     console.log(email, password);
+    navigate('/dashboard', { replace: true });
   };
 
   return (
