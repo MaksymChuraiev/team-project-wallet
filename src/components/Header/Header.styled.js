@@ -1,18 +1,23 @@
 import styled from '@emotion/styled';
 
-export const HeaderCustom = styled.header`
+export const HeaderWraper = styled.div`
+	background-color: #fff;
+`
+export const HeaderCastom = styled.header`
 	display:flex;
 	justify-content: space-between;
 	padding: 15px 20px;
-	background-color: #fff;
-
+	margin-right: auto;
+	margin-left: auto;
 	@media screen and (min-width: 768px) {
+		width: 768px;
 		padding: 20px 32px;
 		}
 
-		@media screen and (min-width: 1280px) {
+	@media screen and (min-width: 1280px) {
+		width: 1280px;
 		padding: 20px 16px;
-		}
+	}
 `
 
 export const LogoWrapper = styled.div`

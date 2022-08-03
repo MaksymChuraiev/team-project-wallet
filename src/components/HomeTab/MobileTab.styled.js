@@ -1,14 +1,18 @@
 import styled from '@emotion/styled';
 
+export const MobileTransactions = styled.ul`
+	margin-top: 32px;
+	@media (min-width: 768px) {
+		display: none;
+  }
+`
+
 export const MobileTableBox = styled.li`
 	border-radius: 10px;
 	overflow: hidden;
 	&:not(:first-of-type) {
     margin-top: 8px;
 	}
-	@media (min-width: 768px) {
-		display: none;
-  }
 `
 
 export const Row = styled.div`

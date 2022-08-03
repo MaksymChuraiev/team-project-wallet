@@ -2,7 +2,8 @@ import LogoSvg from '../../icons/logo.svg';
 import ExitSvg from '../../icons/exit.svg';
 import { useState } from 'react';
 import {
-	HeaderCustom,
+	HeaderWraper,
+	HeaderCastom,
 	LogoWrapper,
 	Logo,
 	LogoText,
@@ -23,24 +24,26 @@ export const Header = () => {
 	} 
 	
 	return (
-		<HeaderCustom>
-			<LogoWrapper>
-				<Logo src={LogoSvg} alt="Wallet Logo" />
-				<LogoText >Wallet</LogoText>
-			</LogoWrapper>
+		<HeaderWraper>
+			<HeaderCastom>
+				<LogoWrapper>
+					<Logo src={LogoSvg} alt="Wallet Logo" />
+					<LogoText >Wallet</LogoText>
+				</LogoWrapper>
 
-			<HeaderRight>
-				<UserName>
-					Name
-				</UserName>
-				<ExitWrapper onClick={handleClick}>
-					<ExitLogo src={ExitSvg} alt="Exit" />
-					<ExitText>
-						Exit
-					</ExitText>
-				</ExitWrapper>
-			</HeaderRight>
-		</HeaderCustom >
+				<HeaderRight>
+					<UserName>
+						Name
+					</UserName>
+					<ExitWrapper>
+						<ExitLogo src={ExitSvg} alt="Exit" />
+						<ExitText>
+							Exit
+						</ExitText>
+					</ExitWrapper>
+				</HeaderRight>
+			</HeaderCastom >
+		</HeaderWraper>
 	)
 }
 
