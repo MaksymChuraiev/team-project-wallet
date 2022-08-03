@@ -46,21 +46,25 @@ import {
 
 // console.log(months, years);
 export const StatisticsPage = () => {
+  const [state, setState] = useState();
+  console.log(state, setState);
   const dispatch = useDispatch();
   const categories = useSelector(transactionSelectors.getCategories);
   const allTransaction = useSelector(transactionSelectors.getTransaction);
+  const getByDate = useSelector(transactionSelectors.getStatistics);
+
   useEffect(() => {
-    dispatch(transactionsOperation.getCategory());
-  }, []);
+    dispatch(transactionsOperation.getAllTransactions());
+  }, [dispatch]);
   useEffect(() => {
-    // dispatch(transactionsOperation.getAllTransactions());
-    const a = fetch(
-      'https://wallet-server-api.herokuapp.com/api/transactions'
-    ).then(console.log);
-  }, []);
+    dispatch(transactionsOperation.getByDate({ months: '4', year: '2022' }));
+    // dispatch(transactionsOperation.getByDate({ months: '1', year: '2022' }));
+  }, [dispatch]);
+
   console.log(categories);
-  console.log(allTransaction);
-  console.log('statistics');
+  console.log('allTransaction', allTransaction);
+  console.log('bytDate ', getByDate);
+  // console.log('statistics');
   return (
     <StatisticsContainer>
       <GraphicsContainer>

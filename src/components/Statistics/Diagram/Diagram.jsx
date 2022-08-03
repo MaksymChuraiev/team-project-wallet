@@ -27,7 +27,7 @@ export const Diagram = () => {
       },
     ],
   });
-  // console.log(type, setUSerData);
+  console.log(type, setUSerData);
   return (
     <DiagramContainer>
       <StatisticsText>Statistics</StatisticsText>
