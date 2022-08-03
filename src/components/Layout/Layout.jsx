@@ -1,6 +1,7 @@
 import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
 import { ModalAddTransaction } from '../Modal/ModalAddTransaction';
+import { ButtonAddTransactions } from '../ButtonAddTransactions/ButtonAddTransactions';
 import { LayoutStyled, Container } from './Layout.styled';
 
 export const Layout = () => {
@@ -8,7 +9,7 @@ export const Layout = () => {
     <>
       <LayoutStyled>
         <Container />
-        {/* <h1>Layout</h1> */}
+        <ButtonAddTransactions/>
         <ModalAddTransaction />
       </LayoutStyled>
 

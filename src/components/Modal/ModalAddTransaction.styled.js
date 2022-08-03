@@ -8,9 +8,9 @@ export const ModalStyled = styled(Modal)`
   flex: 0 0 auto;
   padding: 40px 80px 60px;
   max-width: 540px;
-
   background-color: #fff;
   border: none;
+  outline: none;
   border-radius: 20px;
 
   @media screen and (max-width: 767px) {
@@ -22,38 +22,38 @@ export const ModalStyled = styled(Modal)`
   }
 `;
 
-export const ButtonAddStyled = styled.button`
-  position: absolute;
-  right: 20px;
-  bottom: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 44px;
-  height: 44px;
-  background: var(--color-btn-green);
-  box-shadow: 0px 6px 15px rgba(36, 204, 167, 0.5);
-  cursor: pointer;
-  border-radius: 50%;
-  border: 0;
-  padding: 0;
-  outline: none;
-  :hover,
-  :focus {
-    box-shadow: none;
-  }
+// export const ButtonAddStyled = styled.button`
+//   position: absolute;
+//   right: 20px;
+//   bottom: 20px;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   width: 44px;
+//   height: 44px;
+//   background: var(--color-btn-green);
+//   box-shadow: 0px 6px 15px rgba(36, 204, 167, 0.5);
+//   cursor: pointer;
+//   border-radius: 50%;
+//   border: 0;
+//   padding: 0;
+//   outline: none;
+//   :hover,
+//   :focus {
+//     box-shadow: none;
+//   }
 
-  > svg {
-    width: 20px;
-    height: 20px;
-  }
+//   > svg {
+//     width: 20px;
+//     height: 20px;
+//   }
 
-  @media screen and (min-width: var(--tablet)) {
-    position: absolute;
-    right: 40px;
-    bottom: 40px;
-  }
-`;
+//   @media screen and (min-width: var(--tablet)) {
+//     position: absolute;
+//     right: 40px;
+//     bottom: 40px;
+//   }
+// `;
 export const ButtonCloseStyled = styled.button`
   position: absolute;
   top: 20px;
@@ -90,118 +90,6 @@ export const ModalTitle = styled.h2`
     font-size: 30px;
   }
 `;
-export const SelectContainer = styled.div`
-  // display: ${p => (p.type ? 'block' : 'none')};
-  position: relative;
-  margin-top: 40px;
-  cursor: pointer;
-  input {
-    position: absolute;
-    top: 50%;
-    left: 30%;
-    z-index: -1;
-  }
-`;
-export const MoneyDateContainer = styled.div`
-  display: flex;
-  justify-content: space-between;
-  gap: 30px;
-  margin-top: 40px;
-
-  @media screen and (max-width: 767px) {
-    flex-direction: column;
-    gap: 40px;
-  }
-  input {
-    margin: 0;
-    height: 34px;
-    width: 100%;
-    padding-left: 20px;
-    padding-bottom: 10px;
-    outline: none;
-    border-radius: 0;
-    border: none;
-    border-bottom: 1px solid var(--color-gray-form);
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 27px;
-    color: var(--color-black);
-    font-family: Circe, sans-serif;
-    @media screen and (min-width: $tablet) {
-      padding-left: 0;
-      text-align: center;
-    }
-
-    &::placeholder {
-      font-weight: 400;
-      font-size: 18px;
-      line-height: 27px;
-    }
-  }
-`;
-export const DateContainer = styled.div`
-  position: relative;
-  input {
-    margin: 0;
-    height: 34px;
-    width: 100%;
-    padding-left: 20px;
-    padding-bottom: 10px;
-    outline: none;
-    border-radius: 0;
-    border: none;
-    border-bottom: 1px solid var(--color-gray-form);
-    outline-offset: 0;
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 27px;
-    color: var(--color-black);
-    font-family: Circe, sans-serif;
-  }
-  > svg {
-    position: absolute;
-    right: 20px;
-    bottom: 10px;
-    @media screen and (min-width: 768px) {
-      margin-left: 20px;
-    }
-  }
-`;
-
-export const Comment = styled.textarea`
-  margin: 0;
-  height: 34px;
-  width: 100%;
-  margin-top: 40px;
-  padding-left: 20px;
-  padding-bottom: 10px;
-  outline: none;
-  border-radius: 0;
-  border: none;
-  border-bottom: 1px solid var(--color-gray-form);
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 27px;
-  color: var(--color-black);
-  font-family: Circe, sans-serif;
-  resize: none;
-  overflow: hidden;
-  max-lines: 2;
-  outline-offset: 0;
-
-  &::placeholder {
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 27px;
-    color: var(--color-gray-form);
-    font-family: Circe, sans-serif;
-  }
-
-  @media screen and (max-width: 767px) {
-    max-lines: 1;
-    height: 74px;
-  }
-`;
 
 export const Button = styled.button`
   display: block;
@@ -226,6 +114,7 @@ export const Button = styled.button`
   border-color: ${p => (p.children === 'Add' ? 'transparent' : '#4a56e2')};
 
   :hover {
+    transform: scale(1.03);
   }
 
   @media screen and (min-width: 768px) {
