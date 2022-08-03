@@ -43,10 +43,17 @@ const RegistrationForm = () => {
 
   const handleSubmit = (values, { resetForm }) => {
     // console.log(values);
-    const { email, password, name } = values;
-    dispatch(register({ email, password, name }));
+    try {
+      const { email, password, name } = values;
+      dispatch(register({ email, password, name }));
+      // dispatch(login({email, password, name}))
     resetForm();
     navigate('/dashboard');
+    } catch (error) {
+      alert('Oops! Something went wrong...');
+    }
+
+    
     // console.log(email, password, confirmPassword, name);
   };
 

@@ -12,18 +12,20 @@ import {
 	ExitLogo,
 	ExitText
 } from './Header.styled';
+import { LogoutModal } from '../Modal/LogoutModal';
 
 export const Header = () => {
 
-	const [setIsOpen] = useState(false);
+	const [modalActive, setModalActive] = useState(false);
 
 	const handleClick = () => {
-		// console.log("Click!");
-		setIsOpen(true);
+		console.log("Click!");
+		setModalActive(true);
 	} 
 	
 	return (
-		<HeaderCustom>
+		<div>
+			<HeaderCustom>
 			<LogoWrapper>
 				<Logo src={LogoSvg} alt="Wallet Logo" />
 				<LogoText >Wallet</LogoText>
@@ -33,14 +35,17 @@ export const Header = () => {
 				<UserName>
 					Name
 				</UserName>
-				<ExitWrapper onClick={handleClick}>
+				<ExitWrapper onClick={handleClick} >
 					<ExitLogo src={ExitSvg} alt="Exit" />
 					<ExitText>
 						Exit
 					</ExitText>
 				</ExitWrapper>
 			</HeaderRight>
-		</HeaderCustom >
+			</HeaderCustom >
+			<LogoutModal active={modalActive} setActive={setModalActive}/>
+		</div>
+		
 	)
 }
 

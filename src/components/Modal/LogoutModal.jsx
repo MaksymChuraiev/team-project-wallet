@@ -1,4 +1,5 @@
 import React from 'react';
+// import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import Modal from 'react-modal';
@@ -13,41 +14,33 @@ import {logOut} from '../../redux/auth/auth-operation'
 
 Modal.setAppElement('#root');
 
-export const LogoutModal = (modalState) => {
+export const LogoutModal = ({active, setActive}) => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    const [modalIsOpen, setIsOpen] = React.useState(modalState);
-
-    // function openModal() {
-    // setIsOpen(true);
-    // }
     
     function closeModal() {
-    setIsOpen(false);
-    }
-    
-    const handleClick = () => {
+        setActive(false);
         dispatch(logOut());
-        closeModal();
         navigate('/login');
     }
 
     return (
         <ModalStyled
-        isOpen={modalIsOpen}
+        isOpen={active}
         onRequestClose={closeModal}
         overlayClassName="modal-overlay"
         contentLabel="Example Modal"
         htmlOpenClassName="no-scroll"
         >
-<ButtonCloseStyled onClick={closeModal}>
+        <ButtonCloseStyled onClick={closeModal}>
           <Close />
         </ButtonCloseStyled>
+            
             <ModalTitle>Are you sure you want to Logout?</ModalTitle>
             
             <Button
             buttonTitle="Logout"
-            onClick={handleClick}
+            onClick={closeModal}
             type="button"
             color='#fff'
             bgColor='#24CCA7'
