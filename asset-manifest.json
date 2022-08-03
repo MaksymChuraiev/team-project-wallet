@@ -1,9 +1,9 @@
 {
   "files": {
     "main.css": "/team-project-wallet/static/css/main.86646d4d.css",
-    "main.js": "/team-project-wallet/static/js/main.3dde2081.js",
-    "static/js/849.f7c9691e.chunk.js": "/team-project-wallet/static/js/849.f7c9691e.chunk.js",
-    "static/js/246.d6311c56.chunk.js": "/team-project-wallet/static/js/246.d6311c56.chunk.js",
+    "main.js": "/team-project-wallet/static/js/main.f93ede6d.js",
+    "static/js/849.b9e70cc4.chunk.js": "/team-project-wallet/static/js/849.b9e70cc4.chunk.js",
+    "static/js/618.b626e422.chunk.js": "/team-project-wallet/static/js/618.b626e422.chunk.js",
     "static/js/384.fda19b05.chunk.js": "/team-project-wallet/static/js/384.fda19b05.chunk.js",
     "static/js/26.554dd0ef.chunk.js": "/team-project-wallet/static/js/26.554dd0ef.chunk.js",
     "static/js/799.e37fea24.chunk.js": "/team-project-wallet/static/js/799.e37fea24.chunk.js",
@@ -26,15 +26,15 @@
     "static/media/chevron-down.svg": "/team-project-wallet/static/media/chevron-down.77b989b3724c691229812f9ba569ef26.svg",
     "static/media/statisticsinputarrow.svg": "/team-project-wallet/static/media/statisticsinputarrow.77b989b3724c691229812f9ba569ef26.svg",
     "main.86646d4d.css.map": "/team-project-wallet/static/css/main.86646d4d.css.map",
-    "main.3dde2081.js.map": "/team-project-wallet/static/js/main.3dde2081.js.map",
-    "849.f7c9691e.chunk.js.map": "/team-project-wallet/static/js/849.f7c9691e.chunk.js.map",
-    "246.d6311c56.chunk.js.map": "/team-project-wallet/static/js/246.d6311c56.chunk.js.map",
+    "main.f93ede6d.js.map": "/team-project-wallet/static/js/main.f93ede6d.js.map",
+    "849.b9e70cc4.chunk.js.map": "/team-project-wallet/static/js/849.b9e70cc4.chunk.js.map",
+    "618.b626e422.chunk.js.map": "/team-project-wallet/static/js/618.b626e422.chunk.js.map",
     "384.fda19b05.chunk.js.map": "/team-project-wallet/static/js/384.fda19b05.chunk.js.map",
     "26.554dd0ef.chunk.js.map": "/team-project-wallet/static/js/26.554dd0ef.chunk.js.map",
     "799.e37fea24.chunk.js.map": "/team-project-wallet/static/js/799.e37fea24.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.86646d4d.css",
-    "static/js/main.3dde2081.js"
+    "static/js/main.f93ede6d.js"
   ]
 }
