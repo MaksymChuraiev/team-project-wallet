@@ -41,7 +41,7 @@ const logIn = createAsyncThunk(
   }
 );
 
-const logOut = createAsyncThunk(
+export const logOut = createAsyncThunk(
   'auth/logout',
   async (_, { rejectWithValue }) => {
     try {
@@ -74,7 +74,7 @@ const currentUser = createAsyncThunk('auth/refresh', async (_, thunkAPI) => {
 const operations = {
   // register,
   logIn,
-  logOut,
+  // logOut,
   currentUser,
 };
 
