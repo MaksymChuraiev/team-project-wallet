@@ -9,6 +9,11 @@ import { Diagram } from 'components/Statistics/Diagram/Diagram';
 import { SelectCategories } from 'components/Statistics/SelectCategories/SelectCategoies';
 import { CategoriesList } from 'components/Statistics/CategoriesList/CetegoriesList';
 
+import { useState, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import transactionSelectors from 'redux/transaction/transaction-selectors';
+import transactionsOperation from 'redux/transaction/transaction-operation';
+
 import {
   StatisticsContainer,
   GraphicsContainer,
@@ -41,8 +46,25 @@ import {
 
 // console.log(months, years);
 export const StatisticsPage = () => {
-  // const transCategories = useSelector(transactionSelector.getCategoriesList);
-  // console.log('transCategories', transCategories);
+  const [state, setState] = useState();
+  console.log(state, setState);
+  const dispatch = useDispatch();
+  const categories = useSelector(transactionSelectors.getCategories);
+  const allTransaction = useSelector(transactionSelectors.getTransaction);
+  const getByDate = useSelector(transactionSelectors.getStatistics);
+
+  useEffect(() => {
+    dispatch(transactionsOperation.getAllTransactions());
+  }, [dispatch]);
+  useEffect(() => {
+    dispatch(transactionsOperation.getByDate({ months: '4', year: '2022' }));
+    // dispatch(transactionsOperation.getByDate({ months: '1', year: '2022' }));
+  }, [dispatch]);
+
+  console.log(categories);
+  console.log('allTransaction', allTransaction);
+  console.log('bytDate ', getByDate);
+  // console.log('statistics');
   return (
     <StatisticsContainer>
       <GraphicsContainer>

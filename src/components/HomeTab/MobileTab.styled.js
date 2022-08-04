@@ -2,9 +2,9 @@ import styled from '@emotion/styled';
 
 export const MobileTransactions = styled.ul`
 	margin-top: 32px;
-	@media (min-width: 768px) {
+	/* @media (min-width: 768px) {
 		display: none;
-  }
+  } */
 `
 
 export const MobileTableBox = styled.li`

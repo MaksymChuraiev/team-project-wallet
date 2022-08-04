@@ -8,6 +8,7 @@ import {
 } from './CategoriesList.styled';
 
 export const CategoriesList = () => {
+  console.log('Categories');
   return (
     <>
       <CategoriesListStyled

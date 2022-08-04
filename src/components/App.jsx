@@ -8,7 +8,13 @@ import { useDispatch } from 'react-redux';
 
 // import { Home } from 'components/Routes/Home';
 import { StatisticsPage } from 'pages/StaisticsPage';
+
 import { authOperations } from 'redux/auth';
+
+import { Currency } from './Currency/Currency';
+
+// import { ToastContainer } from 'react-toastify';
+
 
 const RegisterPage = lazy(() => import('../pages/RegistrationPage'));
 const LoginPage = lazy(() => import('../pages/LoginPage.jsx'));
@@ -47,6 +53,14 @@ export const App = () => {
               element={
                 <ProtectedRoute>
                   <StatisticsPage />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="banktable"
+              element={
+                <ProtectedRoute>
+                  <Currency />
                 </ProtectedRoute>
               }
             />
