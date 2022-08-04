@@ -1,10 +1,10 @@
 {
   "files": {
     "main.css": "/team-project-wallet/static/css/main.86646d4d.css",
-    "main.js": "/team-project-wallet/static/js/main.229347ca.js",
+    "main.js": "/team-project-wallet/static/js/main.265415fd.js",
     "static/js/529.b7c4405c.chunk.js": "/team-project-wallet/static/js/529.b7c4405c.chunk.js",
     "static/js/158.324fadbe.chunk.js": "/team-project-wallet/static/js/158.324fadbe.chunk.js",
-    "static/js/390.e28e6813.chunk.js": "/team-project-wallet/static/js/390.e28e6813.chunk.js",
+    "static/js/582.4f0c8182.chunk.js": "/team-project-wallet/static/js/582.4f0c8182.chunk.js",
     "static/js/312.18404208.chunk.js": "/team-project-wallet/static/js/312.18404208.chunk.js",
     "static/media/Frame-min.png": "/team-project-wallet/static/media/Frame-min.81d6f65bfde1909c31fa.png",
     "static/media/WalletMain.svg": "/team-project-wallet/static/media/WalletMain.0dbfefb5e5b416964dc37db09f8aec25.svg",
@@ -24,14 +24,14 @@
     "static/media/chevron-down.svg": "/team-project-wallet/static/media/chevron-down.77b989b3724c691229812f9ba569ef26.svg",
     "static/media/statisticsinputarrow.svg": "/team-project-wallet/static/media/statisticsinputarrow.77b989b3724c691229812f9ba569ef26.svg",
     "main.86646d4d.css.map": "/team-project-wallet/static/css/main.86646d4d.css.map",
-    "main.229347ca.js.map": "/team-project-wallet/static/js/main.229347ca.js.map",
+    "main.265415fd.js.map": "/team-project-wallet/static/js/main.265415fd.js.map",
     "529.b7c4405c.chunk.js.map": "/team-project-wallet/static/js/529.b7c4405c.chunk.js.map",
     "158.324fadbe.chunk.js.map": "/team-project-wallet/static/js/158.324fadbe.chunk.js.map",
-    "390.e28e6813.chunk.js.map": "/team-project-wallet/static/js/390.e28e6813.chunk.js.map",
+    "582.4f0c8182.chunk.js.map": "/team-project-wallet/static/js/582.4f0c8182.chunk.js.map",
     "312.18404208.chunk.js.map": "/team-project-wallet/static/js/312.18404208.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.86646d4d.css",
-    "static/js/main.229347ca.js"
+    "static/js/main.265415fd.js"
   ]
 }
