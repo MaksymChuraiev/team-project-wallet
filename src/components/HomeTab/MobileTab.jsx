@@ -6,18 +6,17 @@ import {
 	RowValue,
 	SumRow
 } from './MobileTab.styled'
+import spaceCreator from 'services/spaceCreator';
 
 export const MobileTab = ({ items }) => {
 
-	const normTime = (u) => {
-		console.log(u);
-		let date = new Date();
-		console.log(date);
-		let output = String(date.getDate()).padStart(2, '0') + '/' + String(date.getMonth() + 1).padStart(2, '0') + '/' + date.getFullYear();
+	const normTime = (data) => {
+		const year = data.slice(0, 4);
+		const month = data.slice(6, 7).padStart(2, '0');
+		const day = data.slice(8, 10).padStart(2, '0');
 
-		console.log(output);
+		return `${day}.${month}.${year}`
 	}
-
 	return (
 		<MobileTransactions>
 			{items.map(({ _id, date, transactionType, category, comment, amount, balance }) => (
@@ -40,11 +39,11 @@ export const MobileTab = ({ items }) => {
 					</Row>
 					<Row>
 						<RowName>Sum</RowName>
-						<SumRow type={transactionType === true ? 'income' : 'costs'}>{amount}</SumRow>
+						<SumRow type={transactionType === true ? 'income' : 'costs'}>{spaceCreator(amount)}</SumRow>
 					</Row>
 					<Row>
 						<RowName>Balance</RowName>
-						<RowValue>{balance}</RowValue>
+						<RowValue>{spaceCreator(balance)}</RowValue>
 					</Row>
 				</MobileTableBox>))}
 		</MobileTransactions>
