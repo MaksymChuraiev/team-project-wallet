@@ -4,9 +4,9 @@ import * as yup from 'yup';
 // import { nanoid } from 'nanoid';
 import logo from '../../images/logo.png';
 import icon from '../../images/symbol-defs.svg';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import operations from '../../redux/auth/auth-operation'
+// import operations from '../../redux/auth/auth-operation'
 // import { register } from '../../ReduxX/auth/auth-operations';
 
 import { register } from '../../redux/auth/auth-operation';
@@ -28,9 +28,9 @@ const RegistrationForm = () => {
   const [password, setPassword] = useState();
   const [confirmPassword, setConfirmPassword] = useState();
 
-// const isRegistered = useSelector(state => state.getIsRegister)
-// isRegistered && dispatch(operations.logIn({ email, password }));
-  
+  // const isRegistered = useSelector(state => state.getIsRegister)
+  // isRegistered && dispatch(operations.logIn({ email, password }));
+
   const schema = yup.object().shape({
     email: yup.string().required(),
     password: yup.string().min(6).max(12).required(),
@@ -53,19 +53,23 @@ const RegistrationForm = () => {
       navigate('/dashboard');
       const date = new Date();
       console.log(date);
-      console.log(String(date.getDate()).padStart(2, '0') + '/' + String(date.getMonth() + 1).padStart(2, '0') + '/' + date.getFullYear());
+      console.log(
+        String(date.getDate()).padStart(2, '0') +
+          '/' +
+          String(date.getMonth() + 1).padStart(2, '0') +
+          '/' +
+          date.getFullYear()
+      );
     } catch (error) {
       alert('Oops! Something went wrong...');
     }
 
-    
     // console.log(email, password, confirmPassword, name);
   };
 
-    
-    const handleClick = () => {
-        navigate('/login')
-    }
+  const handleClick = () => {
+    navigate('/login');
+  };
 
   // const emailInputId = nanoid();
   // const passwordInputId = nanoid();
@@ -132,7 +136,9 @@ const RegistrationForm = () => {
               />
             </InputField>
             {password && <PasswordProgressBar password={password.length} />}
-            {password && password.length < 6 &&  <p>Passwords should be at least 6 signs</p>}
+            {password && password.length < 6 && (
+              <p>Passwords should be at least 6 signs</p>
+            )}
             <FormError name="password" />
           </InputLabel>
 
@@ -148,8 +154,9 @@ const RegistrationForm = () => {
                 placeholder="Confirm password"
               />
             </InputField>
-            {confirmPassword && password !== confirmPassword &&  <p>Passwords should be the same</p>}
-            
+            {confirmPassword && password !== confirmPassword && (
+              <p>Passwords should be the same</p>
+            )}
 
             <FormError name="confirmPassword" />
           </InputLabel>
@@ -174,20 +181,19 @@ const RegistrationForm = () => {
             password={password}
             confirmPassword={confirmPassword}
             type="submit"
-            color='#fff'
-            bgColor='#24CCA7'
-            border='none'
+            color="#fff"
+            bgColor="#24CCA7"
+            border="none"
           />
 
           <Button
             buttonTitle="LOG IN"
             onClick={handleClick}
             type="button"
-            color='#4A56E2'
-            bgColor='#ffffff'
-            borderColor='#4A56E2'
+            color="#4A56E2"
+            bgColor="#ffffff"
+            borderColor="#4A56E2"
           />
-
         </LogForm>
       </Formik>
     </FormContainer>
