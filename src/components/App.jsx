@@ -6,6 +6,8 @@ import HomeTabPage from 'pages/HomeTabPage';
 
 import Loader from '../components/Loader/Loader';
 
+import { ToastContainer } from 'react-toastify';
+
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 
@@ -16,8 +18,6 @@ import { StatisticsPage } from 'pages/StaisticsPage';
 import { authOperations } from 'redux/auth';
 
 import { Currency } from './Currency/Currency';
-
-// import { ToastContainer } from 'react-toastify';
 
 
 const RegisterPage = lazy(() => import('../pages/RegistrationPage'));
@@ -33,6 +33,7 @@ export const App = () => {
 
   return (
     <Suspense fallback={<Loader />}>
+    <ToastContainer/>
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route path="registration" element={<RegisterPage />} />
