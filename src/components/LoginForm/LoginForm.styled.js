@@ -30,13 +30,13 @@ position: relative;
   @media screen and (min-width: 768px) and (mix-width: 1279px) {
     padding: 60px 118px 196px 118px;
     height: 100vh;
-    background-color: #E7EAF2;
+    /* background-color: #E7EAF2; */
     width: 100%;
   }
   @media screen and (min-width: 1280px) {
     padding: 136px 84px 116px 84px;
     height: 100vh;
-    background-color: #E7EAF2;
+    /* background-color: #E7EAF2; */
     width: 100%;
     display:flex;
     /* align-items:center; */
@@ -57,13 +57,17 @@ export const LoginPageDesktopContainer = styled.div`
     background-color: #FFFFFF;
     margin-right: auto;
     margin-left: auto;
-    /* margin-top: 148px; */
+    margin-top: 50px;
     padding: 40px 60px 60px 60px;
     width: 534px;
     height: 468px;
     border-radius: 20px;
 
   }
+
+   @media screen and (min-width: 1280px) {
+    margin: 136px 91px 116px 107px
+   }
 `;
 
 export const MainFrame = styled.div`
@@ -85,7 +89,7 @@ export const MainFrame = styled.div`
     /* height: 100vh; */
     width: 435px;
     height: 420px;
-    background-color: #E7EAF2;
+    /* background-color: #E7EAF2; */
     /* width: 100%; */
     display:flex;
     flex-direction:column;

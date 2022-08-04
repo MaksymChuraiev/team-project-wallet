@@ -1,4 +1,10 @@
 import React from 'react';
+
+import { useDispatch } from 'react-redux';
+import authOperations from '../../redux/auth/auth-operation';
+import { useNavigate } from 'react-router-dom';
+
+
 import { Formik, ErrorMessage } from 'formik';
 import { 
   useDispatch
@@ -48,10 +54,12 @@ const FormError = ({ name }) => {
 export const LoginForm = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleSubmit = async (values, { resetForm }) => {
    try {
     const { email, password } = values;
+
     const {payload: errorCode} = await dispatch(logIn({ email, password }));
     
     if(errorCode === 401){
@@ -65,6 +73,7 @@ export const LoginForm = () => {
    } catch (error) {
     console.log(error)
    }
+
   };
 
   return (
