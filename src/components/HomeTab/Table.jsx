@@ -26,17 +26,18 @@ export const Table = ({ items }) => {
 				</TableHeader>
 				<TableBody>
 					{items.map(
-						({ id, Date, Type, Category, Comment, Sum, Balance,
-						}) => (
-							<TableRow key={id}>
-								<TableCell>{Date}</TableCell>
-								<TableCell>{Type === true ? '+' : '-'}</TableCell>
-								<TableCell>{Category}</TableCell>
-								<TableCell>{Comment}</TableCell>
+						({ _id, date, transactionType, category, comment, amount, balance }) => (
+							<TableRow key={_id}>
+								<TableCell>{date}</TableCell>
+								<TableCell>{transactionType === true ? '+' : '-'}</TableCell>
+								<TableCell>{category}</TableCell>
+								<TableCell>{comment}</TableCell>
 								<TableCell>
-									<TableCellColor type={Type === true ? 'income' : 'costs'}>{Sum}</TableCellColor>
+									<TableCellColor
+										type={transactionType === true ? 'income' : 'costs'}>{amount}
+									</TableCellColor>
 								</TableCell>
-								<TableCell>{Balance}</TableCell>
+								<TableCell>{balance}</TableCell>
 							</TableRow>
 						),
 					)}
