@@ -59,8 +59,13 @@ export const RegistrationPageText = styled.p`
 
 export const ContainerForBlur = styled(Grid)`
     @media screen and (min-width: 1280px) {
-        height: 720px;
-        width: 100%;
+        position: absolute;
+        bottom: 0px;
+        top: 0px;
+        left: 45%;
+       right: 0px;
+        /* height: 720px;
+        width: 100%; */
         background: rgba(255, 255, 255, 0.4);
         backdrop-filter: blur(50px);
     }
