@@ -43,26 +43,24 @@ const FormError = ({ name }) => {
 
 export const LoginForm = () => {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
 
   const handleSubmit = async (values, { resetForm }) => {
-   try {
-    const { email, password } = values;
+    try {
+      const { email, password } = values;
 
-    const {payload: errorCode} = await dispatch(logIn({ email, password }));
-    
-    if(errorCode === 401){
-      toast.error('Email or password is wrong');
-      resetForm();
-      return
-    } 
+      const { payload: errorCode } = await dispatch(logIn({ email, password }));
+
+      if (errorCode === 401) {
+        toast.error('Email or password is wrong');
+        resetForm();
+        return;
+      }
       resetForm();
       navigate('/dashboard');
       toast.success('You are logged in');
-   } catch (error) {
-    console.log(error)
-   }
-
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
