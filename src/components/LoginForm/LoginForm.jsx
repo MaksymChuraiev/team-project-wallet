@@ -1,11 +1,20 @@
 import React from 'react';
+
 import { useDispatch } from 'react-redux';
 import authOperations from '../../redux/auth/auth-operation';
 import { useNavigate } from 'react-router-dom';
 
-import { useNavigate } from 'react-router-dom';
 
 import { Formik, ErrorMessage } from 'formik';
+import { 
+  useDispatch
+} from 'react-redux';
+import { useNavigate   } from 'react-router-dom';
+import { logIn } from 'redux/auth/auth-operation';
+
+import { toast } from 'react-toastify';
+
+
 import * as yup from 'yup';
 import svgMail from '../LoginForm/Vector.svg';
 import svgLock from '../LoginForm/Vector-lock.svg';
@@ -43,17 +52,28 @@ const FormError = ({ name }) => {
 };
 
 export const LoginForm = () => {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const handleSubmit = (values, { resetForm }) => {
+  const handleSubmit = async (values, { resetForm }) => {
+   try {
     const { email, password } = values;
 
-    dispatch(authOperations.logIn({ email, password }));
-    resetForm();
-    navigate('/dashboard');
-    console.log(email, password);
-    navigate('/dashboard', { replace: true });
+    const {payload: errorCode} = await dispatch(logIn({ email, password }));
+    
+    if(errorCode === 401){
+      toast.error('Email or password is wrong');
+      resetForm();
+      return
+    } 
+      resetForm();
+      navigate('/dashboard');
+      toast.success('You are logged in');
+   } catch (error) {
+    console.log(error)
+   }
+
   };
 
   return (
