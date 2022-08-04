@@ -1,13 +1,7 @@
-import React from 'react';
-
 import { useDispatch } from 'react-redux';
-// import authOperations from '../../redux/auth/auth-operation';
 import { useNavigate } from 'react-router-dom';
-
 import { Formik, ErrorMessage } from 'formik';
-
 import { logIn } from 'redux/auth/auth-operation';
-
 import { toast } from 'react-toastify';
 
 import * as yup from 'yup';
