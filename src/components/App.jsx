@@ -1,4 +1,4 @@
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, Navigate } from 'react-router-dom';
 import { Suspense, lazy } from 'react';
 import { Layout } from './Layout/Layout';
 import ProtectedRoute from './Routes/ProtectedRoute';
@@ -11,14 +11,12 @@ import { ToastContainer } from 'react-toastify';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 
-
 // import { Home } from 'components/Routes/Home';
 import { StatisticsPage } from 'pages/StaisticsPage';
 
 import { authOperations } from 'redux/auth';
 
 import { Currency } from './Currency/Currency';
-
 
 const RegisterPage = lazy(() => import('../pages/RegistrationPage'));
 const LoginPage = lazy(() => import('../pages/LoginPage.jsx'));
@@ -29,11 +27,11 @@ export const App = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(authOperations.currentUser());
-  }, [dispatch])
+  }, [dispatch]);
 
   return (
     <Suspense fallback={<Loader />}>
-    <ToastContainer/>
+      <ToastContainer />
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route path="registration" element={<RegisterPage />} />
