@@ -4,9 +4,9 @@ import * as yup from 'yup';
 // import { nanoid } from 'nanoid';
 import logo from '../../images/logo.png';
 import icon from '../../images/symbol-defs.svg';
-import { useDispatch,useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import operations from '../../redux/auth/auth-operation'
+// import operations from '../../redux/auth/auth-operation'
 // import { register } from '../../ReduxX/auth/auth-operations';
 
 import { register } from '../../redux/auth/auth-operation';
@@ -28,7 +28,7 @@ const RegistrationForm = () => {
   const [password, setPassword] = useState();
   const [confirmPassword, setConfirmPassword] = useState();
 
-const isRegistered = useSelector(state => state.getIsRegister)
+// const isRegistered = useSelector(state => state.getIsRegister)
 // isRegistered && dispatch(operations.logIn({ email, password }));
   
   const schema = yup.object().shape({
@@ -52,7 +52,7 @@ const isRegistered = useSelector(state => state.getIsRegister)
       resetForm();
       
       navigate('/dashboard');
-      isRegistered && dispatch(operations.logIn({ email, password }));
+      // isRegistered && dispatch(operations.logIn({ email, password }));
     } catch (error) {
       alert('Oops! Something went wrong...');
     }
