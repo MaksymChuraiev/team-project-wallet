@@ -7,6 +7,8 @@ import HomeTabPage from 'pages/HomeTabPage';
 // import { Home } from 'components/Routes/Home';
 import { StatisticsPage } from 'pages/StaisticsPage';
 
+import { ToastContainer } from 'react-toastify';
+
 const RegisterPage = lazy(() => import('../pages/RegistrationPage'));
 const LoginPage = lazy(() => import('../pages/LoginPage.jsx'));
 const DashboardPage = lazy(() => import('../pages/DashboardPage.jsx'));
@@ -14,6 +16,7 @@ const DashboardPage = lazy(() => import('../pages/DashboardPage.jsx'));
 export const App = () => {
   return (
     <Suspense fallback={<p>Loading..</p>}>
+    <ToastContainer/>
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route path="registration" element={<RegisterPage />} />
