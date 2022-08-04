@@ -1,7 +1,7 @@
 // import React from 'react';
 import { useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
-import { Link } from 'react-router-dom';
+
+import { Link, useNavigate } from 'react-router-dom';
 import { logIn } from 'redux/auth/auth-operation';
 import { Formik, ErrorMessage } from 'formik';
 import { toast } from 'react-toastify';
@@ -20,7 +20,6 @@ import {
   ErrorText,
   SvgWrapper,
 } from './LoginForm.styled';
-
 
 const loginSchema = yup.object().shape({
   email: yup.string().email().required(),
@@ -43,6 +42,7 @@ const FormError = ({ name }) => {
 
 export const LoginForm = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleSubmit = async (values, { resetForm }) => {
     try {
