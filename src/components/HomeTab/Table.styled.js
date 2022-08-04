@@ -1,9 +1,9 @@
 import styled from '@emotion/styled';
 
-export const TableMain = styled.table`
+export const TableMain = styled.table`/* 
   @media screen and (max-width: 767px) {
     display: none;
-  }
+  } */
 	@media screen and (min-width: 768px) {
 		display: block;
     width: 704px;
