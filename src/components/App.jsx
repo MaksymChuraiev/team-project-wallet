@@ -3,18 +3,29 @@ import { Suspense, lazy } from 'react';
 import { Layout } from './Layout/Layout';
 import ProtectedRoute from './Routes/ProtectedRoute';
 import HomeTabPage from 'pages/HomeTabPage';
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 
 // import { Home } from 'components/Routes/Home';
 import { StatisticsPage } from 'pages/StaisticsPage';
+
+import { authOperations } from 'redux/auth';
+
 import { Currency } from './Currency/Currency';
 
 // import { ToastContainer } from 'react-toastify';
+
 
 const RegisterPage = lazy(() => import('../pages/RegistrationPage'));
 const LoginPage = lazy(() => import('../pages/LoginPage.jsx'));
 const DashboardPage = lazy(() => import('../pages/DashboardPage.jsx'));
 
 export const App = () => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(authOperations.currentUser());
+  }, [dispatch])
+
   return (
     <Suspense fallback={<p>Loading..</p>}>
       <Routes>
