@@ -1,10 +1,10 @@
-import { Oval } from 'react-loader-spinner';
+import { BallTriangle } from 'react-loader-spinner';
 import { LoaderWrapper } from './Loader.styled';
 
 function Loader() {
   return (
     <LoaderWrapper>
-      <Oval color="black" height="100" width="100" />
+      <BallTriangle color="#4a56e2" height="70" width="70" />
     </LoaderWrapper>
   );
 }
