@@ -1,15 +1,10 @@
-import React from 'react';
-
+// import React from 'react';
 import { useDispatch } from 'react-redux';
-// import authOperations from '../../redux/auth/auth-operation';
 import { useNavigate } from 'react-router-dom';
-
-import { Formik, ErrorMessage } from 'formik';
-
+import { Link } from 'react-router-dom';
 import { logIn } from 'redux/auth/auth-operation';
-
+import { Formik, ErrorMessage } from 'formik';
 import { toast } from 'react-toastify';
-
 import * as yup from 'yup';
 import svgMail from '../LoginForm/Vector.svg';
 import svgLock from '../LoginForm/Vector-lock.svg';
@@ -25,7 +20,7 @@ import {
   ErrorText,
   SvgWrapper,
 } from './LoginForm.styled';
-import { Link } from 'react-router-dom';
+
 
 const loginSchema = yup.object().shape({
   email: yup.string().email().required(),
@@ -47,7 +42,6 @@ const FormError = ({ name }) => {
 };
 
 export const LoginForm = () => {
-  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const handleSubmit = async (values, { resetForm }) => {
