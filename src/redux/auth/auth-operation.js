@@ -1,4 +1,6 @@
-import axios from 'axios';
+import axios
+//  {AxiosError} 
+ from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
 axios.defaults.baseURL = 'https://wallet-server-api.herokuapp.com/api';
@@ -26,27 +28,29 @@ export const register = createAsyncThunk(
   }
 );
 
-const logIn = createAsyncThunk(
+export const logIn = createAsyncThunk(
   'auth/login',
   async (credentials, { rejectWithValue }) => {
     try {
       const { data } = await axios.post('/auth/signin', credentials);
       token.set(data.data.token);
-
+      // console.log(data.code);
       return data.data;
-    } catch (error) {
-      return rejectWithValue(error);
+    } 
+    catch (error) {
+      return rejectWithValue(error.response.status);
     }
   }
 );
 
-const logOut = createAsyncThunk(
+export const logOut = createAsyncThunk(
   'auth/logout',
   async (_, { rejectWithValue }) => {
     try {
       await axios.post('/auth/logout');
       token.unset();
     } catch (error) {
+      console.log(rejectWithValue)
       return rejectWithValue(error);
     }
   }

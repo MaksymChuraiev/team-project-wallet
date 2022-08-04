@@ -12,6 +12,7 @@ import {
 } from './SelectCategories.styled';
 
 export const SelectCategories = () => {
+  console.log('categoriers');
   const inputMonths = document.querySelector('div[data-input="months"]');
   const inputYears = document.querySelector('div[data-input="years"]');
   // console.log('inputMonths,', inputMonths);

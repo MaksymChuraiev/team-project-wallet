@@ -8,11 +8,14 @@ import HomeTabPage from 'pages/HomeTabPage';
 import { StatisticsPage } from 'pages/StaisticsPage';
 import { Currency } from './Currency/Currency';
 
+import { ToastContainer } from 'react-toastify';
+
 const RegisterPage = lazy(() => import('../pages/RegistrationPage'));
 const LoginPage = lazy(() => import('../pages/LoginPage.jsx'));
 const DashboardPage = lazy(() => import('../pages/DashboardPage.jsx'));
 
 export const App = () => {
+
 	return (
 		<Suspense fallback={<p>Loading..</p>}>
 			<Routes>
@@ -55,6 +58,7 @@ export const App = () => {
 				</Route>
 			</Routes>
 		</Suspense>
+
 
 		// <Suspense fallback={<p>Loading...</p>}>
 		//   <Routes>

@@ -5,7 +5,8 @@ import * as yup from 'yup';
 import logo from '../../images/logo.png';
 import icon from '../../images/symbol-defs.svg';
 import { useDispatch } from 'react-redux';
-
+import { useNavigate } from 'react-router-dom';
+// import operations from '../../redux/auth/auth-operation'
 // import { register } from '../../ReduxX/auth/auth-operations';
 
 import { register } from '../../redux/auth/auth-operation';
@@ -18,14 +19,18 @@ import {
   Input,
 } from '../LoginForm/LoginForm.styled';
 import { Icon, FormContainer, FormName } from './RegistrationForm.styled';
-import ButtonGroup from '../Button/Button';
+import Button from '../Button/Button';
 import PasswordProgressBar from 'components/PasswordProgressBar/PasswordProgressBar';
 
 const RegistrationForm = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [password, setPassword] = useState();
   const [confirmPassword, setConfirmPassword] = useState();
 
+// const isRegistered = useSelector(state => state.getIsRegister)
+// isRegistered && dispatch(operations.logIn({ email, password }));
+  
   const schema = yup.object().shape({
     email: yup.string().required(),
     password: yup.string().min(6).max(12).required(),
@@ -41,12 +46,25 @@ const RegistrationForm = () => {
   };
 
   const handleSubmit = (values, { resetForm }) => {
-    // console.log(values);
-    const { email, password, name } = values;
-    dispatch(register({ email, password, name }));
-    resetForm();
+    try {
+      const { email, password, name } = values;
+      dispatch(register({ email, password, name }));
+      resetForm();
+      
+      navigate('/dashboard');
+      // isRegistered && dispatch(operations.logIn({ email, password }));
+    } catch (error) {
+      alert('Oops! Something went wrong...');
+    }
+
+    
     // console.log(email, password, confirmPassword, name);
   };
+
+    
+    const handleClick = () => {
+        navigate('/login')
+    }
 
   // const emailInputId = nanoid();
   // const passwordInputId = nanoid();
@@ -113,6 +131,7 @@ const RegistrationForm = () => {
               />
             </InputField>
             {password && <PasswordProgressBar password={password.length} />}
+            {password && password.length < 6 &&  <p>Passwords should be at least 6 signs</p>}
             <FormError name="password" />
           </InputLabel>
 
@@ -128,6 +147,8 @@ const RegistrationForm = () => {
                 placeholder="Confirm password"
               />
             </InputField>
+            {confirmPassword && password !== confirmPassword &&  <p>Passwords should be the same</p>}
+            
 
             <FormError name="confirmPassword" />
           </InputLabel>
@@ -147,12 +168,25 @@ const RegistrationForm = () => {
             <FormError name="name" />
           </InputLabel>
 
-          <ButtonGroup
-            register="REGISTER"
-            login="LOG IN"
+          <Button
+            buttonTitle="REGISTER"
             password={password}
             confirmPassword={confirmPassword}
+            type="submit"
+            color='#fff'
+            bgColor='#24CCA7'
+            border='none'
           />
+
+          <Button
+            buttonTitle="LOG IN"
+            onClick={handleClick}
+            type="button"
+            color='#4A56E2'
+            bgColor='#ffffff'
+            borderColor='#4A56E2'
+          />
+
         </LogForm>
       </Formik>
     </FormContainer>
