@@ -20,9 +20,13 @@ export const LogoutModal = ({active, setActive}) => {
     
     function closeModal() {
         setActive(false);
+  }
+  
+  function handleLogoutClick() {
+    setActive(false);
         dispatch(logOut());
         navigate('/login');
-    }
+  }
 
     return (
         <ModalStyled
@@ -40,7 +44,7 @@ export const LogoutModal = ({active, setActive}) => {
             
             <Button
             buttonTitle="Logout"
-            onClick={closeModal}
+            onClick={handleLogoutClick}
             type="button"
             color='#fff'
             bgColor='#24CCA7'

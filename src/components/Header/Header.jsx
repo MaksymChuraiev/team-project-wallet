@@ -1,6 +1,8 @@
 import LogoSvg from '../../icons/logo.svg';
 import ExitSvg from '../../icons/exit.svg';
 import { useState } from 'react';
+import { useSelector } from 'react-redux';
+import authSelectors from '../../redux/auth/auth-selectors';
 import {
   HeaderWraper,
   HeaderCastom,
@@ -18,8 +20,9 @@ import { LogoutModal } from '../Modal/LogoutModal';
 export const Header = () => {
   const [modalActive, setModalActive] = useState(false);
 
+  const name = useSelector(authSelectors.getUserName);
   const handleClick = () => {
-    console.log('Click!');
+    console.log(name);
     setModalActive(true);
   };
 
@@ -33,7 +36,7 @@ export const Header = () => {
           </LogoWrapper>
 
           <HeaderRight>
-            <UserName>Name</UserName>
+            <UserName>{name}</UserName>
             <ExitWrapper onClick={handleClick}>
               <ExitLogo src={ExitSvg} alt="Exit" />
               <ExitText>Exit</ExitText>
