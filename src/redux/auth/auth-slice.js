@@ -81,3 +81,5 @@ export const persistedAuthReducer = persistReducer(
   persistConfig,
   authSlice.reducer
 );
+
+export const getIsLoggedIn = state => state.auth.isLoggedIn;
