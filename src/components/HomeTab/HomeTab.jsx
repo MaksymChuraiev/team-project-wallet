@@ -1,5 +1,5 @@
 import Media from 'react-media';
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { MobileTab } from './MobileTab'
 import { Table } from './Table';
@@ -9,8 +9,6 @@ import transactionsOperation from 'redux/transaction/transaction-operation';
 import { Balance } from 'components/Balance/Balance';
 
 export const HomeTab = () => {
-	const [state, setState] = useState();
-	console.log(state, setState);
 	const dispatch = useDispatch();
 	const allTransaction = useSelector(transactionSelectors.getTransaction);
 
@@ -19,7 +17,7 @@ export const HomeTab = () => {
 	}, [dispatch]);
 
 	return (
-		<Media queries={{ small: { maxWidth: 768 } }}>
+		<Media queries={{ small: { maxWidth: 767 } }}>
 			{matches =>
 				matches.small ? (
 					<>
