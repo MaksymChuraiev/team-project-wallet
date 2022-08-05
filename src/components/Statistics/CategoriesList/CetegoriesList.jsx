@@ -1,53 +1,63 @@
 import { UserData } from '../testData';
+import { useEffect, useState } from 'react';
 
-import {
-  CategoriesListStyled,
-  CategoriesItemStyled,
-  Expenses,
-  Income,
-} from './CategoriesList.styled';
+import { CategoriesListStyled } from './CategoriesList.styled';
+import { CategoriesItem } from '../CategoriesItem/CategoriesItem';
+import { Expenses } from '../Expenses/Expenses';
+import { Income } from '../Income/Income';
 
-export const CategoriesList = () => {
-  console.log('Categories');
+export const CategoriesList = ({ categories, getByDate }) => {
+  const [list, setList] = useState([...categories]);
+  console.log('LIST categiries', categories);
+  // console.log('LIST getByDate', getByDate);
+
+  const { income, totalExpenses, totalIncome } = getByDate;
+  console.log('income', income);
+
+  // const normaliseCategories = () => {
+  //   const newArray = [];
+  //   for (let i = 0; i < categories.length; i += 1) {
+  //     for (let j = 0; j < income.length; j += 1) {
+  //       if (categories[i] === income[j].category) {
+  //         newArray.push({ ...income[j], category: categories[i] });
+  //       }
+  //     }
+  //     // newArray.push({ category: categories[i], sum: 0 });
+  //   }
+  //   return newArray;
+  // };
+
+  // const listArray = normaliseCategories();
+  // console.log('listArray', listArray);
   return (
     <>
-      <CategoriesListStyled
-        style={{ display: 'flex', flexDirection: 'column' }}
-      >
-        {UserData.map(data => (
-          <CategoriesItemStyled
-            key={data.title}
-            // style={{
-            //   display: 'flex',
-            //   alignItems: 'center',
-            // }}
-          >
-            <span
-              style={{
-                display: 'inline-block',
-                width: 24,
-                height: 24,
-                backgroundColor: data.color,
-                borderRadius: 2,
-              }}
-            ></span>
-            <span style={{ marginLeft: 16 }}>{data.type}</span>
-            <span style={{ marginLeft: 'auto' }}>{data.summ}</span>
-          </CategoriesItemStyled>
-        ))}
+      <CategoriesListStyled>
+        {income &&
+          income.map(elem => (
+            <CategoriesItem
+              // key={Date.now()}
+              category={elem.category}
+              sum={elem.sum}
+              // listArray={listArray}
+            />
+          ))}
+        {/* {listArray &&
+          listArray.map(elem => (
+            <CategoriesItem
+              // key={Date.now()}
+
+              // category={elem.category}
+              // sum={elem.sum}
+              // listArray={listArray}
+
+              category={elem.category}
+              sum={elem.sum}
+              // listArray={listArray}
+            />
+          ))} */}
       </CategoriesListStyled>
-      <Expenses>
-        <span style={{ fontWeight: 700, fontSize: 16 }}>Expenses:</span>
-        <span style={{ fontWeight: 700, fontSize: 16, color: ' #FF6596' }}>
-          22 549.24
-        </span>
-      </Expenses>
-      <Income>
-        <span style={{ fontWeight: 700, fontSize: 16 }}>Income:</span>
-        <span style={{ fontWeight: 700, fontSize: 16, color: '#24CCA7' }}>
-          27 350.00
-        </span>
-      </Income>
+      <Expenses expense={totalExpenses} />
+      <Income income={totalIncome} />
     </>
   );
 };

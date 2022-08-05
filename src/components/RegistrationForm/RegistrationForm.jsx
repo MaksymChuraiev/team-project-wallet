@@ -6,8 +6,8 @@ import logo from '../../images/logo.png';
 import icon from '../../images/symbol-defs.svg';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+
 // import operations from '../../redux/auth/auth-operation'
-// import { register } from '../../ReduxX/auth/auth-operations';
 
 import { register } from '../../redux/auth/auth-operation';
 
@@ -49,6 +49,11 @@ const RegistrationForm = () => {
     try {
       const { email, password, name } = values;
       dispatch(register({ email, password, name }));
+
+      // dispatch(login({email, password, name}))
+      resetForm();
+      navigate('/');
+
       resetForm();
       navigate('/dashboard');
       const date = new Date();
@@ -60,6 +65,7 @@ const RegistrationForm = () => {
           '/' +
           date.getFullYear()
       );
+
     } catch (error) {
       alert('Oops! Something went wrong...');
     }

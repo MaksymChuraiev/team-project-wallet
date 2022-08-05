@@ -48,6 +48,12 @@ export const LoginForm = () => {
 
       const { payload: errorCode } = await dispatch(logIn({ email, password }));
 
+
+    dispatch(authOperations.logIn({ email, password }));
+    resetForm();
+    console.log(email, password);
+    navigate('/home-tab', { replace: true });
+
       if (errorCode === 401) {
         toast.error('Email or password is wrong');
         resetForm();
@@ -59,6 +65,7 @@ export const LoginForm = () => {
     } catch (error) {
       console.log(error);
     }
+
   };
 
   return (
