@@ -1,4 +1,4 @@
-import styled from "@emotion/styled";
+import styled from '@emotion/styled';
 
 export const CategoriesItemStyled = styled.li`
   display: flex;
@@ -9,16 +9,17 @@ export const CategoriesItemStyled = styled.li`
 `;
 
 export const ColoredSquare = styled.span`
-display: inline-block;
-width: 24px;
-height: 24px;
-// background-color: data.color,
-border-radius: 2px;
-`
-export const CategoriesText =styled.span`
-    margin-left: 16px;
-    `
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  background-color: ${props => props.color.color};
+  border-radius: 2px;
+`;
+
+export const CategoriesText = styled.span`
+  margin-left: 16px;
+`;
 
 export const Summ = styled.span`
-margin-left: auto; 
-`
+  margin-left: auto;
+`;

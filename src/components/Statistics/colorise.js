@@ -1,4 +1,4 @@
-export const UserData = [
+const colorise = [
   {
     color: '#FED057',
   },
@@ -26,4 +26,24 @@ export const UserData = [
   {
     color: '#00AD84',
   },
+  {
+    color: '#8A6642',
+  },
+  {
+    color: '#474B4E',
+  },
+  {
+    color: '#20214F',
+  },
+  {
+    color: '#89AC76',
+  },
+  {
+    color: '#C1876B',
+  },
+  {
+    color: '#4C9141',
+  },
 ];
+
+export default colorise;
