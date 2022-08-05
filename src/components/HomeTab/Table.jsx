@@ -20,44 +20,48 @@ export const Table = ({ items }) => {
     return `${day}.${month}.${year}`;
   };
 
-
-	}
-
-	return (
-		<>
-			<TableMain>
-				<TableHeader>
-					<TableHeaderRow>
-						<TableHeadCell>date</TableHeadCell>
-						<TableHeadCell>type</TableHeadCell>
-						<TableHeadCell>category</TableHeadCell>
-						<TableHeadCell>comment</TableHeadCell>
-						<TableHeadCell>sum</TableHeadCell>
-						<TableHeadCell>balance</TableHeadCell>
-					</TableHeaderRow>
-				</TableHeader>
-				<TableBody>
-					{items.map(
-						({ _id, date, transactionType, category, comment, amount, balance }) => (
-							<TableRow key={_id}>
-								<TableCell>{normTime(date)}</TableCell>
-								<TableCell>{transactionType === true ? '+' : '-'}</TableCell>
-								<TableCell>{category}</TableCell>
-								<TableCell>{comment}</TableCell>
-								<TableCell>
-									<TableCellColor
-										type={transactionType === true ? 'income' : 'costs'}>{amount}
-									</TableCellColor>
-								</TableCell>
-								<TableCell>{spaceCreator(balance)}</TableCell>
-							</TableRow>
-						),
-					)}
-				</TableBody>
-			</TableMain>
-		</>
-	)
-}
-
-
-
+  return (
+    <>
+      <TableMain>
+        <TableHeader>
+          <TableHeaderRow>
+            <TableHeadCell>date</TableHeadCell>
+            <TableHeadCell>type</TableHeadCell>
+            <TableHeadCell>category</TableHeadCell>
+            <TableHeadCell>comment</TableHeadCell>
+            <TableHeadCell>sum</TableHeadCell>
+            <TableHeadCell>balance</TableHeadCell>
+          </TableHeaderRow>
+        </TableHeader>
+        <TableBody>
+          {items.map(
+            ({
+              _id,
+              date,
+              transactionType,
+              category,
+              comment,
+              amount,
+              balance,
+            }) => (
+              <TableRow key={_id}>
+                <TableCell>{normTime(date)}</TableCell>
+                <TableCell>{transactionType === true ? '+' : '-'}</TableCell>
+                <TableCell>{category}</TableCell>
+                <TableCell>{comment}</TableCell>
+                <TableCell>
+                  <TableCellColor
+                    type={transactionType === true ? 'income' : 'costs'}
+                  >
+                    {amount}
+                  </TableCellColor>
+                </TableCell>
+                <TableCell>{spaceCreator(balance)}</TableCell>
+              </TableRow>
+            )
+          )}
+        </TableBody>
+      </TableMain>
+    </>
+  );
+};
