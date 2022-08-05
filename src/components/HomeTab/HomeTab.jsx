@@ -2,7 +2,7 @@ import Media from 'react-media';
 import { useEffect } from 'react';
 
 import { useSelector, useDispatch } from 'react-redux';
-import { MobileTab } from './MobileTab'
+import { MobileTab } from './MobileTab';
 import { Table } from './Table';
 
 import transactionSelectors from 'redux/transaction/transaction-selectors';
@@ -11,26 +11,28 @@ import { Balance } from 'components/Balance/Balance';
 
 export const HomeTab = () => {
 
-	const dispatch = useDispatch();
-	const allTransaction = useSelector(transactionSelectors.getTransaction);
+  const dispatch = useDispatch();
+  const allTransaction = useSelector(transactionSelectors.getTransaction);
 
-	useEffect(() => {
-		dispatch(transactionsOperation.getAllTransactions());
-	}, [dispatch]);
 
-	return (
-		<Media queries={{ small: { maxWidth: 767 } }}>
+  useEffect(() => {
+    dispatch(transactionsOperation.getAllTransactions());
+  }, [dispatch]);
 
-			{matches =>
-				matches.small ? (
-					<>
-						<Balance />
-						<MobileTab items={allTransaction} />
-					</>
-				) : (
-					<Table items={allTransaction} />
-				)
-			}
-		</Media>
-	)
-}
+
+  return (
+    <Media queries={{ small: { maxWidth: 767 } }}>
+      {matches =>
+        matches.small ? (
+          <>
+            <Balance />
+            <MobileTab items={allTransaction} />
+          </>
+        ) : (
+          allTransaction && <Table items={allTransaction} />
+        )
+      }
+    </Media>
+  );
+};
+
