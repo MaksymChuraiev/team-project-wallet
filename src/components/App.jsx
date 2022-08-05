@@ -16,10 +16,11 @@ export const App = () => {
     <Suspense fallback={<p>Loading..</p>}>
       <Routes>
         <Route path="/" element={<Layout />}>
+          <Route index element={<LoginPage />} />
           <Route path="registration" element={<RegisterPage />} />
           <Route path="login" element={<LoginPage />} />
           <Route
-            path="dashboard"
+            path="/"
             element={
               <ProtectedRoute>
                 <DashboardPage />

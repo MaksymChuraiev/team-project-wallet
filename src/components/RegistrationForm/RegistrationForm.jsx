@@ -5,7 +5,7 @@ import * as yup from 'yup';
 import logo from '../../images/logo.png';
 import icon from '../../images/symbol-defs.svg';
 import { useDispatch } from 'react-redux';
-import { useNavigate   } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 // import { register } from '../../ReduxX/auth/auth-operations';
 
 import { register } from '../../redux/auth/auth-operation';
@@ -47,20 +47,18 @@ const RegistrationForm = () => {
       const { email, password, name } = values;
       dispatch(register({ email, password, name }));
       // dispatch(login({email, password, name}))
-    resetForm();
-    navigate('/dashboard');
+      resetForm();
+      navigate('/');
     } catch (error) {
       alert('Oops! Something went wrong...');
     }
 
-    
     // console.log(email, password, confirmPassword, name);
   };
 
-    
-    const handleClick = () => {
-        navigate('/login')
-    }
+  const handleClick = () => {
+    navigate('/login');
+  };
 
   // const emailInputId = nanoid();
   // const passwordInputId = nanoid();
@@ -127,7 +125,9 @@ const RegistrationForm = () => {
               />
             </InputField>
             {password && <PasswordProgressBar password={password.length} />}
-            {password && password.length < 6 &&  <p>Passwords should be at least 6 signs</p>}
+            {password && password.length < 6 && (
+              <p>Passwords should be at least 6 signs</p>
+            )}
             <FormError name="password" />
           </InputLabel>
 
@@ -143,8 +143,9 @@ const RegistrationForm = () => {
                 placeholder="Confirm password"
               />
             </InputField>
-            {confirmPassword && password !== confirmPassword &&  <p>Passwords should be the same</p>}
-            
+            {confirmPassword && password !== confirmPassword && (
+              <p>Passwords should be the same</p>
+            )}
 
             <FormError name="confirmPassword" />
           </InputLabel>
@@ -169,20 +170,19 @@ const RegistrationForm = () => {
             password={password}
             confirmPassword={confirmPassword}
             type="submit"
-            color='#fff'
-            bgColor='#24CCA7'
-            border='none'
+            color="#fff"
+            bgColor="#24CCA7"
+            border="none"
           />
 
           <Button
             buttonTitle="LOG IN"
             onClick={handleClick}
             type="button"
-            color='#4A56E2'
-            bgColor='#ffffff'
-            borderColor='#4A56E2'
+            color="#4A56E2"
+            bgColor="#ffffff"
+            borderColor="#4A56E2"
           />
-
         </LogForm>
       </Formik>
     </FormContainer>

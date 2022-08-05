@@ -51,7 +51,7 @@ export const LoginForm = () => {
     dispatch(authOperations.logIn({ email, password }));
     resetForm();
     console.log(email, password);
-    navigate('/dashboard', { replace: true });
+    navigate('/home-tab', { replace: true });
   };
 
   return (
