@@ -11,7 +11,6 @@ import {
 } from "./Table.styled"
 import spaceCreator from "services/spaceCreator";
 import trashSvg from '../../icons/trash.svg'
-import spaceCreator from 'services/spaceCreator';
 import transactionsOperation from '../../redux/transaction/transaction-operation';
 
 
