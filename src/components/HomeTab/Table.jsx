@@ -7,7 +7,9 @@ import {
 	TableRow,
 	TableHeadCell,
 	TableCell,
-	TableCellColor
+	TableCellColor,
+	ButtonDelete,
+	Trash
 } from "./Table.styled"
 import spaceCreator from "services/spaceCreator";
 import trashSvg from '../../icons/trash.svg'
