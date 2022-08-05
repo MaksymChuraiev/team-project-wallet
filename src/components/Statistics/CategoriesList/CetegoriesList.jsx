@@ -18,7 +18,6 @@ export const CategoriesList = ({ categories, getByDate }) => {
       category: elem,
       sum: 0,
     }));
-  console.log(categoriesArray);
 
   const newArray =
     categoriesArray &&

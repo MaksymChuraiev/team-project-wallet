@@ -44,7 +44,6 @@ export const Diagram = ({ objectDate }) => {
     });
   }, [objectDate]);
 
-  console.log('objectDate DIAGRAM', objectDate);
   return (
     <DiagramContainer>
       <StatisticsText>Statistics</StatisticsText>
