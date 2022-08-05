@@ -10,9 +10,8 @@ import colorize from '../colorise';
 export const CategoriesList = ({ categories, getByDate }) => {
   const { income, totalExpenses, totalIncome } = getByDate;
 
-  console.log('getByDate qweqweqe', getByDate);
-  console.log('income', income);
-
+  //---------------------------------------------------
+  //normalized start
   const categoriesArray =
     categories &&
     categories.map(elem => ({
@@ -29,7 +28,9 @@ export const CategoriesList = ({ categories, getByDate }) => {
       ...income[idx],
     }));
 
-  console.log('newArray!!!!!!!qeqweqwe', newArray);
+  //normalized end
+  //---------------------------------------------------
+
   return (
     <>
       <CategoriesListStyled>

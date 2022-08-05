@@ -9,11 +9,7 @@ import {
 } from './Diagram.styled';
 
 export const Diagram = ({ objectDate }) => {
-  console.log('diagram');
-  console.log('OBJECTDATE', objectDate);
   const { income } = objectDate;
-  // const type = UserData.map(data => data.type);
-  // const summ = UserData.map(data => data.sum);
   const summ = objectDate.income && income.map(data => data.sum);
 
   const colors = colorize.map(data => data.color);
@@ -49,7 +45,6 @@ export const Diagram = ({ objectDate }) => {
   }, [objectDate]);
 
   console.log('objectDate DIAGRAM', objectDate);
-  // console.log(type, setUSerData);
   return (
     <DiagramContainer>
       <StatisticsText>Statistics</StatisticsText>

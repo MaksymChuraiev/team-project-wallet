@@ -1,4 +1,4 @@
-export default [
+const colorise = [
   {
     color: '#FED057',
   },
@@ -45,3 +45,5 @@ export default [
     color: '#4C9141',
   },
 ];
+
+export default colorise;
