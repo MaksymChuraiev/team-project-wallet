@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
 
 export const BalanceWrapper = styled.div`
+	overflow: hidden;
   background-color: #fff;
   border-radius: 30px;
   padding: 8px 0px 11px 32px;
@@ -25,7 +26,7 @@ export const BalanceLabel = styled.span`
 	color: #A6A6A6;
 `;
 
-export const BalanceSumm = styled.p`
+export const BalanceSumm = styled.div`
   font-family: 'Circe', sans-serif;
   font-weight: 700;
   font-size: 30px;

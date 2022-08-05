@@ -2,11 +2,11 @@ import styled from '@emotion/styled';
 
 export const Page = styled.div`
 
-	@media screen and (max-width: 768px) {
+	@media screen and (max-width: 767px) {
+
 		height: 100%;
-	width: 100%;
-	
-	background: #E7EAF2;
+		width: 100%;
+		background: #E7EAF2;
   }
 
 `;
@@ -45,6 +45,7 @@ export const NavBalanceCurrencyBox = styled.div`
 	@media screen and (min-width: 768px) {
     flex-direction: row;
 		padding: 0 32px;
+		margin-top:40px;
   }
 	@media screen and (min-width: 1280px) {
     flex-direction: column;
