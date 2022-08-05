@@ -37,6 +37,8 @@ export const SelectCategories = ({
   const [dropIsOpenYears, setDropIsOpenYears] = useState(false);
   const [month, setMonth] = useState(initMonth);
 
+  console.log('objectDate', objectDate);
+
   // =-----==------- TABLE ==----------
   const handleInputOpenMonths = e => {
     setInputIsOpen(!inputIsOpen);
@@ -118,7 +120,7 @@ export const SelectCategories = ({
             onClick={handleInputOpenYears}
             data-input="years"
           >
-            {objectDate.year ? objectDate.year : 'Year'}
+            {objectDate.year ? objectDate.year : 'All'}
           </SelectName>
           {dropIsOpenYears && (
             <SelectYears

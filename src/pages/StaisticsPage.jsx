@@ -55,6 +55,11 @@ export const StatisticsPage = () => {
   };
   const handleClickYear = e => {
     console.dir(e.currentTarget);
+    console.log(Number(''));
+    // if (e.currentTarget.id === 'All') {
+    //   setObjectDate({ ...objectDate, year: null });
+    //   return;
+    // }
     setObjectDate({ ...objectDate, year: Number(e.currentTarget.id) });
   };
 
