@@ -1,9 +1,9 @@
 {
   "files": {
     "main.css": "/team-project-wallet/static/css/main.86646d4d.css",
-    "main.js": "/team-project-wallet/static/js/main.62be91ea.js",
+    "main.js": "/team-project-wallet/static/js/main.a34c96ce.js",
     "static/js/529.f4ace569.chunk.js": "/team-project-wallet/static/js/529.f4ace569.chunk.js",
-    "static/js/158.96a95ea3.chunk.js": "/team-project-wallet/static/js/158.96a95ea3.chunk.js",
+    "static/js/158.e05a621e.chunk.js": "/team-project-wallet/static/js/158.e05a621e.chunk.js",
     "static/js/868.b278909a.chunk.js": "/team-project-wallet/static/js/868.b278909a.chunk.js",
     "static/js/0.dd3efef0.chunk.js": "/team-project-wallet/static/js/0.dd3efef0.chunk.js",
     "static/js/312.af280520.chunk.js": "/team-project-wallet/static/js/312.af280520.chunk.js",
@@ -26,15 +26,15 @@
     "static/media/chevron-down.svg": "/team-project-wallet/static/media/chevron-down.77b989b3724c691229812f9ba569ef26.svg",
     "static/media/statisticsinputarrow.svg": "/team-project-wallet/static/media/statisticsinputarrow.77b989b3724c691229812f9ba569ef26.svg",
     "main.86646d4d.css.map": "/team-project-wallet/static/css/main.86646d4d.css.map",
-    "main.62be91ea.js.map": "/team-project-wallet/static/js/main.62be91ea.js.map",
+    "main.a34c96ce.js.map": "/team-project-wallet/static/js/main.a34c96ce.js.map",
     "529.f4ace569.chunk.js.map": "/team-project-wallet/static/js/529.f4ace569.chunk.js.map",
-    "158.96a95ea3.chunk.js.map": "/team-project-wallet/static/js/158.96a95ea3.chunk.js.map",
+    "158.e05a621e.chunk.js.map": "/team-project-wallet/static/js/158.e05a621e.chunk.js.map",
     "868.b278909a.chunk.js.map": "/team-project-wallet/static/js/868.b278909a.chunk.js.map",
     "0.dd3efef0.chunk.js.map": "/team-project-wallet/static/js/0.dd3efef0.chunk.js.map",
     "312.af280520.chunk.js.map": "/team-project-wallet/static/js/312.af280520.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.86646d4d.css",
-    "static/js/main.62be91ea.js"
+    "static/js/main.a34c96ce.js"
   ]
 }
