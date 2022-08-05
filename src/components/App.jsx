@@ -3,25 +3,35 @@ import { Suspense, lazy } from 'react';
 import { Layout } from './Layout/Layout';
 import ProtectedRoute from './Routes/ProtectedRoute';
 import HomeTabPage from 'pages/HomeTabPage';
+
+import Loader from '../components/Loader/Loader';
+
+import { ToastContainer } from 'react-toastify';
+
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 
 // import { Home } from 'components/Routes/Home';
 import { StatisticsPage } from 'pages/StaisticsPage';
+
 import { authOperations } from 'redux/auth';
+
+import { Currency } from './Currency/Currency';
 
 const RegisterPage = lazy(() => import('../pages/RegistrationPage'));
 const LoginPage = lazy(() => import('../pages/LoginPage.jsx'));
 const DashboardPage = lazy(() => import('../pages/DashboardPage.jsx'));
+const NotFoundPage = lazy(() => import('../pages/NotFoundPage.jsx'));
 
 export const App = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(authOperations.currentUser());
-  }, [dispatch])
+  }, [dispatch]);
 
   return (
-    <Suspense fallback={<p>Loading..</p>}>
+    <Suspense fallback={<Loader />}>
+      <ToastContainer />
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route path="registration" element={<RegisterPage />} />
@@ -50,7 +60,16 @@ export const App = () => {
                 </ProtectedRoute>
               }
             />
+            <Route
+              path="banktable"
+              element={
+                <ProtectedRoute>
+                  <Currency />
+                </ProtectedRoute>
+              }
+            />
           </Route>
+          <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>
     </Suspense>

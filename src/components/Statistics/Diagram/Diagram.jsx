@@ -9,6 +9,7 @@ import {
 } from './Diagram.styled';
 
 export const Diagram = () => {
+  console.log('diagram');
   const type = UserData.map(data => data.type);
   const summ = UserData.map(data => data.summ);
   const colors = UserData.map(data => data.color);
