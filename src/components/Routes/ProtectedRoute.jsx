@@ -1,15 +1,15 @@
+
 import { useSelector } from "react-redux";
 import { Navigate } from 'react-router-dom';
-import { authSelectors } from "redux/auth";
+// import { authSelectors } from "redux/auth";
+import { getIsLoggedIn } from "redux/auth/auth-slice";
 
-const ProtectedRoute = ({ children }) => {
-  const isLoggedIn = useSelector(authSelectors.getIsLoggedIn);
+export default function ProtectedRoute ({ children })  {
+  const isLoggedIn = useSelector(getIsLoggedIn);
+  // const isFetching = useSelector(authSelectors.getIsFetching);
+  console.log(isLoggedIn);
 
-  return isLoggedIn ? (
-    children
-  ) : (
-    <Navigate to="/login" />
-  );
-};
+  return isLoggedIn ? children : <Navigate to="/login" replace={true} />
+}
 
-export default ProtectedRoute;
+// export default ProtectedRoute;
