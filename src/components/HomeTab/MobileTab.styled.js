@@ -2,14 +2,16 @@ import styled from '@emotion/styled';
 
 export const MobileTransactions = styled.ul`
 	margin-top: 32px;
-	@media (min-width: 768px) {
-		display: none;
-  }
 `
 
 export const MobileTableBox = styled.li`
+	position: relative;
 	border-radius: 10px;
 	overflow: hidden;
+	border-left: 5px solid ${props =>
+		props.type === 'income'
+			? "#24CCA7"
+			: "#FF6596"};
 	&:not(:first-of-type) {
     margin-top: 8px;
 	}
@@ -23,18 +25,14 @@ export const Row = styled.div`
 	font-family: 'Circe';
 	font-style: normal;
 
-	/* border-left: ${props =>
-		props.type === 'income'
-			? "5px solid #24CCA7"
-			: "5px solid #FF6596"}; */
-	border-left: 5px solid #FF6596; 
+	//border-left: 5px solid #FF6596; 
 	padding: 12px 20px 8px 20px;
 
 	background-color: #fff;
 	color: #000;
 
 	&:not(:first-of-type) {
-    margin-top: 1px;
+    border-top: 1px solid #DCDCDF;
 	}
 `
 
@@ -60,5 +58,43 @@ export const SumRow = styled.span`
 	color: ${props =>
 		props.type === 'income'
 			? "#24CCA7"
-			: "#FF6596"}
+			: "#FF6596"
+	}
+`
+
+export const MobileButtonDelete = styled.button`
+	position: absolute;
+	background: red;
+  object-fit: fill;
+  border: none;
+  width: 30px;
+  height: 30px;
+  
+  top: -10px;
+  right: -10px;
+  border-color: transparent;
+  border-radius: 50%;
+  outline: none;
+  cursor: pointer;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  transition: all 250ms linear;
+  color: #fff;
+	
+  &:hover {
+    transform: scale(1.02) translate(-5px, 3px);
+  }
+  &:active {
+    transform: scale(0.9);
+  }
+`
+
+export const Trash = styled.img`
+	margin-top: 6px;
+	margin-left: 5px;
+	width: 10px;
+	height: 10px;
+	transition: all 250ms linear;
+	&:hover {
+		transform: scale(1.5)
+	}
 `

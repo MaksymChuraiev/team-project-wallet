@@ -14,9 +14,6 @@ export const NavigationContainer = styled.nav`
     gap: 12px;
     flex-direction: column;
   }
-  @media screen and (min-width: 1280px) {
-    padding-top: 20px;
-  }
 `;
 
 export const NavHomeIcon = styled(HomeIcon)`

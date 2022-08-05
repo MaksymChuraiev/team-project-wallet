@@ -1,40 +1,46 @@
 import {
-	BankCashContainer,
-	TableHead,
-	TableBody,
-	TableRow,
-	TableData,
-	TableDataHead,
-} from "./Currency.styled"
+  BankCashContainer,
+  TableHead,
+  TableBody,
+  TableRow,
+  TableData,
+  TableDataHead,
+} from './Currency.styled';
+import { useState, useEffect } from 'react';
+import fetchCurrency from 'services/fetchCurrency';
+import spaceCreator from '../../services/spaceCreator.js';
 
 export const Currency = () => {
+  const [cur, setCur] = useState([]);
 
-	return (
-		<BankCashContainer>
-			<TableHead>
-				<TableRow>
-					<TableDataHead>Curensy</TableDataHead>
-					<TableDataHead>Purchase</TableDataHead>
-					<TableDataHead>Sale</TableDataHead>
-				</TableRow>
-			</TableHead>
-			<TableBody>
-				<TableRow>
-					<TableData>USD</TableData>
-					<TableData>27.55</TableData>
-					<TableData>27.65</TableData>
-				</TableRow>
-				<TableRow>
-					<TableData>EUR</TableData>
-					<TableData>30.00</TableData>
-					<TableData>30.10</TableData>
-				</TableRow>
-				<TableRow>
-					<TableData>UAH</TableData>
-					<TableData>10.00</TableData>
-					<TableData>10.10</TableData>
-				</TableRow>
-			</TableBody>
-		</BankCashContainer>
-	)
-}
+  useEffect(() => {
+    fetchCurrency().then(c => setCur(c));
+  }, []);
+
+  // const fix = num => {
+  //   const fixTwo = Number(num).toFixed(2);
+  //   return new Intl.NumberFormat('ru-RU', {
+  //     minimumFractionDigits: 2,
+  //   }).format(fixTwo);
+  // };
+  return (
+    <BankCashContainer>
+      <TableHead>
+        <TableRow>
+          <TableDataHead>Curensy</TableDataHead>
+          <TableDataHead>Purchase</TableDataHead>
+          <TableDataHead>Sale</TableDataHead>
+        </TableRow>
+      </TableHead>
+      <TableBody>
+        {cur.map(({ ccy, buy, sale }) => (
+          <TableRow key={ccy}>
+            <TableData>{ccy}</TableData>
+            <TableData>{spaceCreator(buy)}</TableData>
+            <TableData>{spaceCreator(sale)}</TableData>
+          </TableRow>
+        ))}
+      </TableBody>
+    </BankCashContainer>
+  );
+};

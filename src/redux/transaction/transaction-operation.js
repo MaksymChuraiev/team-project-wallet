@@ -40,6 +40,7 @@ const deleteTransactions = createAsyncThunk(
 
 const getByDate = createAsyncThunk(
   'transactions/getByDate',
+
   async ({ months = '', year = '' }, { rejectWithValue }) => {
     console.log('month,', months);
     console.log('year', year);

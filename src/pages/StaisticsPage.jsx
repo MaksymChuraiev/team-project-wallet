@@ -54,7 +54,7 @@ export const StatisticsPage = () => {
   const allTransaction = useSelector(transactionSelectors.getTransaction);
   const getByDate = useSelector(transactionSelectors.getStatistics);
 
-  const [objectDate, setObjectDate] = useState({});
+  const [objectDate, setObjectDate] = useState({ months: '', year: '' });
 
   useEffect(() => {
     dispatch(transactionsOperation.getAllTransactions());
@@ -71,12 +71,10 @@ export const StatisticsPage = () => {
   }, [dispatch]);
 
   const handleClickMonth = e => {
-    // console.log(e.target);
     console.dir(e.currentTarget);
     setObjectDate({
       ...objectDate,
       months: Number(e.currentTarget.id),
-      // monthName: e.currentTarget.textContent,
     });
   };
   const handleClickYear = e => {
@@ -84,18 +82,21 @@ export const StatisticsPage = () => {
     console.dir(e.currentTarget);
     setObjectDate({ ...objectDate, year: Number(e.currentTarget.id) });
   };
+
   useEffect(() => {
     dispatch(transactionsOperation.getByDate(objectDate));
   }, [dispatch, objectDate]);
 
+  //------------------------------------------------------
+  //получение года из бекенда
   const arrayOfYears = allTransaction.map(year =>
     new Date(year.date).getFullYear()
   );
-  // const arrayOfMonth = allTransaction.map(month =>
-  //   new Date(month.date).getFullYear()
-  // );
+  //------------------------------------------------------
 
   const newAr = [];
+  //----------------------------------------------------
+  // віборка по годам что бі не повторялся год
   const normalizeYearsArray = () => {
     for (let i = 0; i < arrayOfYears.length; i += 1) {
       if (!newAr.includes(arrayOfYears[i])) {
@@ -104,12 +105,18 @@ export const StatisticsPage = () => {
     }
   };
   normalizeYearsArray();
+  // -------------------------------------------------
+
+  //---------------------------------------------------
+  //массив месяцев с [{айди нейм тайп}]
   const arrayOfMonths = months;
+  //------------------------------------------------
 
   // const newset = new Set(...arrayOfYears);
   // const newDate = new Date('2023-01-03T23:00:00.000Z');
 
   // console.log('categories,', categories);
+  console.log('objectDate,', objectDate);
   console.log('allTransaction', allTransaction);
   console.log('getByDate ', getByDate);
   // console.log('Date ', newDate.getFullYear());

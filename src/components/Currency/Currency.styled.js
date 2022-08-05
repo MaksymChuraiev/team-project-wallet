@@ -6,16 +6,23 @@ export const BankCashContainer = styled.table`
   font-size: 18px;
   line-height: 27px;
 
-  color: #ffffff;
+	width: 280px;
+	margin-right: auto;
+	margin-left: auto;
 
-  display: none;
+  color: #ffffff;
+	background-color: #4A56E2;
+	border-radius: 30px;
+	border-spacing: 0;
+
+	@media screen and (max-width: 767px) {
+	margin-top: 32px;
+  }
   @media screen and (min-width: 768px) {
     display: block;
     height: 182px;
     width: 336px;
-    background-color: #4A56E2;
 		
-    border-radius: 30px;
     margin-left: 32px;
   }
   @media screen and (min-width: 1280px) {
