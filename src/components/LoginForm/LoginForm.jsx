@@ -18,6 +18,7 @@ import {
   ErrorText,
   SvgWrapper,
 } from './LoginForm.styled';
+import { authOperations } from 'redux/auth';
 
 const loginSchema = yup.object().shape({
   email: yup.string().email().required(),
@@ -48,11 +49,10 @@ export const LoginForm = () => {
 
       const { payload: errorCode } = await dispatch(logIn({ email, password }));
 
-
-    dispatch(authOperations.logIn({ email, password }));
-    resetForm();
-    console.log(email, password);
-    navigate('/home-tab', { replace: true });
+      dispatch(authOperations.logIn({ email, password }));
+      resetForm();
+      console.log(email, password);
+      navigate('/home-tab', { replace: true });
 
       if (errorCode === 401) {
         toast.error('Email or password is wrong');
@@ -60,12 +60,11 @@ export const LoginForm = () => {
         return;
       }
       resetForm();
-      navigate('/dashboard');
+      navigate('/home-tab');
       toast.success('You are logged in');
     } catch (error) {
       console.log(error);
     }
-
   };
 
   return (

@@ -44,7 +44,7 @@ export const Diagram = ({ objectDate }) => {
         },
       ],
     });
-  }, [objectDate]);
+  }, [colors, objectDate, summ]);
 
   console.log('objectDate DIAGRAM', objectDate);
   // console.log(type, setUSerData);
