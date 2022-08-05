@@ -4,14 +4,10 @@ import { useEffect } from 'react';
 const dropRoot = document.querySelector('#statistics-drop-root');
 
 export const SelectMonths = ({
-  name,
   inputMonths,
   setDropIsOpen,
   setInputIsOpen,
 }) => {
-  //   const input = document.querySelector('div[data-input]');
-  //   const inputMonths = document.querySelector('div[data-input="months"]');
-  console.log('inputMonths', inputMonths);
   const handleCloseModal = e => {
     if (e.code === 'Escape' || e.currentTarget === e.target) {
       setDropIsOpen(false);

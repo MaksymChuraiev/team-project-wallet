@@ -1,8 +1,8 @@
 import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
 
-import { ModalAddTransaction } from '../Modal/ModalAddTransaction/ModalAddTransaction';
-//import { ButtonAddTransactions } from '../ButtonAddTransactions/ButtonAddTransactions';
+import { ModalAddTransaction } from '../Modal/ModalAddTransaction/ModalAddTransaction'
+
 
 import { useSelector } from 'react-redux';
 import authSelectors from '../../redux/auth/auth-selectors';
@@ -38,3 +38,4 @@ export const Layout = () => {
 		</>
 	);
 };
+

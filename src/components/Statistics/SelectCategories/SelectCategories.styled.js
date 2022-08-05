@@ -2,6 +2,7 @@ import styled from '@emotion/styled';
 import Arrow from 'images/statisticsinputarrow.svg';
 
 export const SelectContainer = styled.div`
+  font-family: var(--font-main);
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -104,11 +105,11 @@ export const SelectDropItem = styled.li`
 `;
 
 export const ListTypeContainer = styled.div`
+  font-family: var(--font-main);
   background: #ffffff;
   border-radius: 30px;
-  //   font-family: 'Circe';
-  //   font-style: normal;
-  //   font-weight: 700;
-  //   font-size: 18px;
-  //   line-height: 27px;
+
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 27px;
 `;

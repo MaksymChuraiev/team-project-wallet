@@ -26,6 +26,7 @@ export const MobileTab = ({ items }) => {
 		return `${day}.${month}.${year}`
 	}
 
+
 	const onDelete = _id => {
 		dispatch(transactionsOperation.deleteTransactions(_id));
 	};

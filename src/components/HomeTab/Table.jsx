@@ -77,3 +77,4 @@ export const Table = ({ items }) => {
 			</TableMain>
 		</>)
 }
+

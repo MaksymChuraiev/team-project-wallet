@@ -1,16 +1,16 @@
 import styled from '@emotion/styled';
 
 export const DiagramContainer = styled.div`
-	margin-bottom: 32px;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	@media screen and (min-width: 768px) {
-	margin-bottom: 0;
-	}
-	@media screen and (min-width: 1280px) {
-	position:relative;
-	top:-8px;
+  margin-bottom: 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  @media screen and (min-width: 768px) {
+    margin-bottom: 0;
+  }
+  @media screen and (min-width: 1280px) {
+    position: relative;
+    top: -8px;
   }
 `;
 

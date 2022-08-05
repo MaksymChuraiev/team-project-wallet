@@ -11,21 +11,38 @@ import {
   ListTypeContainer,
 } from './SelectCategories.styled';
 
-export const SelectCategories = () => {
+export const SelectCategories = ({
+  years,
+  months,
+  objectDate,
+  handleClickMonth,
+  handleClickYear,
+}) => {
   const inputMonths = document.querySelector('div[data-input="months"]');
   const inputYears = document.querySelector('div[data-input="years"]');
-  // console.log('inputMonths,', inputMonths);
-  // console.log('inputYears,', inputYears);
+
+  const nowDate = Date.now();
+  const nowMonth = new Date(nowDate).getMonth();
+
+  const initMonth = {
+    id: nowMonth,
+    name: months[nowMonth].name,
+  };
+
   // =-----==------- TABLE ==----------
 
   const [inputIsOpen, setInputIsOpen] = useState(false);
   const [dropIsOpen, setDropIsOpen] = useState(false);
   const [inputIsOpenYears, setInputIsOpenYears] = useState(false);
   const [dropIsOpenYears, setDropIsOpenYears] = useState(false);
+  const [month, setMonth] = useState(initMonth);
+
+  console.log('objectDate', objectDate);
 
   // =-----==------- TABLE ==----------
   const handleInputOpenMonths = e => {
     setInputIsOpen(!inputIsOpen);
+    setMonth({ id: e.currentTarget.id, name: e.currentTarget.textContent });
   };
   const handleInputOpenYears = e => {
     setInputIsOpenYears(!inputIsOpenYears);
@@ -37,7 +54,7 @@ export const SelectCategories = () => {
         setDropIsOpen(true);
       }
       if (!inputIsOpen) {
-        setDropIsOpenYears(false);
+        setDropIsOpen(false);
       }
     }
   }, [inputMonths, inputIsOpen]);
@@ -57,17 +74,18 @@ export const SelectCategories = () => {
     <>
       <SelectContainer>
         <Select>
-          <SelectInput className="select__input" type="hidden" name="" />
+          <SelectInput type="hidden" name="" />
           <SelectName
             className={inputIsOpen ? 'open select__head ' : 'select__head '}
             onClick={handleInputOpenMonths}
             data-input="months"
           >
-            Months
+            {month.name ? month.name : 'Months'}
           </SelectName>
           {dropIsOpen && (
             <SelectMonths
               name={'months'}
+              months={months}
               inputMonths={inputMonths}
               inputIsOpen={inputIsOpen}
               setDropIsOpen={setDropIsOpen}
@@ -75,33 +93,39 @@ export const SelectCategories = () => {
             />
           )}
           {dropIsOpen && (
-            <SelectDropList class="select__list">
-              <SelectDropItem class="select__item">{'months'}</SelectDropItem>
-              <SelectDropItem class="select__item">{'months'}</SelectDropItem>
-              <SelectDropItem class="select__item">{'months'}</SelectDropItem>
-              <SelectDropItem class="select__item">{'months'}</SelectDropItem>
-              <SelectDropItem class="select__item">{'months'}</SelectDropItem>
-              <SelectDropItem class="select__item">{'months'}</SelectDropItem>
-              <SelectDropItem class="select__item">{'months'}</SelectDropItem>
-              <SelectDropItem class="select__item">{'months'}</SelectDropItem>
+            <SelectDropList>
+              {months &&
+                months.map(elem => (
+                  <SelectDropItem
+                    key={elem.id}
+                    id={elem.id}
+                    value={elem.name}
+                    onClick={e => {
+                      handleClickMonth(e);
+                      handleInputOpenMonths(e);
+                    }}
+                  >
+                    {elem.name}
+                  </SelectDropItem>
+                ))}
             </SelectDropList>
           )}
         </Select>
         <Select>
-          <SelectInput className={'select__input'} type="hidden" name="" />
+          <SelectInput type="hidden" name="" />
           <SelectName
-            // className="select__head "
             className={
               inputIsOpenYears ? 'open select__head ' : 'select__head '
             }
             onClick={handleInputOpenYears}
             data-input="years"
           >
-            Years
+            {objectDate.year ? objectDate.year : 'All'}
           </SelectName>
           {dropIsOpenYears && (
             <SelectYears
               name={'years'}
+              years={years}
               inputYears={inputYears}
               inputIsOpen={inputIsOpenYears}
               setDropIsOpen={setDropIsOpenYears}
@@ -109,12 +133,20 @@ export const SelectCategories = () => {
             />
           )}
           {dropIsOpenYears && (
-            <SelectDropList class="select__list">
-              <SelectDropItem class="select__item">{'years'}</SelectDropItem>
-              <SelectDropItem class="select__item">{'years'}</SelectDropItem>
-              <SelectDropItem class="select__item">{'years'}</SelectDropItem>
-              <SelectDropItem class="select__item">{'years'}</SelectDropItem>
-              <SelectDropItem class="select__item">{'years'}</SelectDropItem>
+            <SelectDropList>
+              {years &&
+                years.map(elem => (
+                  <SelectDropItem
+                    id={elem}
+                    key={elem}
+                    onClick={e => {
+                      handleClickYear(e);
+                      handleInputOpenYears();
+                    }}
+                  >
+                    {elem}
+                  </SelectDropItem>
+                ))}
             </SelectDropList>
           )}
         </Select>

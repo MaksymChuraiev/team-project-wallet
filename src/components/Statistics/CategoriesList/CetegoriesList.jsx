@@ -1,52 +1,112 @@
-import { UserData } from '../testData';
+// import { UserData } from '../testData';
 
-import {
-  CategoriesListStyled,
-  CategoriesItemStyled,
-  Expenses,
-  Income,
-} from './CategoriesList.styled';
+import { CategoriesListStyled } from './CategoriesList.styled';
+import { CategoriesItem } from '../CategoriesItem/CategoriesItem';
+import { Expenses } from '../Expenses/Expenses';
+import { Income } from '../Income/Income';
 
-export const CategoriesList = () => {
+import colorize from '../colorise';
+
+export const CategoriesList = ({ categories, getByDate }) => {
+  const { income, totalExpenses, totalIncome } = getByDate;
+
+  //---------------------------------------------------
+  //normalized start
+  const categoriesArray =
+    categories &&
+    categories.map(elem => ({
+      category: elem,
+      sum: 0,
+    }));
+
+  const newArray =
+    categoriesArray &&
+    getByDate.income &&
+    categoriesArray.map((elem, idx) => ({
+      ...elem,
+      ...income[idx],
+    }));
+
+  //normalized end
+  //---------------------------------------------------
+
   return (
     <>
-      <CategoriesListStyled
-        style={{ display: 'flex', flexDirection: 'column' }}
-      >
-        {UserData.map(data => (
-          <CategoriesItemStyled
-            key={data.title}
-            // style={{
-            //   display: 'flex',
-            //   alignItems: 'center',
-            // }}
-          >
-            <span
-              style={{
-                display: 'inline-block',
-                width: 24,
-                height: 24,
-                backgroundColor: data.color,
-                borderRadius: 2,
-              }}
-            ></span>
-            <span style={{ marginLeft: 16 }}>{data.type}</span>
-            <span style={{ marginLeft: 'auto' }}>{data.summ}</span>
-          </CategoriesItemStyled>
-        ))}
+      <CategoriesListStyled>
+        {newArray &&
+          newArray.map((elem, idx) => (
+            <CategoriesItem
+              category={elem.category}
+              sum={elem.sum}
+              color={colorize[idx]}
+            />
+          ))}
       </CategoriesListStyled>
-      <Expenses>
-        <span style={{ fontWeight: 700, fontSize: 16 }}>Expenses:</span>
-        <span style={{ fontWeight: 700, fontSize: 16, color: ' #FF6596' }}>
-          22 549.24
-        </span>
-      </Expenses>
-      <Income>
-        <span style={{ fontWeight: 700, fontSize: 16 }}>Income:</span>
-        <span style={{ fontWeight: 700, fontSize: 16, color: '#24CCA7' }}>
-          27 350.00
-        </span>
-      </Income>
+      <Expenses expense={totalExpenses} />
+      <Income income={totalIncome} />
     </>
   );
 };
+
+// const newArray = categories.map(elem => {
+//   // for (let i = 0; i < income.lenth; i += 1) {
+//   //   if (elem === income[i].category) {
+//   //     elem = { category: elem, sum: income[i].sum };
+//   //     console.log('elem inside for'.elem);
+//   //     return elem;
+//   //   } else {
+//   //     elem = { category: elem, sum: 2 };
+//   //     return elem;
+//   //   }
+//   // }
+//   const qwe = income.filter(element => {
+//     console.log(element);
+//     if (element.category === elem) {
+//       return { category: elem, sum: element.sum };
+//     } else {
+//       return { category: elem, sum: 2 };
+//     }
+//   });
+//   // console.log('elem inside map qwe', qwe);
+
+//   return qwe;
+// });
+
+// <>
+//   <CategoriesListStyled>
+//     {/* {income &&
+//         income.map(elem => (
+//           <CategoriesItem
+//             // key={Date.now()}
+//             category={elem.category}
+//             sum={elem.sum}
+//             // listArray={listArray}
+//           />
+//         ))} */}
+//     {newArray &&
+//       newArray.map(elem => (
+//         <CategoriesItem
+//           // key={Date.now()}
+//           category={elem.category}
+//           sum={elem.sum}
+//           // listArray={listArray}
+//         />
+//       ))}
+//     {/* {listArray &&
+//         listArray.map(elem => (
+//           <CategoriesItem
+//             // key={Date.now()}
+
+//             // category={elem.category}
+//             // sum={elem.sum}
+//             // listArray={listArray}
+
+//             category={elem.category}
+//             sum={elem.sum}
+//             // listArray={listArray}
+//           />
+//         ))} */}
+//   </CategoriesListStyled>
+//   <Expenses expense={totalExpenses} />
+//   <Income income={totalIncome} />
+// </>;

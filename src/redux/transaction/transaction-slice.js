@@ -6,11 +6,17 @@ const initialState = {
   isLoading: true,
   categories: {},
   totalTransactions: {},
+  isModalAddTransOpen: false,
 };
 
 const transactionsSlice = createSlice({
   name: 'transactions',
   initialState,
+  reducers: {
+    ModalAddTrans(state, action) {
+      state.isModalAddTransOpen = action.payload;
+    },
+  },
 
   extraReducers: {
     [transactionOperation.getAllTransactions.fulfilled]: (state, action) => {
