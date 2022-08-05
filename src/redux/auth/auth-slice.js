@@ -38,15 +38,18 @@ const authSlice = createSlice({
       state.token = action.payload.token;
       state.isLoggedIn = true;
       state.isError = false;
+      state.isFetching = false;
       // state.errorCode = null;
     },
     [authOperations.logIn.pending](state) {
       state.isLoggedIn = false;
+      state.isFetching = true;
       state.isError = false;
     },
     [authOperations.logIn.rejected](state, action) {
       state.isLoggedIn = false;
       state.isError = true;
+      state.isFetching = false;
       // state.errorCode = action.payload;
     },
     [authOperations.logOut.fulfilled](state) {
