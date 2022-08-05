@@ -2,7 +2,7 @@ import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
 
 import { ModalAddTransaction } from '../Modal/ModalAddTransaction/ModalAddTransaction';
-// import { ButtonAddTransactions } from '../ButtonAddTransactions/ButtonAddTransactions';
+import { ButtonAddTransactions } from '../ButtonAddTransactions/ButtonAddTransactions';
 
 import { useSelector } from 'react-redux';
 import authSelectors from '../../redux/auth/auth-selectors';
@@ -23,10 +23,13 @@ export const Layout = () => {
       <LayoutStyled>
         {!isLoggedIn ? (
           <ContainerForBlur left="45%" />
-        ) : (
-          <ContainerForBlur left="0px" />
+        ) : (<>
+        <ContainerForBlur left="0px" />
+          <ButtonAddTransactions />
+        </>
+          
         )}
-        {/* <ButtonAddTransactions /> */}
+        
         <ModalAddTransaction />
       </LayoutStyled>
       <Suspense fallback={<Loader />}>

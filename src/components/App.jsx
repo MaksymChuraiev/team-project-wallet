@@ -28,21 +28,23 @@ const NotFoundPage = lazy(() => import('../pages/NotFoundPage.jsx'));
 export const App = () => {
   const isRefreshing = useSelector(authSelectors.getIsFetching);
 
+  console.log("Refreshing", isRefreshing);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(authOperations.currentUser());
   }, [dispatch]);
 
-  return isRefreshing ? (<Loader />)
-    : (
+  return (
       <Suspense
         fallback={<Loader />}
       >
       <ToastContainer />
       <Routes>
         <Route path="/" element={<Layout />}>
-
-            <Route index element={
+        
+          {!isRefreshing && 
+            <>
+              <Route index element={
               <PublicRoute restricted>
                 <LoginPage />
               </PublicRoute>
@@ -92,7 +94,11 @@ export const App = () => {
             />
           </Route>
           <Route path="*" element={<NotFoundPage />} />
-        </Route>
+            </>
+            
+            
+          }
+          </Route>
       </Routes>
     </Suspense>
 
