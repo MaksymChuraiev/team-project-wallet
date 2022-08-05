@@ -41,6 +41,7 @@ export const App = () => {
       <ToastContainer />
       <Routes>
         <Route path="/" element={<Layout />}>
+
             <Route index element={
               <PublicRoute restricted>
                 <LoginPage />
@@ -56,6 +57,7 @@ export const App = () => {
                 <LoginPage />
               </PublicRoute>
             } />
+
           <Route
             path="/"
             element={
