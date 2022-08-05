@@ -59,6 +59,7 @@ export const App = () => {
                 <LoginPage />
               </PublicRoute>
             } />
+
           <Route
             path="/"
             element={
