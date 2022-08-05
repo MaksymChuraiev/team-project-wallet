@@ -10,9 +10,9 @@ import {
   SelectDropItem,
   ListTypeContainer,
 } from './SelectCategories.styled';
-import { useDispatch } from 'react-redux';
+// import { useDispatch } from 'react-redux';
 
-import transactionsOperation from 'redux/transaction/transaction-operation';
+// import transactionsOperation from 'redux/transaction/transaction-operation';
 
 export const SelectCategories = ({
   years,
@@ -26,7 +26,7 @@ export const SelectCategories = ({
   const inputMonths = document.querySelector('div[data-input="months"]');
   const inputYears = document.querySelector('div[data-input="years"]');
 
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   // console.log('inputMonths,', inputMonths);
   // console.log('inputYears,', inputYears);
   // =-----==------- TABLE ==----------

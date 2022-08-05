@@ -1,5 +1,5 @@
-import { UserData } from '../testData';
-import { useEffect, useState } from 'react';
+// import { UserData } from '../testData';
+import { useState } from 'react';
 
 import { CategoriesListStyled } from './CategoriesList.styled';
 import { CategoriesItem } from '../CategoriesItem/CategoriesItem';
@@ -10,6 +10,7 @@ export const CategoriesList = ({ categories, getByDate }) => {
   const [list, setList] = useState([...categories]);
   console.log('LIST categiries', categories);
   // console.log('LIST getByDate', getByDate);
+  console.log(list, setList);
 
   const { income, totalExpenses, totalIncome } = getByDate;
   console.log('income', income);
