@@ -12,6 +12,7 @@ import {
 } from './SelectCategories.styled';
 // import { useDispatch } from 'react-redux';
 
+
 // import transactionsOperation from 'redux/transaction/transaction-operation';
 
 export const SelectCategories = ({
@@ -23,6 +24,7 @@ export const SelectCategories = ({
 }) => {
   console.log('months', months);
   console.log('objectDateqweqweqweqweqweqwe', objectDate);
+
   const inputMonths = document.querySelector('div[data-input="months"]');
   const inputYears = document.querySelector('div[data-input="years"]');
 

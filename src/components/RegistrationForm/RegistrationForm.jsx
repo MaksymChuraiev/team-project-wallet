@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Formik, ErrorMessage, useFormikContext } from 'formik';
 import * as yup from 'yup';
+import { toast } from 'react-toastify';
 // import { nanoid } from 'nanoid';
 import logo from '../../images/logo.png';
 import icon from '../../images/symbol-defs.svg';
@@ -45,29 +46,24 @@ const RegistrationForm = () => {
     name: '',
   };
 
-  const handleSubmit = (values, { resetForm }) => {
+  const handleSubmit = async (values, { resetForm }) => {
     try {
       const { email, password, name } = values;
-      dispatch(register({ email, password, name }));
 
-      // dispatch(login({email, password, name}))
+      // dispatch(register({ email, password, name }));
+
+      const { payload: errorCode } = await dispatch(register({ name, email, password }));
+      if (errorCode === 400) {
+        toast.error('Name length must be at least 2 characters long');
+        resetForm();
+        return;
+      }
+
       resetForm();
-      navigate('/');
-
-      resetForm();
-      navigate('/dashboard');
-      const date = new Date();
-      console.log(date);
-      console.log(
-        String(date.getDate()).padStart(2, '0') +
-          '/' +
-          String(date.getMonth() + 1).padStart(2, '0') +
-          '/' +
-          date.getFullYear()
-      );
-
+      navigate('/login');
+      toast.success('You are registered');
     } catch (error) {
-      alert('Oops! Something went wrong...');
+      toast.error('Oops! Something went wrong...');
     }
 
     // console.log(email, password, confirmPassword, name);

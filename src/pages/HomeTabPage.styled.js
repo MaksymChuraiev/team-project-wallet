@@ -1,12 +1,14 @@
 import styled from '@emotion/styled';
 
 export const Page = styled.div`
+
 	@media screen and (max-width: 768px) {
 		height: 100%;
 	width: 100%;
 	
 	background: #E7EAF2;
   }
+
 `;
 
 export const Body = styled.div`

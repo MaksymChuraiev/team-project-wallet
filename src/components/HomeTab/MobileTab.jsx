@@ -17,6 +17,7 @@ export const MobileTab = ({ items }) => {
 
 		return `${day}.${month}.${year}`
 	}
+
 	return (
 		<MobileTransactions>
 			{items.map(({ _id, date, transactionType, category, comment, amount, balance }) => (

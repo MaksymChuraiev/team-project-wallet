@@ -46,6 +46,7 @@ const months = [
 
 // console.log(months, years);
 export const StatisticsPage = () => {
+
   // const [selectYear, setSelectYear] = useState();
   // const [selectMonth, setSelectMonth] = useState();
   // console.log(state, setState

@@ -8,12 +8,14 @@ import {
   CircleContainer,
 } from './Diagram.styled';
 
+
 export const Diagram = ({ objectDate }) => {
   console.log('diagram');
   // const { income } = objectDate;
   // const type = UserData.map(data => data.type);
   // const summ = UserData.map(data => data.sum);
   const summ = objectDate.income.map(data => data.sum);
+
   const colors = UserData.map(data => data.color);
   const [userData, setUSerData] = useState({
     // labels: type,

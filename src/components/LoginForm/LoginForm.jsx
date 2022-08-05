@@ -18,6 +18,7 @@ import {
   ErrorText,
   SvgWrapper,
 } from './LoginForm.styled';
+
 import { authOperations } from 'redux/auth';
 
 const loginSchema = yup.object().shape({

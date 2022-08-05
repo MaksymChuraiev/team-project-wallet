@@ -30,6 +30,7 @@ export const CategoriesList = ({ categories, getByDate }) => {
 
   // const listArray = normaliseCategories();
   // console.log('listArray', listArray);
+
   return (
     <>
       <CategoriesListStyled>
