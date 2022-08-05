@@ -5,7 +5,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Container from '@mui/material/Container';
 import RegistrationForm from '../components/RegistrationForm/RegistrationForm'
 import RegistrationPageLeft from 'components/RegistrationPageLeft/RegistrationPageLeft';
-import {ContainerForBlur, GridContainer} from '../components/RegistrationPageLeft/RegistrationPageLeft.styled'
+import { GridContainer} from '../components/RegistrationPageLeft/RegistrationPageLeft.styled'
 
 const RegistrationPage = () => {
   
@@ -32,9 +32,12 @@ const theme = createTheme({
           <Grid item sm={12} md={12} lg={5}>
             <RegistrationPageLeft />
             </Grid>
-          <ContainerForBlur item sm={12} md={12} lg={7}>
+          <Grid item sm={12} md={12} lg={7}>
+            {/* <ContainerForBlur> */}
               <RegistrationForm />
-          </ContainerForBlur>
+            {/* </ContainerForBlur> */}
+              
+          </Grid>
           
         </GridContainer>
       </ThemeProvider>

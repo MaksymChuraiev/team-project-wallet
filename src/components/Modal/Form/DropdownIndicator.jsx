@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { components } from 'react-select';
 
-import { ReactComponent as DropdownIcon } from '../../icons/chevron-down.svg';
+import { ReactComponent as DropdownIcon } from '../../../icons/chevron-down.svg';
 
 const DropdownIndicator = props => {
   return (

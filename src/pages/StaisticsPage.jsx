@@ -9,26 +9,31 @@ import { Diagram } from 'components/Statistics/Diagram/Diagram';
 import { SelectCategories } from 'components/Statistics/SelectCategories/SelectCategoies';
 import { CategoriesList } from 'components/Statistics/CategoriesList/CetegoriesList';
 
+import { useState, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import transactionSelectors from 'redux/transaction/transaction-selectors';
+import transactionsOperation from 'redux/transaction/transaction-operation';
+
 import {
   StatisticsContainer,
   GraphicsContainer,
   CategoriesContainer,
 } from './Statistics.styled';
 
-// const months = [
-//   { name: 'January', type: 'january' },
-//   { name: 'February', type: 'February' },
-//   { name: 'March', type: 'march' },
-//   { name: 'April', type: 'april' },
-//   { name: 'May', type: 'may' },
-//   { name: 'June', type: 'june' },
-//   { name: 'July', type: 'july' },
-//   { name: 'August', type: 'august' },
-//   { name: 'September', type: 'september' },
-//   { name: 'October', type: 'october' },
-//   { name: 'November', type: 'november' },
-//   { name: 'December', type: 'december' },
-// ];
+const months = [
+  { name: 'January', type: 'january', id: '0' },
+  { name: 'February', type: 'February', id: '1' },
+  { name: 'March', type: 'march', id: '2' },
+  { name: 'April', type: 'april', id: '3' },
+  { name: 'May', type: 'may', id: '4' },
+  { name: 'June', type: 'june', id: '5' },
+  { name: 'July', type: 'july', id: '6' },
+  { name: 'August', type: 'august', id: '7' },
+  { name: 'September', type: 'september', id: '8' },
+  { name: 'October', type: 'october', id: '9' },
+  { name: 'November', type: 'november', id: '10' },
+  { name: 'December', type: 'december', id: '11' },
+];
 // const years = [
 //   { name: 2016, type: 2016 },
 //   { name: 2017, type: 2017 },
@@ -41,15 +46,96 @@ import {
 
 // console.log(months, years);
 export const StatisticsPage = () => {
-  // const transCategories = useSelector(transactionSelector.getCategoriesList);
-  // console.log('transCategories', transCategories);
+
+  // const [selectYear, setSelectYear] = useState();
+  // const [selectMonth, setSelectMonth] = useState();
+  // console.log(state, setState
+  const dispatch = useDispatch();
+  const categories = useSelector(transactionSelectors.getCategories);
+  const allTransaction = useSelector(transactionSelectors.getTransaction);
+  const getByDate = useSelector(transactionSelectors.getStatistics);
+
+  const [objectDate, setObjectDate] = useState({});
+
+  useEffect(() => {
+    dispatch(transactionsOperation.getAllTransactions());
+  }, [dispatch]);
+
+  useEffect(() => {
+    dispatch(transactionsOperation.getCategory());
+  }, [dispatch]);
+
+  useEffect(() => {
+    dispatch(transactionsOperation.getByDate());
+    dispatch(transactionsOperation.getByDate({ months: '', year: '' }));
+    // dispatch(transactionsOperation.getByDate({ months: '1', year: '2022' }));
+  }, [dispatch]);
+
+  const handleClickMonth = e => {
+    // console.log(e.target);
+    console.dir(e.currentTarget);
+    setObjectDate({
+      ...objectDate,
+      months: Number(e.currentTarget.id),
+      // monthName: e.currentTarget.textContent,
+    });
+  };
+  const handleClickYear = e => {
+    // console.log(e.target);
+    console.dir(e.currentTarget);
+    setObjectDate({ ...objectDate, year: Number(e.currentTarget.id) });
+  };
+  useEffect(() => {
+    dispatch(transactionsOperation.getByDate(objectDate));
+  }, [dispatch, objectDate]);
+
+  const arrayOfYears = allTransaction.map(year =>
+    new Date(year.date).getFullYear()
+  );
+  // const arrayOfMonth = allTransaction.map(month =>
+  //   new Date(month.date).getFullYear()
+  // );
+
+  const newAr = [];
+  const normalizeYearsArray = () => {
+    for (let i = 0; i < arrayOfYears.length; i += 1) {
+      if (!newAr.includes(arrayOfYears[i])) {
+        newAr.push(arrayOfYears[i]);
+      }
+    }
+  };
+  normalizeYearsArray();
+  const arrayOfMonths = months;
+
+  // const newset = new Set(...arrayOfYears);
+  // const newDate = new Date('2023-01-03T23:00:00.000Z');
+
+  // console.log('categories,', categories);
+  console.log('allTransaction', allTransaction);
+  console.log('getByDate ', getByDate);
+  // console.log('Date ', newDate.getFullYear());
+  console.log('arrayOfYear ', arrayOfYears);
+  console.log('newAr ', newAr);
+  // console.log('newset ', newset);
+  // console.log('arrayOfMonths ', arrayOfMonths);
+  // // console.log('statistics');
+
   return (
     <StatisticsContainer>
       <GraphicsContainer>
-        <Diagram />
+        <Diagram objectDate={getByDate} />
         <CategoriesContainer>
-          <SelectCategories />
-          <CategoriesList />
+          <SelectCategories
+            years={newAr}
+            months={arrayOfMonths}
+            objectDate={objectDate}
+            handleClickMonth={handleClickMonth}
+            handleClickYear={handleClickYear}
+          />
+          <CategoriesList
+            categories={categories.expense}
+            getByDate={getByDate}
+          />
         </CategoriesContainer>
       </GraphicsContainer>
     </StatisticsContainer>

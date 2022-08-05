@@ -1,7 +1,8 @@
 import Media from 'react-media';
 import { useEffect } from 'react';
+
 import { useSelector, useDispatch } from 'react-redux';
-import { MobileTab } from './MobileTab'
+import { MobileTab } from './MobileTab';
 import { Table } from './Table';
 import { Balance } from 'components/Balance/Balance';
 import { ButtonAddTransactions } from 'components/ButtonAddTransactions/ButtonAddTransactions';
@@ -37,3 +38,4 @@ export const HomeTab = () => {
 		</>
 	);
 };
+

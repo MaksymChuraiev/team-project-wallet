@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { Formik, ErrorMessage, useFormikContext } from 'formik';
 import * as yup from 'yup';
+import { toast } from 'react-toastify';
 // import { nanoid } from 'nanoid';
 import logo from '../../images/logo.png';
 import icon from '../../images/symbol-defs.svg';
 import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
-// import { register } from '../../ReduxX/auth/auth-operations';
+// import operations from '../../redux/auth/auth-operation'
 
 import { register } from '../../redux/auth/auth-operation';
 
@@ -18,16 +20,26 @@ import {
   Input,
 } from '../LoginForm/LoginForm.styled';
 import { Icon, FormContainer, FormName } from './RegistrationForm.styled';
-import ButtonGroup from '../Button/Button';
+import Button from '../Button/Button';
 import PasswordProgressBar from 'components/PasswordProgressBar/PasswordProgressBar';
 
 const RegistrationForm = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [password, setPassword] = useState();
   const [confirmPassword, setConfirmPassword] = useState();
+  const [name,setName] = useState('');
+
+  const style = {
+    color: 'red',
+    textAlign: 'center',
+    fontSize: '12px'
+  }
+  // const isRegistered = useSelector(state => state.getIsRegister)
+  // isRegistered && dispatch(operations.logIn({ email, password }));
 
   const schema = yup.object().shape({
-    email: yup.string().required(),
+    email: yup.string().email().required(),
     password: yup.string().min(6).max(12).required(),
     confirmPassword: yup.string().min(6).max(12).required(),
     name: yup.string().min(1).max(12).required(),
@@ -40,12 +52,33 @@ const RegistrationForm = () => {
     name: '',
   };
 
-  const handleSubmit = (values, { resetForm }) => {
-    // console.log(values);
-    const { email, password, name } = values;
-    dispatch(register({ email, password, name }));
-    resetForm();
+  const handleSubmit = async (values, { resetForm }) => {
+    try {
+      const { email, password, name } = values;
+
+      // dispatch(register({ email, password, name }));
+
+      const { payload: errorCode } = await dispatch(register({ name, email, password }));
+      // console.log(errorCode.name );
+
+      if (errorCode.name === 'AxiosError') {
+        toast.error('Name length must be at least 2 characters long');
+        // resetForm();
+        return;
+      }
+
+      resetForm();
+      navigate('/login', { replace: true });
+      toast.success('You are registered');
+    } catch (error) {
+      toast.error('Oops! Something went wrong...');
+    }
+
     // console.log(email, password, confirmPassword, name);
+  };
+
+  const handleClick = () => {
+    navigate('/login');
   };
 
   // const emailInputId = nanoid();
@@ -58,6 +91,7 @@ const RegistrationForm = () => {
     useEffect(() => {
       setPassword(values.password);
       setConfirmPassword(values.confirmPassword);
+      setName(values.name);
     }, [values]);
     return null;
   };
@@ -113,7 +147,10 @@ const RegistrationForm = () => {
               />
             </InputField>
             {password && <PasswordProgressBar password={password.length} />}
-            <FormError name="password" />
+            {password && password.length < 6 && (
+              <p style={style}>Passwords should be at least 6 signs</p>
+            )}
+            {/* <FormError name="password" /> */}
           </InputLabel>
 
           <InputLabel htmlFor="confirmPassword">
@@ -128,6 +165,9 @@ const RegistrationForm = () => {
                 placeholder="Confirm password"
               />
             </InputField>
+            {confirmPassword && password !== confirmPassword && (
+              <p style={style}>Passwords should be the same</p>
+            )}
 
             <FormError name="confirmPassword" />
           </InputLabel>
@@ -144,14 +184,30 @@ const RegistrationForm = () => {
                 placeholder="Name"
               />
             </InputField>
+            {name && name.length < 2 && (
+              <p style={style}>Name length must be at least 2 characters long</p>
+            )}
             <FormError name="name" />
           </InputLabel>
 
-          <ButtonGroup
-            register="REGISTER"
-            login="LOG IN"
+          <Button
+            buttonTitle="REGISTER"
             password={password}
             confirmPassword={confirmPassword}
+            name={name}
+            type="submit"
+            color="#fff"
+            bgColor="#24CCA7"
+            border="none"
+          />
+
+          <Button
+            buttonTitle="LOG IN"
+            onClick={handleClick}
+            type="button"
+            color="#4A56E2"
+            bgColor="#ffffff"
+            borderColor="#4A56E2"
           />
         </LogForm>
       </Formik>
