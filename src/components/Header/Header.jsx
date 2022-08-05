@@ -20,9 +20,11 @@ import { LogoutModal } from '../Modal/LogoutModal';
 export const Header = () => {
   const [modalActive, setModalActive] = useState(false);
 
+
   const name = useSelector(authSelectors.getUserName);
   const handleClick = () => {
     console.log(name);
+
     setModalActive(true);
   };
 
@@ -36,7 +38,9 @@ export const Header = () => {
           </LogoWrapper>
 
           <HeaderRight>
+
             <UserName>{name}</UserName>
+
             <ExitWrapper onClick={handleClick}>
               <ExitLogo src={ExitSvg} alt="Exit" />
               <ExitText>Exit</ExitText>

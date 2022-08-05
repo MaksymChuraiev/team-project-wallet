@@ -7,8 +7,8 @@ import logo from '../../images/logo.png';
 import icon from '../../images/symbol-defs.svg';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+
 // import operations from '../../redux/auth/auth-operation'
-// import { register } from '../../ReduxX/auth/auth-operations';
 
 import { register } from '../../redux/auth/auth-operation';
 
@@ -49,6 +49,7 @@ const RegistrationForm = () => {
   const handleSubmit = async (values, { resetForm }) => {
     try {
       const { email, password, name } = values;
+
       // dispatch(register({ email, password, name }));
 
       const { payload: errorCode } = await dispatch(register({ name, email, password }));
