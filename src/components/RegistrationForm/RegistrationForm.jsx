@@ -6,7 +6,8 @@ import logo from '../../images/logo.png';
 import icon from '../../images/symbol-defs.svg';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-// import { register } from '../../ReduxX/auth/auth-operations';
+
+// import operations from '../../redux/auth/auth-operation'
 
 import { register } from '../../redux/auth/auth-operation';
 
@@ -27,6 +28,9 @@ const RegistrationForm = () => {
   const [password, setPassword] = useState();
   const [confirmPassword, setConfirmPassword] = useState();
 
+  // const isRegistered = useSelector(state => state.getIsRegister)
+  // isRegistered && dispatch(operations.logIn({ email, password }));
+
   const schema = yup.object().shape({
     email: yup.string().required(),
     password: yup.string().min(6).max(12).required(),
@@ -42,13 +46,26 @@ const RegistrationForm = () => {
   };
 
   const handleSubmit = (values, { resetForm }) => {
-    // console.log(values);
     try {
       const { email, password, name } = values;
       dispatch(register({ email, password, name }));
+
       // dispatch(login({email, password, name}))
       resetForm();
       navigate('/');
+
+      resetForm();
+      navigate('/dashboard');
+      const date = new Date();
+      console.log(date);
+      console.log(
+        String(date.getDate()).padStart(2, '0') +
+          '/' +
+          String(date.getMonth() + 1).padStart(2, '0') +
+          '/' +
+          date.getFullYear()
+      );
+
     } catch (error) {
       alert('Oops! Something went wrong...');
     }

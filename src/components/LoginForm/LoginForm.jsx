@@ -1,10 +1,8 @@
-import React from 'react';
 import { useDispatch } from 'react-redux';
-import authOperations from '../../redux/auth/auth-operation';
-
-import { useNavigate } from 'react-router-dom';
-
 import { Formik, ErrorMessage } from 'formik';
+import { logIn } from 'redux/auth/auth-operation';
+import { Link, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import * as yup from 'yup';
 import svgMail from '../LoginForm/Vector.svg';
 import svgLock from '../LoginForm/Vector-lock.svg';
@@ -20,7 +18,6 @@ import {
   ErrorText,
   SvgWrapper,
 } from './LoginForm.styled';
-import { Link } from 'react-router-dom';
 
 const loginSchema = yup.object().shape({
   email: yup.string().email().required(),
@@ -45,13 +42,30 @@ export const LoginForm = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const handleSubmit = (values, { resetForm }) => {
-    const { email, password } = values;
+  const handleSubmit = async (values, { resetForm }) => {
+    try {
+      const { email, password } = values;
+
+      const { payload: errorCode } = await dispatch(logIn({ email, password }));
+
 
     dispatch(authOperations.logIn({ email, password }));
     resetForm();
     console.log(email, password);
     navigate('/home-tab', { replace: true });
+
+      if (errorCode === 401) {
+        toast.error('Email or password is wrong');
+        resetForm();
+        return;
+      }
+      resetForm();
+      navigate('/dashboard');
+      toast.success('You are logged in');
+    } catch (error) {
+      console.log(error);
+    }
+
   };
 
   return (
