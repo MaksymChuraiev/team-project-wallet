@@ -1,10 +1,3 @@
-// import { useState } from 'react';
-
-// import { UserData } from 'components/Statistics/testData';
-// import { BarChart } from './BarChart';
-// import { MyVersion } from './InputSelect/MyVersion';
-// import { MyVersionYears } from './InputSelect/MyVersionYears';
-// import { useEffect } from 'react';
 import { Diagram } from 'components/Statistics/Diagram/Diagram';
 import { SelectCategories } from 'components/Statistics/SelectCategories/SelectCategoies';
 import { CategoriesList } from 'components/Statistics/CategoriesList/CetegoriesList';
@@ -34,6 +27,10 @@ const months = [
   { name: 'November', type: 'november', id: '10' },
   { name: 'December', type: 'december', id: '11' },
 ];
+
+const setBg = () => {
+  return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
+};
 // const years = [
 //   { name: 2016, type: 2016 },
 //   { name: 2017, type: 2017 },
@@ -55,6 +52,7 @@ export const StatisticsPage = () => {
   const getByDate = useSelector(transactionSelectors.getStatistics);
 
   const [objectDate, setObjectDate] = useState({ months: '', year: '' });
+  const [lastArray, setLAstArray] = useState();
 
   useEffect(() => {
     dispatch(transactionsOperation.getAllTransactions());
@@ -65,8 +63,8 @@ export const StatisticsPage = () => {
   }, [dispatch]);
 
   useEffect(() => {
-    dispatch(transactionsOperation.getByDate());
-    dispatch(transactionsOperation.getByDate({ months: '', year: '' }));
+    // dispatch(transactionsOperation.getByDate());
+    dispatch(transactionsOperation.getByDate({ months: 2, year: 2021 }));
     // dispatch(transactionsOperation.getByDate({ months: '1', year: '2022' }));
   }, [dispatch]);
 
@@ -115,13 +113,32 @@ export const StatisticsPage = () => {
   // const newset = new Set(...arrayOfYears);
   // const newDate = new Date('2023-01-03T23:00:00.000Z');
 
+  // const categoriesArray =
+  //   categories.length &&
+  //   categories.map(elem => ({
+  //     category: elem,
+  //     sum: 0,
+  //   }));
+
+  // const newArray =
+  //   categoriesArray &&
+  //   getByDate.income &&
+  //   categoriesArray.map((elem, idx) => ({
+  //     ...elem,
+  //     ...getByDate.income[idx],
+  //     // color: setBg(),
+  //   }));
+
+  // console.log('newArray!!!!!!!', newArray);
+  console.log('lastArray!!!!!!!!!!!!!!!!!!!!!!!!!!!', lastArray);
+
   // console.log('categories,', categories);
-  console.log('objectDate,', objectDate);
-  console.log('allTransaction', allTransaction);
-  console.log('getByDate ', getByDate);
-  // console.log('Date ', newDate.getFullYear());
-  console.log('arrayOfYear ', arrayOfYears);
-  console.log('newAr ', newAr);
+  // console.log('objectDate,', objectDate);
+  // console.log('allTransaction', allTransaction);
+  // console.log('getByDate ', getByDate);
+  // // console.log('Date ', newDate.getFullYear());
+  // console.log('arrayOfYear ', arrayOfYears);
+  // console.log('newAr ', newAr);
   // console.log('newset ', newset);
   // console.log('arrayOfMonths ', arrayOfMonths);
   // // console.log('statistics');
@@ -141,6 +158,7 @@ export const StatisticsPage = () => {
           <CategoriesList
             categories={categories.expense}
             getByDate={getByDate}
+            // newArray={newArray}
           />
         </CategoriesContainer>
       </GraphicsContainer>

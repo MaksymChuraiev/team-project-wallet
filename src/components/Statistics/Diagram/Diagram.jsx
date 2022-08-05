@@ -1,4 +1,4 @@
-import { UserData } from '../testData';
+import colorize from '../colorise';
 import { useEffect, useState } from 'react';
 import { BarChart } from './BarChart';
 
@@ -14,9 +14,9 @@ export const Diagram = ({ objectDate }) => {
   const { income } = objectDate;
   // const type = UserData.map(data => data.type);
   // const summ = UserData.map(data => data.sum);
-  const summ = objectDate && income.map(data => data.sum);
+  const summ = objectDate.income && income.map(data => data.sum);
 
-  const colors = UserData.map(data => data.color);
+  const colors = colorize.map(data => data.color);
   const [userData, setUSerData] = useState({
     // labels: type,
     datasets: [

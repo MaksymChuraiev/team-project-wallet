@@ -5,8 +5,12 @@ import { CategoriesItem } from '../CategoriesItem/CategoriesItem';
 import { Expenses } from '../Expenses/Expenses';
 import { Income } from '../Income/Income';
 
+import colorize from '../colorise';
+
 export const CategoriesList = ({ categories, getByDate }) => {
   const { income, totalExpenses, totalIncome } = getByDate;
+
+  console.log('getByDate qweqweqe', getByDate);
   console.log('income', income);
 
   const categoriesArray =
@@ -19,18 +23,23 @@ export const CategoriesList = ({ categories, getByDate }) => {
 
   const newArray =
     categoriesArray &&
+    getByDate.income &&
     categoriesArray.map((elem, idx) => ({
       ...elem,
       ...income[idx],
     }));
 
-  console.log('newArray!!!!!!!', newArray);
+  console.log('newArray!!!!!!!qeqweqwe', newArray);
   return (
     <>
       <CategoriesListStyled>
         {newArray &&
-          newArray.map(elem => (
-            <CategoriesItem category={elem.category} sum={elem.sum} />
+          newArray.map((elem, idx) => (
+            <CategoriesItem
+              category={elem.category}
+              sum={elem.sum}
+              color={colorize[idx]}
+            />
           ))}
       </CategoriesListStyled>
       <Expenses expense={totalExpenses} />
