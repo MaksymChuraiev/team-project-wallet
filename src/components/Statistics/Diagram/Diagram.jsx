@@ -9,8 +9,9 @@ import {
 } from './Diagram.styled';
 
 export const Diagram = ({ objectDate }) => {
-  const { income } = objectDate;
-  const summ = objectDate.income && income.map(data => data.sum);
+  const { expense } = objectDate;
+  console.log('objectDate', objectDate);
+  const summ = objectDate.expense && expense.map(data => data.sum);
 
   const colors = colorize.map(data => data.color);
   const [userData, setUSerData] = useState({
