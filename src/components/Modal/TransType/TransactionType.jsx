@@ -3,15 +3,17 @@ import { ReactComponent as Plus } from '../../../icons/plus.svg';
 import { TransactionType, Toggle, TextType } from './TransactionType.styled';
 
 export function TransactionTypeToggle({ transaction, handleInputChange }) {
+  const { transactionType } = transaction;
+
   return (
     <TransactionType>
-      <TextType type={transaction.type}>Income</TextType>
+      <TextType type={transactionType}>Income</TextType>
       <Toggle>
         <input
           type="checkbox"
-          name="type"
+          name="transactionType"
           onChange={handleInputChange}
-          checked={transaction.type}
+          checked={transactionType}
         />
         <div className="thumb">
           <div className="indicator">
@@ -19,7 +21,7 @@ export function TransactionTypeToggle({ transaction, handleInputChange }) {
           </div>
         </div>
       </Toggle>
-      <TextType type={transaction.type}>Expense</TextType>
+      <TextType type={transactionType}>Expense</TextType>
     </TransactionType>
   );
 }

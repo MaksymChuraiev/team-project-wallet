@@ -2,14 +2,14 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Select from 'react-select';
+import { selectStyles } from './selectStyles';
+import { format } from 'date-fns';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { ReactComponent as DateRange } from '../../../icons/date-range.svg';
 import DropdownIndicator from './DropdownIndicator';
-import Select from 'react-select';
-import { format } from 'date-fns';
-import { selectStyles } from './selectStyles';
-
+import { TransactionTypeToggle } from '../TransType/TransactionType';
 import transactionSelector from '../../../redux/transaction/transaction-selectors';
 import transactionsOperation from '../../../redux/transaction/transaction-operation';
 import {
@@ -20,24 +20,36 @@ import {
   Button,
 } from './Form.styled';
 
-export function Form({ transaction, updateTransaction, handleInputChange }) {
+export function Form({
+  transaction,
+  updateTransaction,
+  handleInputChange,
+  resetForm,
+}) {
+  const { transactionType, date, category, amount, comment } = transaction;
   const addTrans = useAddTransition();
   const categories = useSelector(transactionSelector.getCategories);
 
   const handleSubmit = async e => {
     e.preventDefault();
     addTrans(transaction);
+    resetForm();
   };
 
   return (
     <>
       <form id="transaction-form" onSubmit={handleSubmit} autoComplete="off">
-        <SelectContainer type={transaction.type}>
+        <TransactionTypeToggle
+          transaction={transaction}
+          handleInputChange={handleInputChange}
+        />
+
+        <SelectContainer type={transactionType}>
           <Select
-            key={transaction.type}
-            styles={selectStyles(transaction.type)}
+            key={transactionType}
+            styles={selectStyles(transactionType)}
             components={{ DropdownIndicator }}
-            options={(transaction.type
+            options={(transactionType
               ? categories?.expense
               : categories?.income
             )?.map(option => ({ value: option, label: option }))}
@@ -52,8 +64,7 @@ export function Form({ transaction, updateTransaction, handleInputChange }) {
             className="required-hack-input"
             type="text"
             required
-            onChange={() => ({})}
-            value={transaction.category}
+            value={category}
           />
         </SelectContainer>
 
@@ -64,7 +75,7 @@ export function Form({ transaction, updateTransaction, handleInputChange }) {
               type="text"
               placeholder="0.00"
               name="amount"
-              value={transaction.amount}
+              value={amount}
               onChange={e => {
                 if (
                   e.target.value === '' ||
@@ -80,7 +91,7 @@ export function Form({ transaction, updateTransaction, handleInputChange }) {
           <DateContainer>
             <DatePicker
               className="modal-input"
-              selected={transaction.date}
+              selected={date}
               onChange={date => {
                 updateTransaction('date', date);
               }}
@@ -93,7 +104,7 @@ export function Form({ transaction, updateTransaction, handleInputChange }) {
         <Comment
           placeholder="Comment"
           name="comment"
-          value={transaction.comment}
+          value={comment}
           onChange={handleInputChange}
         />
       </form>
@@ -114,7 +125,7 @@ const useAddTransition = () => {
       await dispatch(
         transactionsOperation.addTransactions({
           ...transaction,
-          type: transaction.type ? 'expense' : 'income',
+          transactionType: transaction.transactionType,
           date: format(transaction.date, 'yyyy-MM-dd'),
         })
       );

@@ -6,7 +6,6 @@ import Modal from 'react-modal';
 import { Form } from '../Form/Form';
 import 'react-datepicker/dist/react-datepicker.css';
 import { ReactComponent as Close } from '../../../icons/close.svg';
-import { TransactionTypeToggle } from '../TransType/TransactionType';
 import {
   ModalStyled,
   ButtonCloseStyled,
@@ -18,7 +17,7 @@ Modal.setAppElement('#root');
 
 const defaultState = {
   date: new Date(),
-  type: true,
+  transactionType: true,
   amount: '',
   comment: '',
   category: '',
@@ -34,18 +33,21 @@ export function ModalAddTransaction() {
   }, [dispatch]);
 
   function closeModal() {
-    setTransaction(defaultState);
     dispatch(transactionsOperation.ModalAddTrans(false));
+    resetForm();
+  }
+
+  function resetForm() {
+    return setTransaction(defaultState);
   }
 
   const handleInputChange = event => {
-    const name = event.target.name;
-    const value =
-      event.target.type === 'checkbox'
-        ? event.target.checked
-        : event.target.value;
-    updateTransaction(name, value);
-    if (event.target.type === 'checkbox') {
+    const { name, value, checked, type } = event.target;
+    const inputValue = type === 'checkbox' ? checked : value;
+
+    updateTransaction(name, inputValue);
+
+    if (type === 'checkbox') {
       updateTransaction('category', '');
     }
   };
@@ -70,14 +72,11 @@ export function ModalAddTransaction() {
 
           <ModalTitle>Add transaction</ModalTitle>
 
-          <TransactionTypeToggle
-            transaction={transaction}
-            handleInputChange={handleInputChange}
-          />
           <Form
             transaction={transaction}
             updateTransaction={updateTransaction}
             handleInputChange={handleInputChange}
+            resetForm={resetForm}
           />
 
           <Button type="button" onClick={closeModal}>
