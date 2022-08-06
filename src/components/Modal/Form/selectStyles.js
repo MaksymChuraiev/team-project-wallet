@@ -1,5 +1,5 @@
-export const selectStyles = type => {
-  const optionColor = type ? '#FF6596' : '#24CCA7';
+export const selectStyles = transactionType => {
+  const optionColor = transactionType ? '#FF6596' : '#24CCA7';
   return {
     control: provided => ({
       ...provided,
