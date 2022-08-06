@@ -1,14 +1,12 @@
-const {
-  IncomeContainer,
-  IncomeText,
-  IncomeNumber,
-} = require('./Income.styled');
+import { IncomeContainer, IncomeText, IncomeNumber } from './Income.styled';
+
+import spaceCreator from 'services/spaceCreator';
 
 export const Income = ({ income }) => {
   return (
     <IncomeContainer>
       <IncomeText>Income:</IncomeText>
-      <IncomeNumber>{income}</IncomeNumber>
+      <IncomeNumber>{spaceCreator(income)}</IncomeNumber>
     </IncomeContainer>
   );
 };

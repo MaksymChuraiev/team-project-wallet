@@ -12,8 +12,6 @@ import {
   ModalTitle,
   Button,
 } from './ModalAddTransaction.styled';
-import { useState } from 'react';
-import { useEffect } from 'react';
 
 Modal.setAppElement('#root');
 
@@ -29,13 +27,6 @@ export function ModalAddTransaction() {
   const [transaction, setTransaction] = React.useState(defaultState);
   const isModalOpen = useSelector(transactionSelector.isModalAddTransOpen);
   const dispatch = useDispatch();
-
-  const [transType, setTransType] = useState(false);
-  const [categories, setCategories] = useState('');
-  const [amount, setAmount] = useState(null);
-  const [date, setDate] = useState(Date.now());
-  const [comment, setComment] = useState('');
-  const [newObjTrans, setNewObjTrans] = useState({});
 
   React.useEffect(() => {
     dispatch(transactionsOperation.getCategory());
@@ -66,33 +57,6 @@ export function ModalAddTransaction() {
     setTransaction(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleChange = () => {
-    setTransType(!transType);
-    if (!transType) {
-      setCategories('regular income');
-    } else {
-      setCategories('food');
-    }
-  };
-
-  const handleChaked = () => (transType ? 'income' : 'expense');
-  const handleSubmit = e => {
-    e.preventDefault();
-    setNewObjTrans({
-      date: date,
-      transactionType: transType,
-      amount: Number(amount),
-      comment: comment,
-      category: categories,
-    });
-  };
-  // console.log(checked);
-  // console.log(income\expence);
-  // console.log(amount);
-  // useEffect(() => {
-  //   dispatch();
-  // }, [newObjTrans]);
-
   return (
     isModalOpen && (
       <>
@@ -115,31 +79,6 @@ export function ModalAddTransaction() {
             handleInputChange={handleInputChange}
             resetForm={resetForm}
           />
-          {/* <form>
-            <input type="checkbox" value={transType} onChange={handleChange} />
-            <input type="text" value={handleChaked()} />
-
-            <input
-              type="number"
-              value={amount}
-              onChange={e => setAmount(e.currentTarget.value)}
-            />
-            <input
-              type="date"
-              value={date}
-              onChange={e => setDate(e.currentTarget.value)}
-            />
-            <input
-              type="textarea"
-              name=""
-              id=""
-              value={comment}
-              onChange={e => setComment(e.currentTarget.value)}
-            />
-            <button type="submit" onClick={handleSubmit}>
-              add
-            </button>
-          </form> */}
 
           <Button type="button" onClick={closeModal}>
             Cancel

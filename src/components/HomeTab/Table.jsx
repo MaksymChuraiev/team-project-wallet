@@ -62,12 +62,12 @@ export const Table = ({ items }) => {
                 <TableCell>{comment}</TableCell>
                 <TableCell>
                   <TableCellColor type={transactionType ? 'income' : 'expense'}>
-                    {/* {spaceCreator(amount)} */}
-                    {amount}
+                    {spaceCreator(amount)}
+                    {/* {amount} */}
                   </TableCellColor>
                 </TableCell>
-                {/* <TableCell>{spaceCreator(balance)}</TableCell> */}
-                <TableCell>{balance}</TableCell>
+                <TableCell>{spaceCreator(balance)}</TableCell>
+                {/* <TableCell>{balance}</TableCell> */}
                 <TableCell>
                   <ButtonDelete onClick={() => onDelete(_id)}>
                     <Trash src={trashSvg} alt="trash" />

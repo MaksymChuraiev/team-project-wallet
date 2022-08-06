@@ -16,10 +16,10 @@ export const Balance = () => {
     dispatch(transactionsOperation.getAllTransactions());
   }, [dispatch]);
 
-  if (allTransaction.length > 0) {
+  if (allTransaction?.length > 0) {
     const lastTransaction = allTransaction[0];
-    balance = lastTransaction.balance;
-    // balance = spaceCreator(lastTransaction.balance);
+    // balance = lastTransaction.balance;
+    balance = spaceCreator(lastTransaction.balance);
   }
 
   return (

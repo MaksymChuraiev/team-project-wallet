@@ -64,14 +64,14 @@ export const MobileTab = ({ items }) => {
             <Row>
               <RowName>Sum</RowName>
               <SumRow type={transactionType === true ? 'income' : 'costs'}>
-                {/* {spaceCreator(amount)} */}
-                {amount}
+                {spaceCreator(amount)}
+                {/* {amount} */}
               </SumRow>
             </Row>
             <Row>
               <RowName>Balance</RowName>
-              {/* <RowValue>{spaceCreator(balance)}</RowValue> */}
-              <RowValue>{balance}</RowValue>
+              <RowValue>{spaceCreator(balance)}</RowValue>
+              {/* <RowValue>{balance}</RowValue> */}
             </Row>
 
             <MobileButtonDelete onClick={() => onDelete(_id)}>
