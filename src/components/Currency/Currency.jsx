@@ -27,7 +27,7 @@ export const Currency = () => {
     <BankCashContainer>
       <TableHead>
         <TableRow>
-          <TableDataHead>Curensy</TableDataHead>
+          <TableDataHead>Currency</TableDataHead>
           <TableDataHead>Purchase</TableDataHead>
           <TableDataHead>Sale</TableDataHead>
         </TableRow>
