@@ -19,9 +19,9 @@ export const Table = ({ items }) => {
   const dispatch = useDispatch();
 
   const normTime = data => {
-    const year = data.slice(0, 4);
-    const month = data.slice(6, 7).padStart(2, '0');
-    const day = data.slice(8, 10).padStart(2, '0');
+    const year = data?.slice(0, 4);
+    const month = data?.slice(6, 7).padStart(2, '0');
+    const day = data?.slice(8, 10).padStart(2, '0');
 
     return `${day}.${month}.${year}`;
   };
@@ -57,13 +57,11 @@ export const Table = ({ items }) => {
             }) => (
               <TableRow key={_id}>
                 <TableCell>{normTime(date)}</TableCell>
-                <TableCell>{transactionType === true ? '+' : '-'}</TableCell>
+                <TableCell>{!transactionType ? '+' : '-'}</TableCell>
                 <TableCell>{category}</TableCell>
                 <TableCell>{comment}</TableCell>
                 <TableCell>
-                  <TableCellColor
-                    type={transactionType === true ? 'income' : 'costs'}
-                  >
+                  <TableCellColor type={!transactionType ? 'income' : 'costs'}>
                     {spaceCreator(amount)}
                   </TableCellColor>
                 </TableCell>
