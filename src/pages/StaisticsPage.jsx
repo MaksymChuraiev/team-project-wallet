@@ -54,7 +54,7 @@ export const StatisticsPage = () => {
     });
   };
   const handleClickYear = e => {
-    console.dir(e.currentTarget);
+    console.dir('e.currentTarget year', e.currentTarget);
     console.log(Number(''));
     // if (e.currentTarget.id === 'All') {
     //   setObjectDate({ ...objectDate, year: null });

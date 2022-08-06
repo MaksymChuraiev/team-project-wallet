@@ -20,6 +20,7 @@ export const StatisticsText = styled.h2`
   font-weight: 400;
   font-size: 30px;
   line-height: 45px;
+  align-self: flex-start;
   @media screen and (min-width: 1280px) {
     margin-bottom: 20px;
   }
