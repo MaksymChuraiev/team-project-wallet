@@ -5,6 +5,8 @@ import {
   Summ,
 } from './CategoriesItem.styled';
 
+import spaceCreator from 'services/spaceCreator';
+
 export const CategoriesItem = ({ category, sum, color }) => {
   // console.log(color);
   const numberSum = Number(sum).toFixed(2);
@@ -14,7 +16,7 @@ export const CategoriesItem = ({ category, sum, color }) => {
     <CategoriesItemStyled>
       <ColoredSquare color={color} />
       <CategoriesText>{normalizeCategory}</CategoriesText>
-      <Summ>{numberSum}</Summ>
+      <Summ>{spaceCreator(numberSum)}</Summ>
     </CategoriesItemStyled>
   );
 };

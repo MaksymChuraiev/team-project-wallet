@@ -122,13 +122,28 @@ const useAddTransition = () => {
 
   async function addTransaction(transaction) {
     try {
-      await dispatch(
-        transactionsOperation.addTransactions({
-          ...transaction,
-          transactionType: transaction.transactionType,
-          date: format(transaction.date, 'yyyy-MM-dd'),
-        })
-      );
+      // const qwe = ({ date, amount, transactionType, comment, category }) => {
+      //   const newOBJ = {
+      //     date: format(date, 'yyyy-MM-dd'),
+      //     transactionType: !transactionType,
+      //     comment,
+      //     category,
+      //     amount: Number(amount),
+      //   };
+
+      //   return newOBJ;
+      // };
+      // console.log('NEW OBJ', qwe(transaction));
+      const newObj = {
+        ...transaction,
+        amount: Number(transaction.amount),
+        transactionType: !transaction.transactionType,
+        date: format(transaction.date, 'yyyy-MM-dd'),
+      };
+      console.log('NEW obj', newObj);
+
+      // const qq = qwe(transaction);
+      await dispatch(transactionsOperation.addTransactions(newObj));
       toast.success('transaction completed successfully');
     } catch (e) {
       toast.error('transaction failed, try again');

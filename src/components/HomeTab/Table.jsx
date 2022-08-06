@@ -57,15 +57,17 @@ export const Table = ({ items }) => {
             }) => (
               <TableRow key={_id}>
                 <TableCell>{normTime(date)}</TableCell>
-                <TableCell>{!transactionType ? '+' : '-'}</TableCell>
+                <TableCell>{transactionType ? '+' : '-'}</TableCell>
                 <TableCell>{category}</TableCell>
                 <TableCell>{comment}</TableCell>
                 <TableCell>
-                  <TableCellColor type={!transactionType ? 'income' : 'costs'}>
+                  <TableCellColor type={transactionType ? 'income' : 'expense'}>
                     {spaceCreator(amount)}
+                    {/* {amount} */}
                   </TableCellColor>
                 </TableCell>
                 <TableCell>{spaceCreator(balance)}</TableCell>
+                {/* <TableCell>{balance}</TableCell> */}
                 <TableCell>
                   <ButtonDelete onClick={() => onDelete(_id)}>
                     <Trash src={trashSvg} alt="trash" />

@@ -27,6 +27,7 @@ export const StatisticsText = styled.h2`
 `;
 
 export const CircleContainer = styled.div`
+  position: relative;
   min-width: 280px;
   @media screen and (min-width: 768px) and (max-width: 1279px) {
     width: 336px;

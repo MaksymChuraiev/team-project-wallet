@@ -8,6 +8,7 @@ import transactionSelectors from 'redux/transaction/transaction-selectors';
 import transactionsOperation from 'redux/transaction/transaction-operation';
 
 import months from '../components/Statistics/months';
+import colorize from '../components/Statistics/colorise';
 
 import {
   StatisticsContainer,
@@ -29,6 +30,8 @@ export const StatisticsPage = () => {
     months: nowMonth,
     year: nowYear,
   });
+
+  const [superArray, setSupperArray] = useState([]);
 
   useEffect(() => {
     dispatch(transactionsOperation.getAllTransactions());
@@ -95,10 +98,85 @@ export const StatisticsPage = () => {
   const arrayOfMonths = months;
   //------------------------------------------------
 
+  //---------------------------------------------------
+  // // normalized start
+  // const categoriesArray =
+  //   categories.expense &&
+  //   categories.expense.map(elem => ({
+  //     category: elem,
+  //     sum: 0,
+  //   }));
+  // // console.log('categoriesArray', categoriesArray);
+  // const newArray = () => {
+  //   for (let i = 0; i < categoriesArray.length; i += 1) {
+  //     console.log('perebor i ');
+  //     for (let j = 0; j < getByDate.expense.length; j += 1) {
+  //       console.log('perebor j ');
+  //       if (categoriesArray[i].category === getByDate.expense[j].category) {
+  //         categoriesArray[i] = { ...getByDate.expense[j], ...colorize[i] };
+  //       }
+  //     }
+  //   }
+  //   // categoriesArray[i] = { ...categoriesArray[i], ...colorize[i] };
+  //   return categoriesArray;
+  // };
+
+  // const normaliseCategoriesList =
+  //   categoriesArray && getByDate.expense && newArray();
+  // const colorisedArray = normaliseCategoriesList.map((elem, idx) => ({
+  //   ...elem,
+  //   ...colorize[idx],
+  // }));
+  useEffect(() => {
+    //---------------------------------------------------
+    // normalized start
+    const categoriesArray =
+      categories?.expense &&
+      categories?.expense.map(elem => ({
+        category: elem,
+        sum: 0,
+      }));
+    // console.log('categoriesArray', categoriesArray);
+    const newArray = () => {
+      for (let i = 0; i < categoriesArray.length; i += 1) {
+        console.log('perebor i ');
+        for (let j = 0; j < getByDate.expense?.length; j += 1) {
+          console.log('perebor j ');
+          if (categoriesArray[i].category === getByDate.expense[j].category) {
+            categoriesArray[i] = { ...getByDate.expense[j], ...colorize[i] };
+          }
+        }
+      }
+      // categoriesArray[i] = { ...categoriesArray[i], ...colorize[i] };
+      return categoriesArray;
+    };
+
+    const normaliseCategoriesList = newArray();
+    const colorisedArray = normaliseCategoriesList.map((elem, idx) => ({
+      ...elem,
+      ...colorize[idx],
+    }));
+
+    setSupperArray(colorisedArray);
+  }, [categories, getByDate]);
+
+  console.log('NEW ARRAY qwe', superArray);
+  // const newArray =
+  //   categoriesArray &&
+  //   getByDate.expense &&
+  //   categoriesArray.map((elem, idx) => ({
+  //     ...elem,
+  //     ...getByDate.expense[idx],
+  //     // ...income[idx],
+  //   }));
+
+  //normalized end
+  //---------------------------------------------------
+
   return (
     <StatisticsContainer>
       <GraphicsContainer>
-        <Diagram objectDate={getByDate} />
+        <Diagram getByDate={getByDate} colorisedArray={superArray} />
         <CategoriesContainer>
           <SelectCategories
             years={newAr}
@@ -110,7 +188,7 @@ export const StatisticsPage = () => {
           <CategoriesList
             categories={categories.expense}
             getByDate={getByDate}
-            // newArray={newArray}
+            normaliseCategoriesList={superArray}
           />
         </CategoriesContainer>
       </GraphicsContainer>
