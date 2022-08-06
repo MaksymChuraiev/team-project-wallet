@@ -4,8 +4,6 @@ import bgImage from '../../images/iMac-min.png';
 import tabletBg from '../../images/tablet-bg-min.png';
 
 export const LayoutStyled = styled.div`
-  
-
   @media screen and (min-width: 768px) {
     position: fixed;
     display: flex;
@@ -44,25 +42,48 @@ export const LayoutStyled = styled.div`
 // `;
 
 const dynamicStyles = props =>
-    css`
-    left: ${props.left}; 
+  css`
+    left: ${props.left};
     background-color: ${props.bgColor};
-    border: ${props.border}; 
+    border: ${props.border};
     border-color: ${props.borderColor};
-    `
+  `;
 
 export const ContainerForBlur = styled.div`
-    @media screen and (min-width: 1280px) {
-        position: absolute;
-        bottom: 0px;
-        top: 0px;
-        /* left: 45%; */
-       right: 0px;
-        background: rgba(255, 255, 255, 0.4);
-        backdrop-filter: blur(50px);
+  @media screen and (min-width: 768px) {
+    position: absolute;
+    bottom: 0px;
+    top: 0px;
+    /* left: 45%; */
+    right: 0px;
+    // background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(50px);
 
-        ${dynamicStyles}
+    ${dynamicStyles}
+  }
+  @media screen and (min-width: 1280px) {
+    position: absolute;
+    bottom: 0px;
+    top: 0px;
+    /* left: 45%; */
+    right: 0px;
+    overflow: hidden;
+    // background: rgba(255, 255, 255, 0.4);
+    // backdrop-filter: blur(50px);
+    &:before {
+      content: '';
+      position: absolute;
+
+      width: 100%;
+      height: 1px;
+      transform: rotateZ(90deg);
+      top: 600px;
+      right: 159px;
+      background-color: #e7e5f2;
+      box-shadow: -1px 0px 0px rgba(0, 0, 0, 0.05),
+        1px 0px 0px rgba(255, 255, 255, 0.6);
     }
+
+    ${dynamicStyles}
+  }
 `;
-
-

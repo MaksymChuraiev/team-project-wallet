@@ -6,6 +6,9 @@ export const Page = styled.div`
     width: 100%;
     background: #e7eaf2;
   }
+  @media screen and (min-width: 768px) {
+    // backdrop-filter: blur(50px);
+  }
 `;
 
 export const PageCurrensy = styled.div`
@@ -13,7 +16,7 @@ export const PageCurrensy = styled.div`
     height: 100%;
     width: 100%;
     background: #e7eaf2;
-    min-height: 79.4vh;
+    min-height: 100vh;
   }
 `;
 
@@ -41,7 +44,8 @@ export const Section = styled.section`
   @media screen and (min-width: 1280px) {
     width: 800px;
     padding: 0px 16px 0 69px;
-    border-left: 1px solid #e7e5f2;
+    // border-left: 1px solid #e7e5f2;
+    position: relative;
   }
 `;
 export const NavBalanceCurrencyBox = styled.div`

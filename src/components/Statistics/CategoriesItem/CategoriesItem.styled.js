@@ -5,7 +5,7 @@ export const CategoriesItemStyled = styled.li`
   alignitems: center;
   padding: 14px 20px;
   border-bottom: 1px solid #dcdcdf;
-  box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.6);
+  // box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.6);
 `;
 
 export const ColoredSquare = styled.span`
