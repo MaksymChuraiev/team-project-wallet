@@ -33,7 +33,7 @@ const DashboardPage = () => {
         <Section>
           <Outlet />
         </Section>
-        <ButtonAddTransactions />
+        {/* <ButtonAddTransactions /> */}
       </Body>
     </Page>
   );
