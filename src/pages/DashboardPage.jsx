@@ -4,7 +4,7 @@ import { Header } from 'components/Header/Header';
 import { Balance } from 'components/Balance/Balance';
 import { Currency } from 'components/Currency/Currency';
 import { Navigation } from 'components/Navigation/Navigation';
-import { ButtonAddTransactions } from 'components/ButtonAddTransactions/ButtonAddTransactions';
+// import { ButtonAddTransactions } from 'components/ButtonAddTransactions/ButtonAddTransactions';
 
 import {
   Page,
