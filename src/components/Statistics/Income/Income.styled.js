@@ -5,6 +5,10 @@ export const IncomeContainer = styled.div`
   display: flex;
   justify-content: space-between;
   padding: 14px 20px;
+  margin-bottom: 34px;
+  @media screen and (min-width: 768px) {
+    margin-bottom: 10px;
+  }
 `;
 
 export const IncomeText = styled.span`

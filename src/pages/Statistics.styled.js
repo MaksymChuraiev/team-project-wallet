@@ -5,6 +5,7 @@ export const StatisticsContainer = styled.div`
   flex-direction: column;
   align-items: center;
   width: 100%;
+  margin-top: 44px;
   @media screen and (min-width: 768px) {
     margin-top: 32px;
     align-items: flex-start;
@@ -29,6 +30,9 @@ export const GraphicsContainer = styled.div`
 export const CategoriesContainer = styled.div`
   width: 100%;
   @media screen and (min-width: 768px) {
+    max-width: 509px;
+  }
+  @media screen and (min-width: 1280px) {
     margin-top: 65px;
     max-width: 509px;
   }
