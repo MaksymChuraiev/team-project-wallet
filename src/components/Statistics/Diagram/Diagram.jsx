@@ -1,4 +1,4 @@
-import { UserData } from '../testData';
+import colorize from '../colorise';
 import { useEffect, useState } from 'react';
 import { BarChart } from './BarChart';
 
@@ -8,15 +8,11 @@ import {
   CircleContainer,
 } from './Diagram.styled';
 
-
 export const Diagram = ({ objectDate }) => {
-  console.log('diagram');
-  // const { income } = objectDate;
-  // const type = UserData.map(data => data.type);
-  // const summ = UserData.map(data => data.sum);
-  const summ = objectDate.income.map(data => data.sum);
+  const { income } = objectDate;
+  const summ = objectDate.income && income.map(data => data.sum);
 
-  const colors = UserData.map(data => data.color);
+  const colors = colorize.map(data => data.color);
   const [userData, setUSerData] = useState({
     // labels: type,
     datasets: [
@@ -46,10 +42,9 @@ export const Diagram = ({ objectDate }) => {
         },
       ],
     });
-  }, [colors, objectDate, summ]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [objectDate]);
 
-  console.log('objectDate DIAGRAM', objectDate);
-  // console.log(type, setUSerData);
   return (
     <DiagramContainer>
       <StatisticsText>Statistics</StatisticsText>

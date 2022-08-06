@@ -89,3 +89,28 @@ export const TableCellColor = styled.span`
 			? "#24CCA7"
 			: "#FF6596"}
 `;
+
+export const ButtonDelete = styled.button`
+	height: 15px;
+	background: transparent;
+  border: none;
+  position: relative;
+  transition: all 250ms linear;
+  color: black;
+  &:hover {
+    transform: scale(1.2);
+  }
+  &:active {
+    transform: scale(0.7);
+  }
+`;
+
+export const Trash = styled.img`
+	display: block;
+	width: 100%;
+	height: 100%;
+	transition: all 250ms linear;
+	&:hover {
+		transform: scale(1.5)
+	}
+`

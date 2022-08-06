@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
 
 export const IncomeContainer = styled.div`
+  font-family: var(--font-main);
   display: flex;
   justify-content: space-between;
   padding: 14px 20px;

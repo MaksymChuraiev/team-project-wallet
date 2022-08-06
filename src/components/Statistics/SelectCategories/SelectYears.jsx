@@ -4,9 +4,6 @@ import { useEffect } from 'react';
 const dropRoot = document.querySelector('#statistics-drop-root');
 
 export const SelectYears = ({ inputYears, setDropIsOpen, setInputIsOpen }) => {
-  //   const input = document.querySelector('div[data-input]');
-  // const inputYears = document.querySelector('div[data-input="years"]');
-  //   console.log('my version,', input);
   const handleCloseModal = e => {
     if (e.code === 'Escape' || e.currentTarget === e.target) {
       setDropIsOpen(false);
@@ -32,13 +29,7 @@ export const SelectYears = ({ inputYears, setDropIsOpen, setInputIsOpen }) => {
       }}
       //   onClick={handleCloseModal}
       onClick={handleCloseModal}
-    >
-      {/* <ul class="select__list">
-        <li class="select__item">years</li>
-        <li class="select__item">years</li>
-        <li class="select__item">years</li>
-      </ul> */}
-    </div>,
+    ></div>,
     dropRoot
   );
 };

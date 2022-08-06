@@ -7,7 +7,6 @@ export const BankCashContainer = styled.table`
   line-height: 27px;
 
 	width: 280px;
-	margin-top: 32px;
 	margin-right: auto;
 	margin-left: auto;
 
@@ -15,6 +14,10 @@ export const BankCashContainer = styled.table`
 	background-color: #4A56E2;
 	border-radius: 30px;
 	border-spacing: 0;
+
+	@media screen and (max-width: 767px) {
+	margin-top: 32px;
+  }
   @media screen and (min-width: 768px) {
     display: block;
     height: 182px;

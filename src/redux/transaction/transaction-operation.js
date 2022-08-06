@@ -38,19 +38,67 @@ const deleteTransactions = createAsyncThunk(
   }
 );
 
+// ===================================ОРИГИНАЛ МАКСА!!!! ===========================
+// const getByDate = createAsyncThunk(
+//   'transactions/getByDate',
+
+//   async ({ months , year  }, { rejectWithValue }) => {
+//     console.log('month,', months);
+//     console.log('year', year);
+//     try {
+//       const response = await axios.get(
+//         `/transactions/statistic?month=${months}&year=${year}`
+//         // `/transactions/statistic`
+//       );
+//       console.log('response', response);
+//       return response.data;
+//     } catch (err) {
+//       return rejectWithValue(err.response.data);
+//     }
+//   }
+// );
+// ===================================ОРИГИНАЛ МАКСА!!!! ===========================
+
 const getByDate = createAsyncThunk(
   'transactions/getByDate',
 
-  async ({ months = '', year = '' }, { rejectWithValue }) => {
+  async ({ months, year }, { rejectWithValue }) => {
     console.log('month,', months);
     console.log('year', year);
     try {
-      const response = await axios.get(
+      let response = null;
+      //---------------------- Полный запрос за все время! СТАРТ--------------------------------
+      if (months === 12 && isNaN(year)) {
+        response = await axios.get(`/transactions/statistic`);
+        console.log('response', response);
+        return response.data;
+      }
+      //---------------------- Полный запрос за все время!  ЕНД--------------------------------
+      //----------------------если передали YEAR как строку либо отсутствует значение СТАРТ----
+      if (isNaN(year)) {
+        response = await axios.get(
+          `/transactions/statistic?month=${months}&year=`
+          // `/transactions/statistic`
+        );
+        return response.data;
+      }
+      //----------------------если передали YEAR как строку либо отсутствует значение ЕНД--------
+      //----------------------если передали MONTH за все время либо отсутствует значение СТАРТ---
+      if (months === 12) {
+        response = await axios.get(
+          `/transactions/statistic?month=&year=${year}`
+        );
+        console.log('response', response);
+        return response.data;
+      }
+      //----------------------если передали MONTH за все время либо отсутствует значение  ЕНД---
+      //----------------------Запрос по YEAR & MONTH СТАРТ--------------------------------------
+      response = await axios.get(
         `/transactions/statistic?month=${months}&year=${year}`
-        // `/transactions/statistic`
       );
       console.log('response', response);
       return response.data;
+      //----------------------Запрос по YEAR & MONTH ЕНД ---------------------------------------
     } catch (err) {
       return rejectWithValue(err.response.data);
     }
