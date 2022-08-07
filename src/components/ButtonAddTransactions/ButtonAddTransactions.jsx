@@ -1,17 +1,12 @@
-import { useDispatch } from 'react-redux';
+import { useDispatch } from "react-redux";
 import styled from '@emotion/styled';
-import transactionsOperation from '../../redux/transaction/transaction-operation';
+import transactionsOperation from "../../redux/transaction/transaction-operation";
 import { ReactComponent as Plus } from '../../icons/plus.svg';
 
 export const ButtonAdd = styled.button`
-  // position: absolute;
-  // right: 20px;
-  // bottom: 20px;
-
-  position: sticky;
-  left: 92%;
-  bottom: 16px;
-
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -34,33 +29,20 @@ export const ButtonAdd = styled.button`
     height: 20px;
   }
 
-  @media screen and (min-width: 768px) {
-    // position: absolute;
-    // right: 40px;
-    // bottom: 40px;
-   position: sticky;
-    left: 93%;
-    bottom: 28px;
-  }
-  @media screen and (min-width: 1280px) {
-    // position: absolute;
-    // right: 40px;
-    // bottom: 40px;
-       position: sticky;
-    left: 96%;
-    bottom: 0;
-}
+  @media screen and (min-width: var(--tablet)) {
+    position: absolute;
+    right: 40px;
+    bottom: 40px;
   }
 `;
 
 export function ButtonAddTransactions() {
-  const dispatch = useDispatch();
-  return (
-    <ButtonAdd
-      type="button"
-      onClick={() => dispatch(transactionsOperation.ModalAddTrans(true))}
-    >
-      <Plus />
-    </ButtonAdd>
-  );
+	const dispatch = useDispatch();
+	return (
+		<ButtonAdd type="button"
+			onClick={() => dispatch(transactionsOperation.ModalAddTrans(true))}>
+			<Plus />
+		</ButtonAdd>
+	);
 }
+
