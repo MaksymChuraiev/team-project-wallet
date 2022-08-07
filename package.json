@@ -2,7 +2,7 @@
   "name": "team-project-wallet",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://MaksymChuraiev.github.io/team-project-wallet/",
+  "homepage": "https://team-project-wallet.netlify.app/",
   "dependencies": {
     "@emotion/react": "^11.10.0",
     "@emotion/styled": "^11.10.0",
@@ -41,7 +41,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint:js": "eslint src/**/*.{js,jsx}"
+    "lint:js": "eslint src/**/*.{js,jsx}",
+    "deploy": "netlify deploy -p"
   },
   "eslintConfig": {
     "extends": [
