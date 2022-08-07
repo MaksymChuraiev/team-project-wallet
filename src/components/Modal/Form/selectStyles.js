@@ -64,7 +64,7 @@ export const selectStyles = transactionType => {
       ...provided,
       background: 'rgba(255, 255, 255, 0.7)',
       boxShadow: '0px 6px 15px rgba(0, 0, 0, 0.1)',
-      backdropFilter: 'blur(20px)',
+
       borderRadius: 20,
       overflow: 'hidden',
     }),
@@ -74,6 +74,7 @@ export const selectStyles = transactionType => {
       background: 'transparent',
       borderRadius: 20,
       cursor: 'pointer',
+      backdropFilter: 'blur(20px)',
     }),
 
     option: (provided, { isFocused, isSelected }) => ({
