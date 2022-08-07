@@ -32,6 +32,7 @@ export const Body = styled.div`
   @media screen and (min-width: 1280px) {
     width: 1280px;
     flex-direction: row;
+    height: 80vh;
   }
 `;
 

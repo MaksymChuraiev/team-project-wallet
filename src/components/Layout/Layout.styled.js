@@ -58,7 +58,7 @@ export const ContainerForBlur = styled.div`
     /* left: 45%; */
     right: 0px;
     // background: rgba(255, 255, 255, 0.4);
-    ${props => props.isLoggedIn} && backdrop-filter: blur(50px);
+    ${props => props.isLoggedIn && `backdrop-filter: blur(50px);`}
 
     ${dynamicStyles}
   }
@@ -72,7 +72,9 @@ export const ContainerForBlur = styled.div`
     background: rgba(255, 255, 255, 0.4);
     backdrop-filter: blur(50px);
 
-    ${props => props.isLoggedIn} && &:before {
+    ${props =>
+      props.isLoggedIn &&
+      `&:before {
       content: '';
       position: absolute;
 
@@ -84,7 +86,7 @@ export const ContainerForBlur = styled.div`
       background-color: #e7e5f2;
       box-shadow: -1px 0px 0px rgba(0, 0, 0, 0.05),
         1px 0px 0px rgba(255, 255, 255, 0.6);
-    }
+    }`}
 
     ${dynamicStyles}
   }
