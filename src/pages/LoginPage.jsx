@@ -18,7 +18,7 @@ import svgWallet from '../components/LoginForm/WalletMain.svg';
 // import svgElliseTop from '../components/LoginForm/Ellipse 2.svg';
 // import svgEllipseBottom from '../components/LoginForm/Ellipse 1.svg'
 import {GridContainer} from '../components/RegistrationPageLeft/RegistrationPageLeft.styled'
-import RegistrationPageLeft from 'components/RegistrationPageLeft/RegistrationPageLeft';
+import LoginPageLeft from 'components/RegistrationPageLeft/LoginPageLeft';
 import Container from '@mui/material/Container';
 
 const LoginPage = () => {
@@ -49,7 +49,7 @@ const LoginPage = () => {
         >
 
           <Grid item sm={12} md={12} lg={5}>
-            <RegistrationPageLeft/>
+            <LoginPageLeft/>
             {/* <MainFrame>
         <SvgFrame src={svgFrame} alt="frame" />
         <MainFrameText>Finance App</MainFrameText>

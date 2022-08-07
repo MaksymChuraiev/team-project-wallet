@@ -4,7 +4,7 @@ import transactionsOperation from "../../redux/transaction/transaction-operation
 import { ReactComponent as Plus } from '../../icons/plus.svg';
 
 export const ButtonAdd = styled.button`
-  position: absolute;
+  position: fixed;
   right: 20px;
   bottom: 20px;
   display: flex;
@@ -29,8 +29,8 @@ export const ButtonAdd = styled.button`
     height: 20px;
   }
 
-  @media screen and (min-width: var(--tablet)) {
-    position: absolute;
+  @media screen and (min-width: 768px) {
+    /* position: fixed; */
     right: 40px;
     bottom: 40px;
   }

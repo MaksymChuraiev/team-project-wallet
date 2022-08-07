@@ -37,7 +37,7 @@ export const SelectName = styled.div`
   line-height: 18px;
   color: #000;
   cursor: pointer;
-  font-family: 'Circe';
+  font-family: var(--font-main);
   font-style: normal;
   font-weight: 400;
   font-size: 16px;

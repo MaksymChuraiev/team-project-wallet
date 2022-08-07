@@ -4,6 +4,8 @@ export const TableMain = styled.table`/*
   @media screen and (max-width: 767px) {
     display: none;
   } */
+  font-family: var(--font-main);
+  padding: 10px;
 	@media screen and (min-width: 768px) {
 		display: block;
     width: 704px;
@@ -32,14 +34,51 @@ export const TableHeaderRow = styled.tr`
 
 export const TableHeadCell = styled.th`
   text-transform: capitalize;
+    &:first-of-type {
+    width: 70px;
+    text-align: start;
+  }
+  &:nth-of-type(2) {
+    width: 40px;
+    margin-right: 20px;
+  }
+  &:nth-of-type(3) {
+    width: 100px;
+    text-align: center;
+  }
+  &:nth-of-type(4) {
+    width: 100px;
+    text-align: center;
+  }
+   &:nth-of-type(5) {
+    width: 100px;
+    text-align: start;
+  }
+  &:last-of-type{
+    text-align: center;
+  }
 `;
 
 export const TableBody = styled.tbody`
+  /* scrollbar-width: 3px; */
   display: block;
   overflow-y: auto;
   max-height: 60vh;
   padding: 5px 20px 15px 20px;
   font-size: 16px;
+  &::-webkit-scrollbar-track {
+	-webkit-box-shadow: inset 0px 6px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+  }
+  &::-webkit-scrollbar {
+  width: 6px;
+  }
+  &::-webkit-scrollbar-thumb {
+  background-color: var(--color-gray-balance);
+  
+  border-radius: 10px;
+  }
+
 `;
 
 export const TableRow = styled.tr`
@@ -70,11 +109,15 @@ export const TableCell = styled.td`
   }
   &:nth-of-type(3) {
     width: 100px;
-    text-align: start;
+    text-align: center;
   }
   &:nth-of-type(4) {
     width: 100px;
-    text-align: start;
+    text-align: center;
+  }
+   &:nth-of-type(5) {
+    width: 100px;
+    text-align: center;
   }
   &:last-of-type{
     text-align: end;
@@ -109,6 +152,7 @@ export const Trash = styled.img`
 	display: block;
 	width: 100%;
 	height: 100%;
+  fill: red;
 	transition: all 250ms linear;
 	&:hover {
 		transform: scale(1.5)
