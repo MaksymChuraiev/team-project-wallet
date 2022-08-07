@@ -157,6 +157,8 @@ export const LoginBtn = styled.button`
   text-transform: uppercase;
   color: #ffffff;
   margin-bottom: 20px;
+  cursor: pointer;
+
   @media screen and (min-width: 768px) {
     width: 300px;
   }
@@ -180,6 +182,8 @@ export const RegisterBtn = styled.button`
   text-transform: uppercase;
   text-decoration:none;
   color: #4a56e2;
+  cursor: pointer;
+  
   @media screen and (min-width: 768px) {
     width: 300px;
   }
