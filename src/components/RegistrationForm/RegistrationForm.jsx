@@ -62,7 +62,7 @@ const RegistrationForm = () => {
       // console.log(errorCode.name );
 
       if (errorCode.name === 'AxiosError') {
-        toast.error('Name length must be at least 2 characters long');
+        toast.error('This e-mail is already used');
         // resetForm();
         return;
       }

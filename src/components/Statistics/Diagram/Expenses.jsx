@@ -12,7 +12,7 @@ export const Expenses = ({ getByDate }) => {
       }}
     >
       <span>&#8372;</span>
-      <span style={{ marginLeft: 5 }}>
+      <span style={{ marginLeft: 5, fontFamily: 'Ruda' }}>
         {spaceCreator(getByDate.totalExpenses)}
       </span>
     </p>
