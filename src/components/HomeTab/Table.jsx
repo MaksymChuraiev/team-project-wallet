@@ -30,8 +30,6 @@ export const Table = ({ items }) => {
     alignItems: 'center',
     gap: '20px',
     color: '#4A56E2',
-    // textAlign: 'center',
-    // fontSize: '12px'
   }
 
   const normTime = data => {
@@ -51,7 +49,7 @@ export const Table = ({ items }) => {
       {items?.length === 0
         ? <div style={styles}>
           <h2>Sorry, you don't have any transactions yet</h2>
-          <img src={noTransactionsImg} alt="no record available"  width='400px' />
+          <img src={noTransactionsImg} alt="no record available" width='400px' />
         </div>  :
         <TableMain>
         <TableHeader>
@@ -103,7 +101,7 @@ export const Table = ({ items }) => {
           )}
         </TableBody>
       </TableMain>
-  }
+      } 
    
       
     </>
