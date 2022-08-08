@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 import Arrow from 'images/statisticsinputarrow.svg';
 
 export const SelectContainer = styled.div`
-  font-family: var(--font-main);
+  font-family: var(--modal-toggle-font);
   display: flex;
   flex-wrap: wrap;
   align-items: center;

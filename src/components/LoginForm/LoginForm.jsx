@@ -46,7 +46,10 @@ export const LoginForm = () => {
 
   const handleSubmit = async (values, { resetForm }) => {
     try {
-      const { email, password } = values;
+      // const { email, password } = values;
+      const email = values.email.trim();
+      const password = values.password.trim();
+
 
       const { payload: errorCode } = await dispatch(logIn({ email, password }));
 

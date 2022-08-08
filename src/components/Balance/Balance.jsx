@@ -31,10 +31,11 @@ export const Balance = () => {
           delay={3000}
           direction={'right'}
           childMargin={20}
-          children={`${balance}`}
+          // children={`${balance}`}
           scrollWhen={'always'}
         >
-          {/* &#8372; {spaceCreator(balance)} */}
+           &#8372; {balance}
+          {/* {spaceCreator(balance)} */}
         </Marquee>
       </BalanceSumm>
     </BalanceWrapper>

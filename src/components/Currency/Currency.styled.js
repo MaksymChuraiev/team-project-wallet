@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 import bgSvg from '../../images/Vector7.png'
 
 export const BankCashContainer = styled.table`
-  font-family: 'Circe';
+  font-family: var(--modal-toggle-font);
   font-style: normal;
   font-size: 18px;
   line-height: 27px;
@@ -31,6 +31,7 @@ export const BankCashContainer = styled.table`
 
 	@media screen and (max-width: 767px) {
 	margin-top: 32px;
+  font-size: 16px;
   }
   @media screen and (min-width: 768px) {
     display: block;
@@ -93,5 +94,9 @@ export const TableData = styled.td`
 /* justify-content: space-between; */
 width: 33%;
 text-align: center;
+font-size: 15px;
 
+@media screen and (min-width: 768px) {
+  font-size: 16px;
+}
 `;

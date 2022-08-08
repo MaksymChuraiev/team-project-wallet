@@ -6,20 +6,20 @@ import {
   TableData,
   TableDataHead,
 } from './Currency.styled';
-import { useState } from 'react';
-// import fetchCurrency from 'services/fetchCurrency';
+import { useState, useEffect } from 'react';
+import fetchCurrency from 'services/fetchCurrency';
 import spaceCreator from '../../services/spaceCreator.js';
 // import { useNavigate } from 'react-router-dom';
 
 export const Currency = () => {
   // const navigate = useNavigate();
-  const [cur] = useState([]);
+  const [cur, setCur] = useState([]);
 
-  // useEffect(() => {
-  //   fetchCurrency().then(c => setCur(c));
+  useEffect(() => {
+    fetchCurrency().then(c => setCur(c));
   //   // console.log('CUR', cur);
   //   // eslint-disable-next-line react-hooks/exhaustive-deps
-  // }, []);
+  }, []);
   // const windowListener = e => {
   //   // e.currentTarget
   //   if (window.screen.availWidth > 767) {
