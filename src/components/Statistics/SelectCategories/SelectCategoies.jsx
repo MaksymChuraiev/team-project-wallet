@@ -162,7 +162,7 @@ export const SelectCategories = ({
         }}
       >
         <span>Category</span>
-        <span>Summ</span>
+        <span>Sum</span>
       </ListTypeContainer>
     </>
   );
