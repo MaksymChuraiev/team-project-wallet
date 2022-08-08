@@ -55,7 +55,11 @@ const RegistrationForm = () => {
 
   const handleSubmit = async (values, { resetForm }) => {
     try {
-      const { email, password, name } = values;
+      // const { email, password, name } = values;
+      
+      const email = values.email.trim();
+      const password = values.password.trim();
+      const name = values.name.trim();
 
       const { payload: errorCode } = await dispatch(register({ name, email, password }));
 
