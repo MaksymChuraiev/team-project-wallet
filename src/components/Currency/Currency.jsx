@@ -9,31 +9,31 @@ import {
 import { useState, useEffect } from 'react';
 import fetchCurrency from 'services/fetchCurrency';
 import spaceCreator from '../../services/spaceCreator.js';
-// import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 export const Currency = () => {
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
   const [cur, setCur] = useState([]);
 
   useEffect(() => {
     fetchCurrency().then(c => setCur(c));
-  //   // console.log('CUR', cur);
-  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+ 
+   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-  // const windowListener = e => {
-  //   // e.currentTarget
-  //   if (window.screen.availWidth > 767) {
-  //     navigate('/home-tab', { replace: true });
-  //   }
-  // };
-  // useEffect(() => {
-  //   window.addEventListener('resize', windowListener);
+  const windowListener = () => {
+  
+    if (window.screen.availWidth > 767) {
+      navigate('/home-tab', { replace: true });
+    }
+  };
+  useEffect(() => {
+    window.addEventListener('resize', windowListener);
 
-  //   return () => {
-  //     window.removeEventListener('resize', windowListener);
-  //   };
-  //   // eslint-disable-next-line react-hooks/exhaustive-deps
-  // }, [window.screen.availWidth]);
+    return () => {
+      window.removeEventListener('resize', windowListener);
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [window.screen.availWidth]);
 
   // const fix = num => {
   //   const fixTwo = Number(num).toFixed(2);
