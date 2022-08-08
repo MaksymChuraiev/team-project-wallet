@@ -1,15 +1,12 @@
-import Media from 'react-media';
-import { PageCurrensy } from './HomeTabPage.styled';
+import { PageCurrensy } from './DashboardPage.styled';
 const { Currency } = require('components/Currency/Currency');
 
 const BankTablePage = () => {
-  return (
-    <Media query="(max-width: 767px)">
-      <PageCurrensy>
-        <Currency />
-      </PageCurrensy>
-    </Media>
-  );
+	return (
+		<PageCurrensy>
+			<Currency />
+		</PageCurrensy>
+	);
 };
 
 export default BankTablePage;

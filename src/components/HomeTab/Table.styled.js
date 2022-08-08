@@ -50,7 +50,7 @@ export const TableHeadCell = styled.th`
     width: 100px;
     text-align: center;
   }
-   &:nth-of-type(5) {
+  &:nth-of-type(5) {
     width: 100px;
     text-align: start;
   }
