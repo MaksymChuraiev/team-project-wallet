@@ -53,7 +53,6 @@ export function ModalAddTransaction() {
   };
 
   const updateTransaction = (name, value) => {
-    console.log('NAME,VALUE', name, value);
     setTransaction(prev => ({ ...prev, [name]: value }));
   };
 

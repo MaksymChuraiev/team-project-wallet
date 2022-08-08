@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -31,7 +32,14 @@ export function Form({
   const categories = useSelector(transactionSelector.getCategories);
 
   const handleSubmit = async e => {
-    e.preventDefault();
+            e.preventDefault();
+    const amount = e.target.elements.amount.value;
+
+    if (amount === '' || amount === '0' || amount=== '0.0' || amount === '0.00') {
+      toast.error('Enter a positive number')
+      return
+    }
+
     addTrans(transaction);
     resetForm();
   };
@@ -63,8 +71,8 @@ export function Form({
             tabIndex={-1}
             className="required-hack-input"
             type="text"
-            required
             value={category}
+            required
           />
         </SelectContainer>
 
@@ -76,6 +84,7 @@ export function Form({
               placeholder="0.00"
               name="amount"
               value={amount}
+              required
               onChange={e => {
                 if (
                   e.target.value === '' ||
@@ -84,7 +93,6 @@ export function Form({
                   handleInputChange(e);
                 }
               }}
-              required
             />
           </label>
 
@@ -122,27 +130,12 @@ const useAddTransition = () => {
 
   async function addTransaction(transaction) {
     try {
-      // const qwe = ({ date, amount, transactionType, comment, category }) => {
-      //   const newOBJ = {
-      //     date: format(date, 'yyyy-MM-dd'),
-      //     transactionType: !transactionType,
-      //     comment,
-      //     category,
-      //     amount: Number(amount),
-      //   };
-
-      //   return newOBJ;
-      // };
-      // console.log('NEW OBJ', qwe(transaction));
       const newObj = {
         ...transaction,
         amount: Number(transaction.amount),
         transactionType: !transaction.transactionType,
         date: format(transaction.date, 'yyyy-MM-dd'),
       };
-      console.log('NEW obj', newObj);
-
-      // const qq = qwe(transaction);
       await dispatch(transactionsOperation.addTransactions(newObj));
       toast.success('transaction completed successfully');
     } catch (e) {
@@ -150,4 +143,17 @@ const useAddTransition = () => {
     }
   }
   return addTransaction;
+};
+
+Form.propTypes = {
+  transaction: PropTypes.shape({
+    date: PropTypes.string.isRequired,
+  transactionType: PropTypes.bool.isRequired,
+  amount: PropTypes.string.isRequired,
+  category: PropTypes.string.isRequired,
+comment: PropTypes.string,
+  }),
+  updateTransaction: PropTypes.func.isRequired,
+    handleInputChange: PropTypes.func.isRequired,
+  resetForm: PropTypes.func.isRequired
 };
