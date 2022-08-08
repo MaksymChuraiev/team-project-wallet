@@ -7,7 +7,6 @@ export const Page = styled.div`
     background: #e7eaf2;
   }
   @media screen and (min-width: 768px) {
-    // backdrop-filter: blur(50px);
   }
 `;
 
@@ -44,7 +43,6 @@ export const Section = styled.section`
   @media screen and (min-width: 1280px) {
     width: 800px;
     padding: 0px 16px 0 69px;
-    // border-left: 1px solid #e7e5f2;
     position: relative;
   }
 `;
