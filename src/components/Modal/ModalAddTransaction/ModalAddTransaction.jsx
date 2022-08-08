@@ -53,7 +53,6 @@ export function ModalAddTransaction() {
   };
 
   const updateTransaction = (name, value) => {
-    console.log('NAME,VALUE', name, value);
     setTransaction(prev => ({ ...prev, [name]: value }));
   };
 
@@ -77,7 +76,7 @@ export function ModalAddTransaction() {
             transaction={transaction}
             updateTransaction={updateTransaction}
             handleInputChange={handleInputChange}
-            resetForm={resetForm}
+            closeModal={closeModal}
           />
 
           <Button type="button" onClick={closeModal}>
