@@ -15,17 +15,20 @@ export const Currency = () => {
 	const navigate = useNavigate();
 	const [cur, setCur] = useState([]);
 
-	useEffect(() => {
-		fetchCurrency().then(c => setCur(c));
-		console.log('CUR', cur);
-	}, []);
-	const windowListener = e => {
-		if (window.screen.availWidth > 767) {
-			navigate('/home-tab', { replace: true });
-		}
-	};
-	useEffect(() => {
-		window.addEventListener('resize', windowListener);
+  useEffect(() => {
+    fetchCurrency().then(c => setCur(c));
+    // console.log('CUR', cur);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+  const windowListener = e => {
+    // e.currentTarget
+    if (window.screen.availWidth > 767) {
+      navigate('/home-tab', { replace: true });
+    }
+  };
+  useEffect(() => {
+    window.addEventListener('resize', windowListener);
+
 
 		return () => {
 			window.removeEventListener('resize', windowListener);
