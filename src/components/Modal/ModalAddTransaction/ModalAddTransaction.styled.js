@@ -7,17 +7,16 @@ export const ModalStyled = styled(Modal)`
   flex-direction: column;
   flex: 0 0 auto;
   height: 100vh;
-    overflow-y: auto;
+  overflow-y: auto;
   padding: 40px 80px 60px;
   background-color: #fff;
   border: none;
   outline: none;
-
   @media screen and (min-width: 768px) {
     width: 540px;
     height: 603px;
     padding: 40px 80px;
-      border-radius: 20px;
+    border-radius: 20px;
   }
 `;
 

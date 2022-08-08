@@ -76,7 +76,7 @@ export function ModalAddTransaction() {
             transaction={transaction}
             updateTransaction={updateTransaction}
             handleInputChange={handleInputChange}
-            resetForm={resetForm}
+            closeModal={closeModal}
           />
 
           <Button type="button" onClick={closeModal}>

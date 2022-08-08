@@ -25,23 +25,29 @@ export function Form({
   transaction,
   updateTransaction,
   handleInputChange,
-  resetForm,
+  closeModal,
 }) {
   const { transactionType, date, category, amount, comment } = transaction;
   const addTrans = useAddTransition();
   const categories = useSelector(transactionSelector.getCategories);
 
   const handleSubmit = async e => {
-            e.preventDefault();
+    e.preventDefault();
     const amount = e.target.elements.amount.value;
+    const select = e.target.elements.select.value;
 
-    if (amount === '' || amount === '0' || amount=== '0.0' || amount === '0.00') {
-      toast.error('Enter a positive number')
-      return
+    if (!select) {
+      toast.error('Select a category from the list');
+      return;
+    }
+
+    if (amount <= 0) {
+      toast.error('Enter a positive amount value');
+      return;
     }
 
     addTrans(transaction);
-    resetForm();
+    closeModal();
   };
 
   return (
@@ -70,9 +76,9 @@ export function Form({
           <input
             tabIndex={-1}
             className="required-hack-input"
+            name="select"
             type="text"
             value={category}
-            required
           />
         </SelectContainer>
 
@@ -84,7 +90,6 @@ export function Form({
               placeholder="0.00"
               name="amount"
               value={amount}
-              required
               onChange={e => {
                 if (
                   e.target.value === '' ||
@@ -137,9 +142,9 @@ const useAddTransition = () => {
         date: format(transaction.date, 'yyyy-MM-dd'),
       };
       await dispatch(transactionsOperation.addTransactions(newObj));
-      toast.success('transaction completed successfully');
+      toast.success('Transaction completed successfully');
     } catch (e) {
-      toast.error('transaction failed, try again');
+      toast.error('Transaction failed, try again');
     }
   }
   return addTransaction;
@@ -148,12 +153,12 @@ const useAddTransition = () => {
 Form.propTypes = {
   transaction: PropTypes.shape({
     date: PropTypes.string.isRequired,
-  transactionType: PropTypes.bool.isRequired,
-  amount: PropTypes.string.isRequired,
-  category: PropTypes.string.isRequired,
-comment: PropTypes.string,
+    transactionType: PropTypes.bool.isRequired,
+    amount: PropTypes.string.isRequired,
+    category: PropTypes.string.isRequired,
+    comment: PropTypes.string,
   }),
   updateTransaction: PropTypes.func.isRequired,
-    handleInputChange: PropTypes.func.isRequired,
-  resetForm: PropTypes.func.isRequired
+  handleInputChange: PropTypes.func.isRequired,
+  closeModal: PropTypes.func.isRequired,
 };
