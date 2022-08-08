@@ -51,6 +51,7 @@ const dynamicStyles = props =>
   `;
 
 export const ContainerForBlur = styled.div`
+ 
   @media screen and (min-width: 768px) {
     position: absolute;
     bottom: 0px;
@@ -58,9 +59,8 @@ export const ContainerForBlur = styled.div`
     /* left: 45%; */
     right: 0px;
     // background: rgba(255, 255, 255, 0.4);
-    ${props => props.isLoggedIn && `backdrop-filter: blur(50px);`}
-
-    ${dynamicStyles}
+    backdrop-filter: blur(50px);
+    left: 0;
   }
   @media screen and (min-width: 1280px) {
     position: absolute;

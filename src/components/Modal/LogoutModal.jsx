@@ -43,7 +43,7 @@ export const LogoutModal = ({active, setActive}) => {
             <ModalTitle>Are you sure you want to Logout?</ModalTitle>
             
             <Button
-            buttonTitle="Logout"
+            buttonTitle="Log out"
             onClick={handleLogoutClick}
             type="button"
             color='#fff'

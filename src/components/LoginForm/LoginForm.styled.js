@@ -10,11 +10,13 @@ export const MainLogo = styled.div`
   margin-left:auto;
   margin-right:auto;
   margin-bottom: 60px;
-  /* @media screen and (min-width: 768px) {
-    width: 180px;
+  margin-top: 113px;
+  @media screen and (min-width: 768px) {
+    margin-top: 0;
+    /* width: 180px;
     height: 40px;
-    justify-content:center;
-  } */
+    justify-content:center; */
+  }
 `;
 
 export const LoginPageContainer = styled.div`
@@ -29,6 +31,7 @@ position: relative;
   }
   @media screen and (min-width: 768px) and (mix-width: 1279px) {
     padding: 60px 118px 196px 118px;
+    /* margin-top: 42px; */
     height: 100vh;
     /* background-color: #E7EAF2; */
     width: 100%;
@@ -57,7 +60,7 @@ export const LoginPageDesktopContainer = styled.div`
     background-color: #FFFFFF;
     margin-right: auto;
     margin-left: auto;
-    margin-top: 50px;
+    margin-top: 42px;
     padding: 40px 60px 60px 60px;
     width: 534px;
     height: 468px;
@@ -183,7 +186,7 @@ export const RegisterBtn = styled.button`
   text-decoration:none;
   color: #4a56e2;
   cursor: pointer;
-  
+
   @media screen and (min-width: 768px) {
     width: 300px;
   }
