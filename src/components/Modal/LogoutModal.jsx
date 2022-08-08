@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import Modal from 'react-modal';
 import Button from 'components/Button/Button';
 import {
-  ModalStyled,
+  LogoutModalStyled,
   ButtonCloseStyled,
   ModalTitle,
 } from './ModalAddTransaction/ModalAddTransaction.styled';
@@ -29,7 +29,7 @@ export const LogoutModal = ({active, setActive}) => {
   }
 
     return (
-        <ModalStyled
+        <LogoutModalStyled
         isOpen={active}
         onRequestClose={closeModal}
         overlayClassName="modal-overlay"
@@ -59,6 +59,6 @@ export const LogoutModal = ({active, setActive}) => {
             bgColor='#ffffff'
             borderColor='#4A56E2'
           />
-        </ModalStyled>
+        </LogoutModalStyled>
     )
 }

@@ -123,3 +123,24 @@ export const Button = styled.button`
     margin-bottom: ${p => (p.children === 'Add' ? '20px' : '0px')};
   } ;
 `;
+
+export const LogoutModalStyled = styled(Modal)`
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex: 0 0 auto;
+  padding: 40px 80px 60px;
+  max-width: 540px;
+  background-color: #fff;
+  border: none;
+  outline: none;
+  border-radius: 20px;
+
+  @media screen and (max-width: 767px) {
+    margin-top: 60px;
+    min-height: calc(100vh - 60px);
+    padding: 20px 11px 40px;
+    border-radius: 0;
+    max-width: 100%;
+  }
+`;
