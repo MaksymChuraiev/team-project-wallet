@@ -2,6 +2,7 @@ import styled from '@emotion/styled';
 
 export const HeaderWraper = styled.div`
 	background-color: #fff;
+	font-family: var(--modal-toggle-font);
 `
 export const HeaderCastom = styled.header`
 	display:flex;

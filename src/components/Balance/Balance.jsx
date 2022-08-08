@@ -21,19 +21,23 @@ export const Balance = () => {
 		balance = spaceCreator(lastTransaction.balance);
 	}
 
-	return (
-		<BalanceWrapper>
-			<BalanceLabel>Your balance</BalanceLabel>
-			<BalanceSumm>
-				<Marquee
-					speed={0.04}
-					delay={3000}
-					direction={'right'}
-					childMargin={20}
-					scrollWhen={'always'}>
-					&#8372; {balance}
-				</Marquee>
-			</BalanceSumm>
-		</BalanceWrapper>
-	);
+  return (
+    <BalanceWrapper>
+      <BalanceLabel>Your balance</BalanceLabel>
+      <BalanceSumm>
+        <Marquee
+          speed={0.04}
+          delay={3000}
+          direction={'right'}
+          childMargin={20}
+          // children={`${balance}`}
+          scrollWhen={'always'}
+        >
+           &#8372; {balance}
+          {/* {spaceCreator(balance)} */}
+        </Marquee>
+      </BalanceSumm>
+    </BalanceWrapper>
+  );
+
 };
