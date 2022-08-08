@@ -1,9 +1,6 @@
 import styled from '@emotion/styled';
 
-
-
 export const SelectContainer = styled.div`
-  // display: ${p => (p.type ? 'block' : 'none')};
   position: relative;
   margin-top: 40px;
   cursor: pointer;

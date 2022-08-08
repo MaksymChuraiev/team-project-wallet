@@ -27,11 +27,14 @@ export const BalanceLabel = styled.span`
 `;
 
 export const BalanceSumm = styled.div`
+
 padding-right: 30px;
   font-family: var(--font-second);
+
   font-weight: 700;
   font-size: 30px;
   margin-top: 8px;
+	white-space: nowrap;
 
 	color: #000000;
 `;
