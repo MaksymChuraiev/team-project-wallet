@@ -8,19 +8,18 @@ import Marquee from 'react-double-marquee';
 import { BalanceWrapper, BalanceLabel, BalanceSumm } from './Balance.styled';
 
 export const Balance = () => {
-  let balance = 0;
-  const dispatch = useDispatch();
-  const allTransaction = useSelector(transactionSelectors.getTransaction);
+	let balance = 0;
+	const dispatch = useDispatch();
+	const allTransaction = useSelector(transactionSelectors.getTransaction);
 
-  useEffect(() => {
-    dispatch(transactionsOperation.getAllTransactions());
-  }, [dispatch]);
+	useEffect(() => {
+		dispatch(transactionsOperation.getAllTransactions());
+	}, [dispatch]);
 
-  if (allTransaction?.length > 0) {
-    const lastTransaction = allTransaction[0];
-    // balance = lastTransaction.balance;
-    balance = spaceCreator(lastTransaction.balance);
-  }
+	if (allTransaction?.length > 0) {
+		const lastTransaction = allTransaction[0];
+		balance = spaceCreator(lastTransaction.balance);
+	}
 
   return (
     <BalanceWrapper>
@@ -40,4 +39,5 @@ export const Balance = () => {
       </BalanceSumm>
     </BalanceWrapper>
   );
+
 };
