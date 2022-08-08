@@ -24,7 +24,7 @@ export const Layout = () => {
           <ContainerForBlur left="45%" />
         ) : (
           <>
-            <ContainerForBlur left="0px" isLoggedIn={isLoggedIn} />
+            <ContainerForBlur left="0px" />
             {/* <ButtonAddTransactions /> */}
           </>
         )}

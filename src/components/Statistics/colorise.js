@@ -18,7 +18,7 @@ const colorise = [
     color: '#FED057',
   },
   {
-    color: '#8A6642',
+    color: '#81E1FF',
   },
   {
     color: '#24CCA7',
@@ -27,7 +27,7 @@ const colorise = [
     color: '#00AD84',
   },
   {
-    color: '#81E1FF',
+    color: '#8A6642',
   },
   {
     color: '#FFD8D0',

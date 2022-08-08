@@ -17,7 +17,7 @@ export const Currency = () => {
 
   useEffect(() => {
     fetchCurrency().then(c => setCur(c));
-    console.log('CUR', cur);
+    // console.log('CUR', cur);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   const windowListener = e => {

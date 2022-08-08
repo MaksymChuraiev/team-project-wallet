@@ -10,11 +10,13 @@ export const MainLogo = styled.div`
   margin-left:auto;
   margin-right:auto;
   margin-bottom: 60px;
-  /* @media screen and (min-width: 768px) {
-    width: 180px;
+  margin-top: 113px;
+  @media screen and (min-width: 768px) {
+    margin-top: 0;
+    /* width: 180px;
     height: 40px;
-    justify-content:center;
-  } */
+    justify-content:center; */
+  }
 `;
 
 export const LoginPageContainer = styled.div`
@@ -29,6 +31,7 @@ position: relative;
   }
   @media screen and (min-width: 768px) and (mix-width: 1279px) {
     padding: 60px 118px 196px 118px;
+    /* margin-top: 42px; */
     height: 100vh;
     /* background-color: #E7EAF2; */
     width: 100%;
@@ -57,7 +60,7 @@ export const LoginPageDesktopContainer = styled.div`
     background-color: #FFFFFF;
     margin-right: auto;
     margin-left: auto;
-    margin-top: 50px;
+    margin-top: 42px;
     padding: 40px 60px 60px 60px;
     width: 534px;
     height: 468px;
@@ -183,7 +186,7 @@ export const RegisterBtn = styled.button`
   text-decoration:none;
   color: #4a56e2;
   cursor: pointer;
-  
+
   @media screen and (min-width: 768px) {
     width: 300px;
   }
@@ -259,3 +262,78 @@ export const EllipseBottom = styled.img`
     background-position: bottom -130px left -142px;
     z-index: -1; */
 `
+
+// const ErrorMessage = styled.p`
+//     margin-top: 6px;
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
+// `;
+
+// const InputWrapper = styled.div`
+//     padding: 8px 0;
+//     margin-right: auto;
+//     display: flex;
+//     align-items: baseline;
+//     border-bottom: 2px solid #BDBDBD;
+// `;
+
+// const Label = styled.label`
+// width: 280px
+// `;
+
+// const MainWrapper = styled.form`
+// display: flex;
+// flex-direction: column;
+// `;
+
+//общий див
+
+/* margin-left: auto;
+    margin-right: auto;
+    padding: 20px;
+    width: 100%;
+    height: 100%; */
+
+//стили формы
+
+/* display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    flex-direction: column;
+    -webkit-box-align: center;
+    align-items: center; */
+
+//стили инпута
+
+/* width: 280px;
+    height: 36px;
+    color: rgb(0, 0, 0);
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    border-image: initial;
+    border-bottom: 1px solid rgb(224, 224, 224);
+    background: transparent;
+    display: block;  */
+
+//стили кнопки
+
+/* font-family: Verdana;
+    height: 44px;
+    width: 182px;
+    font-weight: 700;
+    font-size: 14px;
+    background: rgb(252, 132, 45);
+    color: rgb(255, 255, 255);
+    border: 2px solid rgb(252, 132, 45);
+    border-radius: 30px;
+    box-shadow: rgb(252 132 45 / 50%) 0px 4px 10px;
+    padding-top: 13px;
+    padding-bottom: 13px;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto; */
+

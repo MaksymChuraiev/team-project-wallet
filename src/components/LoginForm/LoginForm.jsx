@@ -22,9 +22,7 @@ import {
 import { authOperations } from 'redux/auth';
 
 const loginSchema = yup.object().shape({
-  // email: yup.string().strict(true).trim("You can`t use WhiteSpace").email().required(),
   email: yup.string().email().required(),
-  // password: yup.string().strict(true).trim().min(6).max(12).required(),
   password: yup.string().min(6).max(12).required(),
 });
 
@@ -48,13 +46,13 @@ export const LoginForm = () => {
 
   const handleSubmit = async (values, { resetForm }) => {
     try {
-      const email = values.email.trim();
-      const password = values.password.trim();
+      const { email, password } = values;
+
       const { payload: errorCode } = await dispatch(logIn({ email, password }));
 
       dispatch(authOperations.logIn({ email, password }));
       resetForm();
-      console.log(email, password);
+      // console.log(email, password);
       navigate('/home-tab', { replace: true });
 
       if (errorCode === 401) {
@@ -66,7 +64,7 @@ export const LoginForm = () => {
       navigate('/home-tab');
       toast.success('You are logged in');
     } catch (error) {
-      console.log(error);
+      // console.log(error);
     }
   };
 
