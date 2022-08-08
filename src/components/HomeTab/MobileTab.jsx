@@ -31,10 +31,11 @@ export const MobileTab = ({ items }) => {
 		background: '#e7eaf2',
 	}
 
-	const normTime = data => {
-		const year = data?.slice(0, 4);
-		const month = data?.slice(6, 7).padStart(2, '0');
-		const day = data?.slice(8, 10).padStart(2, '0');
+  const normTime = data => {
+    const year = data?.slice(0, 4);
+    const month = data?.slice(5, 7);
+    const day = data?.slice(8, 10);
+
 
 		return `${day}.${month}.${year}`;
 	};

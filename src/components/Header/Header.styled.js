@@ -64,6 +64,7 @@ export const UserName = styled.span`
 `
 export const ExitWrapper = styled.button`
 	display: flex;
+	font-family: var(--modal-toggle-font);
 	align-items: center;
 	border: none;
 	background-color: #fff;

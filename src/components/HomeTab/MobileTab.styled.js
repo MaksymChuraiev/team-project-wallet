@@ -21,7 +21,7 @@ export const Row = styled.div`
   justify-content: space-between;
   align-items: baseline;
 
-  font-family: 'Circe';
+  font-family: var(--modal-toggle-font);
   font-style: normal;
 
   //border-left: 5px solid #FF6596;
@@ -36,7 +36,7 @@ export const Row = styled.div`
 `;
 
 export const RowName = styled.span`
-  font-family: 'Circe';
+  font-family: var(--modal-toggle-font);
   font-style: normal;
   font-weight: 700;
   font-size: 18px;
