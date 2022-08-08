@@ -52,7 +52,7 @@ export const LoginForm = () => {
 
       dispatch(authOperations.logIn({ email, password }));
       resetForm();
-      console.log(email, password);
+      // console.log(email, password);
       navigate('/home-tab', { replace: true });
 
       if (errorCode === 401) {
@@ -64,7 +64,7 @@ export const LoginForm = () => {
       navigate('/home-tab');
       toast.success('You are logged in');
     } catch (error) {
-      console.log(error);
+      // console.log(error);
     }
   };
 
