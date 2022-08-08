@@ -12,6 +12,7 @@ export const ModalStyled = styled(Modal)`
   background-color: #fff;
   border: none;
   outline: none;
+
   @media screen and (min-width: 768px) {
     width: 540px;
     height: 603px;
