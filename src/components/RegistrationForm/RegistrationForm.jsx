@@ -10,7 +10,7 @@ import { useNavigate } from 'react-router-dom';
 
 // import operations from '../../redux/auth/auth-operation'
 
-import { register } from '../../redux/auth/auth-operation';
+import { register, logIn } from '../../redux/auth/auth-operation';
 
 import {
   InputLabel,
@@ -28,6 +28,7 @@ const RegistrationForm = () => {
   const navigate = useNavigate();
   const [password, setPassword] = useState();
   const [confirmPassword, setConfirmPassword] = useState();
+  // const [email, setEmail] = useState();
   const [name,setName] = useState('');
 
   const style = {
@@ -35,11 +36,11 @@ const RegistrationForm = () => {
     textAlign: 'center',
     fontSize: '12px'
   }
-  // const isRegistered = useSelector(state => state.getIsRegister)
-  // isRegistered && dispatch(operations.logIn({ email, password }));
+ 
+  const RegEx  = /^((([0-9A-Za-z]{1}[-0-9A-z.]{1,}[0-9A-Za-z]{1}))@([-A-Za-z]{1,}\.){1,2}[-A-Za-z]{2,})$/;
 
   const schema = yup.object().shape({
-    email: yup.string().email().required(),
+    email: yup.string().email().matches(RegEx, 'Email is not  valid').required(),
     password: yup.string().min(6).max(12).required(),
     confirmPassword: yup.string().min(6).max(12).required(),
     name: yup.string().min(1).max(12).required(),
@@ -56,25 +57,19 @@ const RegistrationForm = () => {
     try {
       const { email, password, name } = values;
 
-      // dispatch(register({ email, password, name }));
-
       const { payload: errorCode } = await dispatch(register({ name, email, password }));
-      // console.log(errorCode.name );
 
       if (errorCode.name === 'AxiosError') {
         toast.error('This e-mail is already used');
-        // resetForm();
         return;
       }
-
+      await dispatch(logIn({email, password}))
       resetForm();
-      navigate('/login', { replace: true });
+      navigate('/home-tab', { replace: true });
       toast.success('You are registered');
     } catch (error) {
       toast.error('Oops! Something went wrong...');
     }
-
-    // console.log(email, password, confirmPassword, name);
   };
 
   const handleClick = () => {
@@ -89,6 +84,7 @@ const RegistrationForm = () => {
   const FormObserver = () => {
     const { values } = useFormikContext();
     useEffect(() => {
+      // setEmail(values.email);
       setPassword(values.password);
       setConfirmPassword(values.confirmPassword);
       setName(values.name);
@@ -184,9 +180,9 @@ const RegistrationForm = () => {
                 placeholder="Name"
               />
             </InputField>
-            {name && name.length < 2 && (
+            {/* {name && name.length < 1 && (
               <p style={style}>Name length must be at least 2 characters long</p>
-            )}
+            )} */}
             <FormError name="name" />
           </InputLabel>
 
