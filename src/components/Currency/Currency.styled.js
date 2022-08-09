@@ -32,13 +32,15 @@ export const BankCashContainer = styled.table`
 	@media screen and (max-width: 767px) {
 	margin-top: 32px;
   font-size: 16px;
+  
   }
   @media screen and (min-width: 768px) {
     display: block;
-    height: 182px;
+    height: 186px;
     width: 336px;
 		
     margin-left: 32px;
+    
   }
   @media screen and (min-width: 1280px) {
 		margin-left: 0px;
@@ -99,4 +101,15 @@ font-size: 15px;
 @media screen and (min-width: 768px) {
   font-size: 16px;
 }
+`;
+
+export const LoaderWrap = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @media screen and (min-width: 1280px) {
+    margin-top: 70px;
+}
+  
 `;

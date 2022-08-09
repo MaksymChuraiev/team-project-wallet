@@ -5,11 +5,13 @@ import {
 	TableRow,
 	TableData,
 	TableDataHead,
+	LoaderWrap
 } from './Currency.styled';
 import { useState, useEffect } from 'react';
 import fetchCurrency from 'services/fetchCurrency';
 import spaceCreator from '../../services/spaceCreator.js';
 import { useNavigate } from 'react-router-dom';
+import { BallTriangle } from 'react-loader-spinner';
 
 export const Currency = () => {
 
@@ -51,7 +53,9 @@ export const Currency = () => {
 					<TableDataHead>Sale</TableDataHead>
 				</TableRow>
 			</TableHead>
+			{cur?.length === 0 ? <LoaderWrap><BallTriangle color="#ffffff" width='80%' /> </LoaderWrap> : 
 			<TableBody>
+				
 				{cur.map(({ ccy, buy, sale }) => (
 					<TableRow key={ccy}>
 						<TableData>{ccy}</TableData>
@@ -59,7 +63,8 @@ export const Currency = () => {
 						<TableData>{spaceCreator(sale)}</TableData>
 					</TableRow>
 				))}
-			</TableBody>
+				</TableBody>
+			}
 		</BankCashContainer>
 	);
 };

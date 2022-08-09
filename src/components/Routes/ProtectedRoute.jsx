@@ -7,7 +7,7 @@ import { getIsLoggedIn } from "redux/auth/auth-slice";
 export default function ProtectedRoute ({ children })  {
   const isLoggedIn = useSelector(getIsLoggedIn);
   // const isFetching = useSelector(authSelectors.getIsFetching);
-  console.log(isLoggedIn);
+  // console.log(isLoggedIn);
 
   return isLoggedIn ? children : <Navigate to="/login" replace={true} />
 }

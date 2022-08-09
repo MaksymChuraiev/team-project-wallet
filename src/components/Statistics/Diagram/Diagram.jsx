@@ -9,7 +9,7 @@ import {
 import { Expenses } from './Expenses';
 
 export const Diagram = ({ getByDate, colorisedArray }) => {
-  console.log('getByDate', getByDate);
+  // console.log('getByDate', getByDate);
   const summ = colorisedArray && colorisedArray.map(data => data.sum);
 
   const colors = colorisedArray.map(data => data.color);

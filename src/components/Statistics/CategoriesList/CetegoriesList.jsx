@@ -58,6 +58,7 @@ export const CategoriesList = ({ getByDate, normaliseCategoriesList }) => {
             <CategoriesItem
               category={elem.category}
               sum={elem.sum}
+              key={elem.category}
               color={colorize[idx]}
             />
           ))}

@@ -4,12 +4,13 @@ export const BalanceWrapper = styled.div`
 	overflow: hidden;
   background-color: #fff;
   border-radius: 30px;
-  padding: 8px 0px 11px 32px;
+  padding: 11px 0px 11px 32px;
 	margin-top: 15px;
+  height: 80px;
 
   @media (min-width: 768px) {
     width: 336px;
-    padding: 8px 0px 11px 40px;
+    padding: 11px 0px 11px 40px;
 		margin-top: 28px;
   }
   @media (min-width: 1280px) {
@@ -17,7 +18,7 @@ export const BalanceWrapper = styled.div`
   }
 `;
 export const BalanceLabel = styled.span`
-  font-family: 'Poppins', 'Segoe UI', sans-serif;
+  font-family: var(--font-second);
   font-style: normal;
   font-weight: 400;
   font-size: 12px;
@@ -33,9 +34,12 @@ padding-right: 30px;
 
   font-weight: 700;
   font-size: 30px;
-  margin-top: 8px;
+  line-height: 45px;
+  /* margin-top: 8px; */
 	white-space: nowrap;
 
 	color: #000000;
+  height: 40px;
+
 `;
 
