@@ -262,22 +262,3 @@ export const ErrorText = styled.p`
   font-size: 12px;
   color: red;
 `;
-
-export const EllipseTop = styled.img`
-/* position: absolute;
-/* z-index: -2; */
-/* left: -50px;
-top: 585px; */
-`
-
-export const EllipseBottom = styled.img`
-    /* content: "";
-    position: absolute;
-    display: block;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url(/static/media/purple_elipse.488cddf5.svg);
-    background-position: bottom -130px left -142px;
-    z-index: -1; */
-`

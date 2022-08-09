@@ -4,8 +4,8 @@ import { logIn } from 'redux/auth/auth-operation';
 import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import * as yup from 'yup';
-import svgMail from '../LoginForm/Vector.svg';
-import svgLock from '../LoginForm/Vector-lock.svg';
+import svgMail from '../../images/Vector.svg';
+import svgLock from '../../images/Vector-lock.svg';
 import {
   RegisterBtn,
   LogForm,
@@ -56,7 +56,6 @@ export const LoginForm = () => {
 
       dispatch(authOperations.logIn({ email, password }));
       resetForm();
-      // console.log(email, password);
       navigate('/home-tab', { replace: true });
 
       if (errorCode === 401) {
@@ -68,7 +67,6 @@ export const LoginForm = () => {
       navigate('/home-tab');
       toast.success('You are logged in');
     } catch (error) {
-      // console.log(error);
     }
   };
 
