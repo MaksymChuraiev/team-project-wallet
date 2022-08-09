@@ -29,7 +29,7 @@ const NotFoundPage = lazy(() => import('../pages/NotFoundPage.jsx'));
 export const App = () => {
 	const isRefreshing = useSelector(authSelectors.getIsFetching);
 
-	console.log("Refreshing", isRefreshing);
+	// console.log("Refreshing", isRefreshing);
 	const dispatch = useDispatch();
 	useEffect(() => {
 		dispatch(authOperations.currentUser());

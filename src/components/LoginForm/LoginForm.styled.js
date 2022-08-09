@@ -141,6 +141,7 @@ export const LogBtns = styled.div`
   flex-direction: column;
   /* -webkit-box-pack: center; */
   justify-content: center;
+
 `;
 
 export const LoginBtn = styled.button`
@@ -164,6 +165,12 @@ export const LoginBtn = styled.button`
 
   @media screen and (min-width: 768px) {
     width: 300px;
+  }
+
+  
+  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  &:hover {
+    transform: scale(1.1);
   }
 `;
 
@@ -190,6 +197,12 @@ export const RegisterBtn = styled.button`
   @media screen and (min-width: 768px) {
     width: 300px;
   }
+
+  
+  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  &:hover {
+    transform: scale(1.1);
+  }
 `;
 
 export const Input = styled(Field)`
@@ -204,13 +217,19 @@ export const Input = styled(Field)`
   font-weight: 400;
   font-size: 18px;
   line-height: 27px;
-  color: #BDBDBD;
+  /* color: #BDBDBD; */
+    ::placeholder {
+    color: #bdbdbd;
+    
+  }
 `;
 
 export const InputField = styled.div`
   display: flex;
   align-items: center;
   border-bottom: 1px solid #e0e0e0;
+
+
 `;
 
 export const InputLabel = styled.label`

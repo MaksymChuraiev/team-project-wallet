@@ -37,7 +37,7 @@ export const SelectCategories = ({
   const [dropIsOpenYears, setDropIsOpenYears] = useState(false);
   const [month, setMonth] = useState(initMonth);
 
-  console.log('objectDate', objectDate);
+  // console.log('objectDate', objectDate);
 
   // =-----==------- TABLE ==----------
   const handleInputOpenMonths = e => {

@@ -11,7 +11,7 @@ const dynamicStyles = props =>
     `
 
 export const ButtonStyles = styled.button`
-font-family: 'Circe';
+font-family: var(--modal-toggle-font);
 font-style: normal;
 font-weight: 400;
 font-size: 18px;
@@ -47,5 +47,11 @@ ${dynamicStyles}
 @media screen and (max-width: 767px) {
     width: 280px;
   }
+
+  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  &:hover {
+    transform: scale(1.1);
+  }
+
 `;
 

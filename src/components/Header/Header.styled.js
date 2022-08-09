@@ -68,6 +68,7 @@ export const ExitWrapper = styled.button`
 	align-items: center;
 	border: none;
 	background-color: #fff;
+	margin-left: 10px;
 	cursor: pointer;
 
 	:hover {
@@ -97,7 +98,7 @@ export const ExitText = styled.span`
 		margin-left: 8px;
 		margin-right: 20px;
 		color: #BDBDBD;
-		font-family: 'Circe';
+		font-family: var(--modal-toggle-font);
 		font-style: normal;
 		font-weight: 400;
 		font-size: 18px;

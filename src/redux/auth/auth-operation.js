@@ -20,7 +20,7 @@ export const register = createAsyncThunk(
     try {
       const { data } = await axios.post('/auth/signup', credentials);
       // token.set(data.data.token);
-      console.log(data.data);
+      // console.log(data.data);
       return data.data;
     } catch (error) {
       return rejectWithValue(error);
@@ -50,7 +50,7 @@ export const logOut = createAsyncThunk(
       await axios.post('/auth/logout');
       token.unset();
     } catch (error) {
-      console.log(rejectWithValue)
+      // console.log(rejectWithValue)
       return rejectWithValue(error);
     }
   }

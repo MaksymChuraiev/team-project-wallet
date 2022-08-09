@@ -7,7 +7,7 @@ const getAllTransactions = createAsyncThunk('transactions/getAll', async () => {
 
     return data.data.result;
   } catch (error) {
-    console.log(error);
+    // console.log(error);
   }
 });
 
@@ -63,14 +63,14 @@ const getByDate = createAsyncThunk(
   'transactions/getByDate',
 
   async ({ months, year }, { rejectWithValue }) => {
-    console.log('month,', months);
-    console.log('year', year);
+    // console.log('month,', months);
+    // console.log('year', year);
     try {
       let response = null;
       //---------------------- Полный запрос за все время! СТАРТ--------------------------------
       if (months === 12 && isNaN(year)) {
         response = await axios.get(`/transactions/statistic`);
-        console.log('response', response);
+        // console.log('response', response);
         return response.data;
       }
       //---------------------- Полный запрос за все время!  ЕНД--------------------------------
@@ -88,7 +88,7 @@ const getByDate = createAsyncThunk(
         response = await axios.get(
           `/transactions/statistic?month=&year=${year}`
         );
-        console.log('response', response);
+        // console.log('response', response);
         return response.data;
       }
       //----------------------если передали MONTH за все время либо отсутствует значение  ЕНД---
@@ -96,7 +96,7 @@ const getByDate = createAsyncThunk(
       response = await axios.get(
         `/transactions/statistic?month=${months}&year=${year}`
       );
-      console.log('response', response);
+      // console.log('response', response);
       return response.data;
       //----------------------Запрос по YEAR & MONTH ЕНД ---------------------------------------
     } catch (err) {

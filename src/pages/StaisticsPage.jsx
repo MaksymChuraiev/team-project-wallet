@@ -58,7 +58,7 @@ export const StatisticsPage = () => {
   };
   const handleClickYear = e => {
     console.dir('e.currentTarget year', e.currentTarget);
-    console.log(Number(''));
+    // console.log(Number(''));
     // if (e.currentTarget.id === 'All') {
     //   setObjectDate({ ...objectDate, year: null });
     //   return;
@@ -139,9 +139,9 @@ export const StatisticsPage = () => {
     // console.log('categoriesArray', categoriesArray);
     const newArray = () => {
       for (let i = 0; i < categoriesArray.length; i += 1) {
-        console.log('perebor i ');
+        // console.log('perebor i ');
         for (let j = 0; j < getByDate.expense?.length; j += 1) {
-          console.log('perebor j ');
+          // console.log('perebor j ');
           if (categoriesArray[i].category === getByDate.expense[j].category) {
             categoriesArray[i] = { ...getByDate.expense[j], ...colorize[i] };
           }
@@ -160,7 +160,7 @@ export const StatisticsPage = () => {
     setSupperArray(colorisedArray);
   }, [categories, getByDate]);
 
-  console.log('NEW ARRAY qwe', superArray);
+  // console.log('NEW ARRAY qwe', superArray);
   // const newArray =
   //   categoriesArray &&
   //   getByDate.expense &&

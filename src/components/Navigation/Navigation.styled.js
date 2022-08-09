@@ -111,6 +111,11 @@ export const NavLinkStyled = styled(NavLink)`
     font-weight: 700;
   }
 
+  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  &:hover {
+    transform: scale(1.1);
+  }
+
   @media screen and (min-width: 768px) {
     font-size: 18px;
     line-height: 27px;
