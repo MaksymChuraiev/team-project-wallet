@@ -10,7 +10,8 @@ export const Expenses = ({ expense }) => {
   return (
     <ExpensesContainer>
       <ExpensesText>Expenses:</ExpensesText>
-      <ExpensesNumber>{spaceCreator(expense)}</ExpensesNumber>
+      {typeof expense === 'string' && <ExpensesNumber>{spaceCreator(expense)}</ExpensesNumber>}
+      
     </ExpensesContainer>
   );
 };
