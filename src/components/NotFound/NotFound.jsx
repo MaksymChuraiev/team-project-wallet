@@ -5,7 +5,7 @@ function NotFound() {
     <>
       <NotFoundText>
         Page not found, back to the
-        <StyledLink to="dashboard/home-tab"> home page</StyledLink>
+        <StyledLink to="home-tab"> home page</StyledLink>
       </NotFoundText>
       <NotFoundImg src={notFoundImg} alt="not found" />
     </>
