@@ -1,7 +1,6 @@
 import styled from '@emotion/styled';
 import { Field } from 'formik';
-// import { Button } from '@mui/material';
-// import { css } from '@emotion/react';
+
 
 export const FormContainer = styled.div`
   max-width: 400px;
@@ -15,7 +14,6 @@ export const FormContainer = styled.div`
     height: 616;
     margin: 48px auto;
     padding: 40px 60px 46px 65px;
-    // box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 20px;
   }
 
@@ -37,7 +35,6 @@ export const ContactField = styled(Field)`
   width: 100%;
   display: flex;
   padding-bottom: 10px;
-  /* margin-top: 40px; */
   border: transparent;
 
   ::placeholder {
@@ -54,7 +51,6 @@ export const Icon = styled.svg`
   fill: #e0e0e0;
   width: 34px;
   height: 34px;
-  /* margin-left: 10px; */
   display: flex;
   align-items: center;
   justify-content: center;

@@ -1,13 +1,9 @@
-// import { useNavigate   } from 'react-router-dom';
+
 import { ButtonStyles } from './Button.styled';
 
 const Button = (props) => {
     
-    // const navigate = useNavigate();
-    // const onClick = () => {
-    //     navigate('/login')
-    // }
-    
+
     return (
         <div>
             <ButtonStyles
@@ -20,16 +16,6 @@ const Button = (props) => {
                 borderColor={props.borderColor}
             >
                 {props.buttonTitle} </ButtonStyles>
-            
-            {/* <ButtonStyles
-                type={props.buttonType}
-                onClick={props.onClick}
-                color='#4A56E2'
-                bgColor='#ffffff'
-                // border='solid'
-                borderColor='#4A56E2'
-            >
-                {props.login}</ButtonStyles> */}
         </div>
     )
 }

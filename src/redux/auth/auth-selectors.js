@@ -4,15 +4,12 @@ const getUserName = state => state.auth.user.name;
 const getIsFetching = state => state.auth.isFetching;
 const getIsError = state => state.auth.isError;
 
-// const getErrorCode = state => state.auth.errorCode;
-
 const authSelectors = {
   getIsRegister,
   getIsLoggedIn,
   getUserName,
   getIsFetching,
   getIsError,
-  // getErrorCode,
 };
 
 export default authSelectors;

@@ -1,10 +1,6 @@
 import styled from '@emotion/styled';
 
 export const TableMain = styled.table`
-  /* 
-  @media screen and (max-width: 767px) {
-    display: none;
-  } */
   font-family: var(--font-main);
   padding: 10px;
   @media screen and (min-width: 768px) {
@@ -36,32 +32,36 @@ export const TableHeaderRow = styled.tr`
 export const TableHeadCell = styled.th`
   text-transform: capitalize;
   &:first-of-type {
-    width: 70px;
+    width: 80px;
     text-align: start;
   }
   &:nth-of-type(2) {
     width: 40px;
-    margin-right: 20px;
+    text-align: start;
   }
   &:nth-of-type(3) {
-    width: 100px;
-    text-align: center;
+    width: 90px;
+    text-align: start;
   }
   &:nth-of-type(4) {
     width: 100px;
-    text-align: center;
+    text-align: start;
   }
   &:nth-of-type(5) {
     width: 100px;
     text-align: start;
   }
+   &:nth-of-type(6) {
+    width: 100px;
+    text-align: start;
+  }
   &:last-of-type {
+    /* width: 100px; */
     text-align: center;
   }
 `;
 
 export const TableBody = styled.tbody`
-  /* scrollbar-width: 3px; */
   display: block;
   overflow-y: auto;
   max-height: 60vh;
@@ -98,15 +98,16 @@ export const TableCell = styled.td`
   text-align: center;
   line-height: normal;
   &:first-of-type {
-    width: 70px;
+    width: 80px;
     text-align: start;
   }
   &:nth-of-type(2) {
     width: 40px;
-    margin-right: 20px;
+    text-align: center;
+    /* margin-right: 20px; */
   }
   &:nth-of-type(3) {
-    width: 100px;
+    width: 90px;
     text-align: center;
   }
   &:nth-of-type(4) {
@@ -117,7 +118,12 @@ export const TableCell = styled.td`
     width: 100px;
     text-align: center;
   }
+   &:nth-of-type(6) {
+    width: 100px;
+    text-align: center;
+  }
   &:last-of-type {
+    /* width: 100px; */
     text-align: end;
   }
 `;

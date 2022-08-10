@@ -74,11 +74,6 @@ export const ExitWrapper = styled.button`
 	:hover {
 		transform: scale(1.2);
 	}
-
-	/* @media screen and (min-width: 768px) {
-		border-left: 1px solid #BDBDBD;
-		margin-left: 12px;
-		} */
 	`
 
 export const ExitLogo = styled.img`

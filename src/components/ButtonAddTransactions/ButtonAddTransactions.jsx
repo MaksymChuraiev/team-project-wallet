@@ -30,7 +30,6 @@ export const ButtonAdd = styled.button`
   }
 
   @media screen and (min-width: 768px) {
-    /* position: fixed; */
     right: 40px;
     bottom: 40px;
   }

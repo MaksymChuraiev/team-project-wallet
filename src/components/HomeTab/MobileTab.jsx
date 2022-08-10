@@ -68,7 +68,7 @@ export const MobileTab = ({ items }) => {
 							>
 								<Row>
 									<RowName>Date</RowName>
-									<RowValue>{normTime(date)}</RowValue>
+									<RowValue>{date && normTime(date)}</RowValue>
 								</Row>
 								<Row>
 									<RowName>Type</RowName>
@@ -81,19 +81,27 @@ export const MobileTab = ({ items }) => {
 								<Row>
 									<RowName>Comment</RowName>
 									<RowValue>
-										<EllipsisText length={15} text={comment} />
+										{comment && <EllipsisText length={15} text={comment} />}
 									</RowValue>
 								</Row>
 								<Row>
 									<RowName>Sum</RowName>
 									<SumRow type={transactionType === true ? 'income' : 'costs'}>
-										<EllipsisText length={15} text={spaceCreator(amount)} />
+										{typeof amount === 'number'
+											? <EllipsisText length={15} text={spaceCreator(amount)} />
+											: <p>...</p>
+										}
+										{/* <EllipsisText length={15} text={spaceCreator(amount)} /> */}
 									</SumRow>
 								</Row>
 								<Row>
 									<RowName>Balance</RowName>
 									<RowValue>
-										<EllipsisText length={15} text={spaceCreator(balance)} />
+										{typeof balance === 'number'
+											? <EllipsisText length={15} text={spaceCreator(balance)} />
+											: <p>...</p>
+										}
+										{/* <EllipsisText length={15} text={spaceCreator(balance)} /> */}
 									</RowValue>
 								</Row>
 

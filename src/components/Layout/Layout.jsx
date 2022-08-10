@@ -6,17 +6,12 @@ import { ModalAddTransaction } from '../Modal/ModalAddTransaction/ModalAddTransa
 import { useSelector } from 'react-redux';
 import authSelectors from '../../redux/auth/auth-selectors';
 import Loader from '../../components/Loader/Loader';
-// import { LogoutModal } from 'components/Modal/LogoutModal';
 
 import { LayoutStyled, ContainerForBlur } from './Layout.styled';
 
 export const Layout = () => {
-  // const navigate = useNavigate();
   const isLoggedIn = useSelector(authSelectors.getIsLoggedIn);
 
-  // useEffect(() => {
-  //   return navigate('/login');
-  // }, []);
   return (
     <>
       <LayoutStyled>
@@ -25,7 +20,6 @@ export const Layout = () => {
         ) : (
           <>
             <ContainerForBlur left="0px" isLoggedIn={isLoggedIn} />
-            {/* <ButtonAddTransactions /> */}
           </>
         )}
 

@@ -13,9 +13,6 @@ export const MainLogo = styled.div`
   margin-top: 113px;
   @media screen and (min-width: 768px) {
     margin-top: 0;
-    /* width: 180px;
-    height: 40px;
-    justify-content:center; */
   }
 `;
 
@@ -31,30 +28,19 @@ position: relative;
   }
   @media screen and (min-width: 768px) and (mix-width: 1279px) {
     padding: 60px 118px 196px 118px;
-    /* margin-top: 42px; */
     height: 100vh;
-    /* background-color: #E7EAF2; */
     width: 100%;
   }
   @media screen and (min-width: 1280px) {
     padding: 136px 84px 116px 84px;
     height: 100vh;
-    /* background-color: #E7EAF2; */
     width: 100%;
     display:flex;
-    /* align-items:center; */
-    /* background: rgba(255, 255, 255, 0.4);
-    backdrop-filter: blur(50px); */
-
   }
 `;
 
 export const LoginPageDesktopContainer = styled.div`
     @media screen and (min-width: 768px) {
-    /* padding: 60px 118px;
-    height: 616px;
-    background-color: #E7EAF2;
-    width: 100%; */
     display: flex;
     flex-direction: column;
     background-color: #FFFFFF;
@@ -88,12 +74,9 @@ export const MainFrame = styled.div`
   }
  
   @media screen and (min-width: 1280px) {
-    /* padding: 136px 84px 116px 84px; */
-    /* height: 100vh; */
+
     width: 435px;
     height: 420px;
-    /* background-color: #E7EAF2; */
-    /* width: 100%; */
     display:flex;
     flex-direction:column;
     align-items:center;
@@ -129,17 +112,14 @@ export const MainFrameText = styled.p`
 
 export const LogForm = styled(Form)`
   display: flex;
-  /* -webkit-box-pack: center; */
   justify-content: center;
   flex-direction: column;
-  /* -webkit-box-align: center; */
   align-items: center;
 `;
 
 export const LogBtns = styled.div`
   display: flex;
   flex-direction: column;
-  /* -webkit-box-pack: center; */
   justify-content: center;
 
 `;
@@ -217,7 +197,6 @@ export const Input = styled(Field)`
   font-weight: 400;
   font-size: 18px;
   line-height: 27px;
-  /* color: #BDBDBD; */
     ::placeholder {
     color: #bdbdbd;
     
@@ -234,7 +213,6 @@ export const InputField = styled.div`
 
 export const InputLabel = styled.label`
   width: 280px;
-  /* border-bottom: 1px solid #e0e0e0; */
   margin-bottom: 40px;
   @media screen and (min-width: 768px) {
     width: 400px
@@ -242,9 +220,7 @@ export const InputLabel = styled.label`
 `;
 
 export const Svg = styled.img`
-/* width:24px;
-height:24px; */
-  /* margin-left: 10px; */
+
 `;
 
 export const SvgWrapper = styled.span`
@@ -264,20 +240,9 @@ export const ErrorText = styled.p`
 `;
 
 export const EllipseTop = styled.img`
-/* position: absolute;
-/* z-index: -2; */
-/* left: -50px;
-top: 585px; */
+
 `
 
 export const EllipseBottom = styled.img`
-    /* content: "";
-    position: absolute;
-    display: block;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url(/static/media/purple_elipse.488cddf5.svg);
-    background-position: bottom -130px left -142px;
-    z-index: -1; */
+
 `

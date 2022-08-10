@@ -35,7 +35,6 @@ padding-right: 30px;
   font-weight: 700;
   font-size: 30px;
   line-height: 45px;
-  /* margin-top: 8px; */
 	white-space: nowrap;
 
 	color: #000000;
