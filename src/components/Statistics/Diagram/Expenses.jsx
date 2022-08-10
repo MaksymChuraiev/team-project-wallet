@@ -13,7 +13,7 @@ export const Expenses = ({ getByDate }) => {
     >
       <span>&#8372;</span>
       <span style={{ marginLeft: 5, fontFamily: 'Ruda' }}>
-        {spaceCreator(getByDate.totalExpenses)}
+        {typeof getByDate.totalExpenses === 'string' && spaceCreator(getByDate.totalExpenses)}
       </span>
     </p>
   );

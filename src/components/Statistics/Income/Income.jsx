@@ -6,7 +6,7 @@ export const Income = ({ income }) => {
   return (
     <IncomeContainer>
       <IncomeText>Income:</IncomeText>
-      <IncomeNumber>{spaceCreator(income)}</IncomeNumber>
+      {typeof income === 'string' && <IncomeNumber>{spaceCreator(income)}</IncomeNumber>}
     </IncomeContainer>
   );
 };
