@@ -21,8 +21,6 @@ export const FinanceAppContainer = styled.div`
     @media screen and (min-width: 1280px) {
         display: inline;
         align-items: flex-start;
-        /* padding-top: 155px;
-        padding-bottom: 155px; */
     }
 `;
 
@@ -52,7 +50,6 @@ export const LoginPageText = styled.p`
     }
 
     @media screen and (min-width: 1280px) {
-        /* text-align: center; */
         justify-content: center;
         margin-top: 30px;
     }
@@ -65,8 +62,6 @@ export const ContainerForBlur = styled(Grid)`
         top: 0px;
         left: 45%;
        right: 0px;
-        /* height: 720px;
-        width: 100%; */
         background: rgba(255, 255, 255, 0.4);
         backdrop-filter: blur(50px);
     }

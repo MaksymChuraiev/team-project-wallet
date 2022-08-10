@@ -1,4 +1,4 @@
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import EllipsisText from "react-ellipsis-text";
 import {
 	TableMain,
@@ -16,11 +16,11 @@ import spaceCreator from 'services/spaceCreator';
 import trashSvg from '../../icons/trash.svg';
 import transactionsOperation from '../../redux/transaction/transaction-operation';
 import noTransactionsImg from '../../images/no-record-available.png';
-import transactionSelector from '../../redux/transaction/transaction-selectors'
+// import transactionSelector from '../../redux/transaction/transaction-selectors'
 
 export const Table = ({ items }) => {
 	const dispatch = useDispatch();
-	const isLoading = useSelector(transactionSelector.isLoading)
+	// const isLoading = useSelector(transactionSelector.isLoading)
 
 	const styles = {
 		display: 'flex',
@@ -76,7 +76,7 @@ export const Table = ({ items }) => {
 								balance,
 							}) => (
 								<TableRow key={_id}>
-									<TableCell>{normTime(date)}</TableCell>
+									<TableCell>{date && normTime(date)}</TableCell>
 									<TableCell>{transactionType ? '+' : '-'}</TableCell>
 									<TableCell>{category}</TableCell>
 									<TableCell>
@@ -84,11 +84,19 @@ export const Table = ({ items }) => {
 									</TableCell>
 									<TableCell>
 										<TableCellColor type={transactionType ? 'income' : 'expense'}>
-											{isLoading ? <p>...</p> : <EllipsisText length={10} text={spaceCreator(amount)} />}
+											{
+												// isLoading
+												typeof amount === 'number'
+													? <EllipsisText length={10} text={spaceCreator(amount)} />
+													: <p>...</p> }
 										</TableCellColor>
 									</TableCell>
 									<TableCell>
-										<EllipsisText length={10} text={spaceCreator(balance)} />
+										{typeof balance === 'number'
+											? <EllipsisText length={10} text={spaceCreator(balance)} />
+											: <p>...</p>
+										}
+										
 									</TableCell>
 									<TableCell>
 										<ButtonDelete onClick={() => onDelete(_id)}>

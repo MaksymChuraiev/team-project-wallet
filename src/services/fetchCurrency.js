@@ -4,6 +4,7 @@ const fetchCurrency = async () => {
 			"https://api.privatbank.ua/p24api/pubinfo?json&exchange&coursid=5"
 		);
 		const rates = response.json();
+		// console.log(rates);
 		return rates;
 	} catch (error) {
 		throw error;

@@ -33,9 +33,7 @@ const theme = createTheme({
             <RegistrationPageLeft />
             </Grid>
           <Grid item sm={12} md={12} lg={7}>
-            {/* <ContainerForBlur> */}
               <RegistrationForm />
-            {/* </ContainerForBlur> */}
               
           </Grid>
           

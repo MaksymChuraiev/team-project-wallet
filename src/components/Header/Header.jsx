@@ -23,9 +23,7 @@ export const Header = () => {
 
   const name = useSelector(authSelectors.getUserName);
   const handleClick = () => {
-    // console.log(name);
-
-    setModalActive(true);
+     setModalActive(true);
   };
 
   return (

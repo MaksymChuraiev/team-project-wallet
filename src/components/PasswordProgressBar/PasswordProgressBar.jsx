@@ -2,7 +2,6 @@ import React from "react";
 import {ProgressBar} from './PasswordProgressBar.styled'
 
 const PasswordProgressBar = ({password}) => {
-    // console.log(password);
     return (
         <div>
             {password < 6 && <ProgressBar bgColor="#D22B2B" width='25%'/>}

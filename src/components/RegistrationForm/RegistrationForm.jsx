@@ -2,13 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { Formik, ErrorMessage, useFormikContext } from 'formik';
 import * as yup from 'yup';
 import { toast } from 'react-toastify';
-// import { nanoid } from 'nanoid';
 import logo from '../../images/logo.png';
 import icon from '../../images/symbol-defs.svg';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
-// import operations from '../../redux/auth/auth-operation'
 
 import { register, logIn } from '../../redux/auth/auth-operation';
 
@@ -28,7 +26,6 @@ const RegistrationForm = () => {
   const navigate = useNavigate();
   const [password, setPassword] = useState();
   const [confirmPassword, setConfirmPassword] = useState();
-  // const [email, setEmail] = useState();
   const [name,setName] = useState('');
 
   const style = {
@@ -79,15 +76,9 @@ const RegistrationForm = () => {
     navigate('/login');
   };
 
-  // const emailInputId = nanoid();
-  // const passwordInputId = nanoid();
-  // const ConfirmPasswordInputId = nanoid();
-  // const nameInputId = nanoid();
-
   const FormObserver = () => {
     const { values } = useFormikContext();
     useEffect(() => {
-      // setEmail(values.email);
       setPassword(values.password);
       setConfirmPassword(values.confirmPassword);
       setName(values.name);
@@ -126,7 +117,6 @@ const RegistrationForm = () => {
               <Input
                 type="email"
                 name="email"
-                // id={emailInputId}
                 placeholder="E-mail"
               />
             </InputField>
@@ -141,7 +131,6 @@ const RegistrationForm = () => {
               <Input
                 type="password"
                 name="password"
-                // id={passwordInputId}
                 placeholder="Password"
               />
             </InputField>
@@ -149,7 +138,6 @@ const RegistrationForm = () => {
             {password && password.length < 6 && (
               <p style={style}>Passwords should be at least 6 signs</p>
             )}
-            {/* <FormError name="password" /> */}
           </InputLabel>
 
           <InputLabel htmlFor="confirmPassword">
@@ -160,7 +148,6 @@ const RegistrationForm = () => {
               <Input
                 type="password"
                 name="confirmPassword"
-                // id={ConfirmPasswordInputId}
                 placeholder="Confirm password"
               />
             </InputField>
@@ -179,13 +166,9 @@ const RegistrationForm = () => {
               <Input
                 type="text"
                 name="name"
-                // id={nameInputId}
                 placeholder="Name"
               />
             </InputField>
-            {/* {name && name.length < 1 && (
-              <p style={style}>Name length must be at least 2 characters long</p>
-            )} */}
             <FormError name="name" />
           </InputLabel>
 

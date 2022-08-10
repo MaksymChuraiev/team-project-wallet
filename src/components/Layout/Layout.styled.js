@@ -56,9 +56,7 @@ export const ContainerForBlur = styled.div`
     position: absolute;
     bottom: 0px;
     top: 0px;
-    /* left: 45%; */
     right: 0px;
-    // background: rgba(255, 255, 255, 0.4);
     backdrop-filter: blur(50px);
     left: 0;
   }

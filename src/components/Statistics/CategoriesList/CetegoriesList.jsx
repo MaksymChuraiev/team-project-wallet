@@ -9,7 +9,6 @@ import colorize from '../colorise';
 
 export const CategoriesList = ({ getByDate, normaliseCategoriesList }) => {
   const { totalExpenses, totalIncome } = getByDate;
-
   // console.log('expense', expense);
   // console.log('getByDate', getByDate);
   // console.log('totalExpenses', totalExpenses);
